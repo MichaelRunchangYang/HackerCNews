@@ -1,5 +1,6 @@
 # HackerCNews
 
+(刚刚开始开发2025.3.30)
 HackerCNews 是一个将 Hacker News 内容翻译为中文并提供社区功能的平台。
 
 ## 项目结构

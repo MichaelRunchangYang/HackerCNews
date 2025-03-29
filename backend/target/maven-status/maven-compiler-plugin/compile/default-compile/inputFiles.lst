@@ -1,0 +1,9 @@
+c:\Users\littletiger\Desktop\HackerCNews\backend\src\main\java\com\example\hacker_cnews\config\RedisConfig.java
+c:\Users\littletiger\Desktop\HackerCNews\backend\src\main\java\com\example\hacker_cnews\controller\NewsController.java
+c:\Users\littletiger\Desktop\HackerCNews\backend\src\main\java\com\example\hacker_cnews\entity\NewsItem.java
+c:\Users\littletiger\Desktop\HackerCNews\backend\src\main\java\com\example\hacker_cnews\HackerCNewsApplication.java
+c:\Users\littletiger\Desktop\HackerCNews\backend\src\main\java\com\example\hacker_cnews\repository\NewsItemRepository.java
+c:\Users\littletiger\Desktop\HackerCNews\backend\src\main\java\com\example\hacker_cnews\service\CacheService.java
+c:\Users\littletiger\Desktop\HackerCNews\backend\src\main\java\com\example\hacker_cnews\service\HackerNewsService.java
+c:\Users\littletiger\Desktop\HackerCNews\backend\src\main\java\com\example\hacker_cnews\service\NewsUpdateService.java
+c:\Users\littletiger\Desktop\HackerCNews\backend\src\main\java\com\example\hacker_cnews\service\TranslationService.java

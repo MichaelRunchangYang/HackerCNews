@@ -20,19 +20,19 @@ HackerCNews 的愿景在于建立一个面向中国用户的综合性平台，�
 
 #### 2.1.1 后端：Spring Boot (3.4.x)、Java 17、Maven
 
-- **Spring Boot** 被选为后端框架，因为它通过自动配置和“约定优于配置”的理念简化了 Java 应用开发，从而加速了项目初始化并减少样板代码  
-- **Java 17** 被选为编程语言，不仅在性能上有显著提升，还具备更好的安全性和新的语言特性。此外，Spring Boot 3 需要 Java 17 或更高版本，以确保兼容性和获取最新框架功能  
+- **Spring Boot** 被选为后端框架，因为它通过自动配置和"约定优于配置"的理念简化了 Java 应用开发，从而加速了项目初始化并减少样板代码
+- **Java 17** 被选为编程语言，不仅在性能上有显著提升，还具备更好的安全性和新的语言特性。此外，Spring Boot 3 需要 Java 17 或更高版本，以确保兼容性和获取最新框架功能
 - **Maven** 用作项目构建自动化工具和依赖管理工具，提供了标准化、效率高的工具来管理项目依赖和构建流程。截止 2025 年 3 月，最新稳定版 Spring Boot 为 3.4.4，支持 Java 17 至 23
 
 下表总结了 Spring Boot 的版本历史及 Java 兼容性，以说明该选择的背景：
 
-| Spring Boot 版本 | 发布时间         | Spring Framework 版本 | Java 兼容性     | OSS 支持结束日期    | 商业支持结束日期   |
-| ---------------- | ---------------- | --------------------- | --------------- | ------------------- | ------------------ |
-| 3.4.4            | 2025 年 3 月 20 日 | 6.2.5                 | 17 - 23         | 2025 年 12 月 31 日  | 2026 年 12 月 31 日 |
-| 3.3.10           | 2025 年 3 月 20 日 | 6.1.14                | 17 - 23         | 2025 年 6 月 30 日   | 2026 年 6 月 30 日  |
-| 3.2.12           | 2024 年 11 月 21 日| 6.1.17                | 17 - 21         | 2024 年 12 月 31 日  | 2025 年 12 月 31 日 |
-| 3.1.12           | 2024 年 5 月 23 日 | N/A                   | 17 - 21         | 2024 年 6 月 30 日   | 2025 年 6 月 30 日  |
-| 2.7.18           | 2023 年 11 月 23 日| 5.3.2                 | 18 - 21         | 2023 年 6 月 30 日   | 2029 年 6 月 30 日  |
+| Spring Boot 版本 | 发布时间            | Spring Framework 版本 | Java 兼容性 | OSS 支持结束日期    | 商业支持结束日期    |
+| ---------------- | ------------------- | --------------------- | ----------- | ------------------- | ------------------- |
+| 3.4.4            | 2025 年 3 月 20 日  | 6.2.5                 | 17 - 23     | 2025 年 12 月 31 日 | 2026 年 12 月 31 日 |
+| 3.3.10           | 2025 年 3 月 20 日  | 6.1.14                | 17 - 23     | 2025 年 6 月 30 日  | 2026 年 6 月 30 日  |
+| 3.2.12           | 2024 年 11 月 21 日 | 6.1.17                | 17 - 21     | 2024 年 12 月 31 日 | 2025 年 12 月 31 日 |
+| 3.1.12           | 2024 年 5 月 23 日  | N/A                   | 17 - 21     | 2024 年 6 月 30 日  | 2025 年 6 月 30 日  |
+| 2.7.18           | 2023 年 11 月 23 日 | 5.3.2                 | 18 - 21     | 2023 年 6 月 30 日  | 2029 年 6 月 30 日  |
 
 #### 2.1.2 数据库：MySQL 8.0+
 
@@ -69,10 +69,11 @@ Jackson 是 Spring Boot 生态系统中默认的 JSON 处理库，提供了高�
    在 application.properties 文件中，添加 MySQL 的相关连接属性，包括数据库 URL、用户名和密码；同时添加 Redis 的连接细节，指定主机地址和端口。对于 MVP 来说，默认的单机 Redis 配置已足够。
 
 3. **创建 Hacker News API 服务**  
-   开发一个服务类（例如命名为 HackerNewsService）处理与 Hacker News API 的交互。利用 Spring WebFlux 的 WebClient 发起异步调用，访问以下 API 端点：  
-   - `https://hacker-news.firebaseio.com/v0/topstories.json` 用于获取当前热门故事的 ID 列表  
-   - `https://hacker-news.firebaseio.com/v0/item/{id}.json` 用于通过 ID 获取各个项目的详细信息  
-   
+   开发一个服务类（例如命名为 HackerNewsService）处理与 Hacker News API 的交互。利用 Spring WebFlux 的 WebClient 发起异步调用，访问以下 API 端点：
+
+   - `https://hacker-news.firebaseio.com/v0/topstories.json` 用于获取当前热门故事的 ID 列表
+   - `https://hacker-news.firebaseio.com/v0/item/{id}.json` 用于通过 ID 获取各个项目的详细信息
+
    实现适当的错误处理和异常管理，以便在 API 通信过程中优雅地处理潜在问题。
 
 4. **实现翻译 API 服务**  
@@ -80,6 +81,7 @@ Jackson 是 Spring Boot 生态系统中默认的 JSON 处理库，提供了高�
 
 5. **设计 MySQL 数据表**  
    在 MySQL 中设计一个表（例如命名为 `translated_news`）用于存储从 Hacker News 获取并翻译后的数据。该表应包含如下字段：
+
    - `id`：Hacker News 项目的 ID（主键）
    - `title_en`：Hacker News 项目的原始英文标题
    - `title_zh`：翻译后的中文标题
@@ -96,6 +98,7 @@ Jackson 是 Spring Boot 生态系统中默认的 JSON 处理库，提供了高�
 
 7. **实现数据抓取与翻译任务**  
    实现一个机制定期抓取 Hacker News API 的最新数据、对其进行翻译并存储到数据库中。可以通过使用 Spring Boot 的定时任务（`@Scheduled` 注解）或简单的轮询机制实现。该任务应执行如下步骤：
+
    - 从 Hacker News API 中抓取最新的热门故事 ID 列表
    - 对每个新的 ID，获取相应的详细信息
    - 利用 TranslationService 将需要翻译的字段（标题、正文、评论）翻译为中文
@@ -154,6 +157,266 @@ hacker-cnews-mvp/
 
 ---
 
+### 2.5 各部分具体解释及工作流
+
+为了更好地理解系统各组件如何协同工作，本节将详细介绍完整的工作流程，明确每一步由哪个模块的哪个类来完成。
+
+#### 2.5.1 应用启动流程
+
+1. **入口类启动**：
+
+   - **类**：`HackerCNewsApplication.java`
+   - **方法**：`main(String[] args)`
+   - **功能**：应用程序的入口点，启动 Spring Boot 应用
+   - **代码示例**：
+     ```java
+     public static void main(String[] args) {
+         SpringApplication.run(HackerCNewsApplication.class, args);
+     }
+     ```
+
+2. **组件扫描与注册**：
+
+   - Spring 框架自动扫描`@Service`、`@Repository`、`@Controller`等注解标记的类
+   - 自动在内部容器中创建这些类的实例（称为 Bean）
+   - 例如，对于`HackerNewsService`、`TranslationService`等类，Spring 会自动创建对象
+
+3. **依赖注入**：
+
+   - Spring 框架自动将相关依赖注入到需要它们的类中
+   - 主要通过构造函数注入方式完成，使每个组件松耦合且易于测试
+   - 例如，`NewsUpdateService`类需要`HackerNewsService`等，Spring 会自动注入这些依赖
+
+4. **配置加载**：
+   - **文件**：`application.properties`
+   - **功能**：加载数据库连接信息、Redis 配置、翻译 API 密钥等
+
+#### 2.5.2 定时新闻更新流程
+
+1. **定时器触发**：
+
+   - **类**：`NewsUpdateService.java`
+   - **方法**：`updateNews()`（被`@Scheduled`注解标记）
+   - **触发时间**：由`application.properties`中的`hacker-news.poll.interval`属性控制
+   - **代码示例**：
+     ```java
+     @Scheduled(fixedDelayString = "${hacker-news.poll.interval}")
+     public void updateNews() {
+         // 定时执行的代码
+     }
+     ```
+
+2. **获取 Hacker News 热门故事**：
+
+   - **类**：`HackerNewsService.java`
+   - **方法**：`getTopStories(int limit)`
+   - **功能**：调用 Hacker News API 获取热门故事 ID 列表
+   - **调用方**：`NewsUpdateService.updateNews()`
+   - **代码示例**：
+     ```java
+     hackerNewsService.getTopStories(itemsLimit)
+             .flatMapIterable(ids -> ids)
+             .flatMap(id -> {
+                 // 处理每个新闻ID
+             })
+     ```
+
+3. **检查缓存中是否已有这条新闻**：
+
+   - **类**：`CacheService.java`
+   - **方法**：`getCachedNewsItem(Long id)`
+   - **功能**：检查 Redis 缓存中是否已存在对应 ID 的新闻
+   - **调用方**：`NewsUpdateService.updateNews()`
+
+4. **获取新闻详情**：
+
+   - **类**：`HackerNewsService.java`
+   - **方法**：`getItemById(Long id)`
+   - **功能**：调用 Hacker News API 获取特定 ID 的新闻详情
+   - **调用方**：`NewsUpdateService.processNewsItem()`
+
+5. **检查数据库中是否已存在**：
+
+   - **类**：`NewsItemRepository.java`
+   - **方法**：`existsById(Long id)`
+   - **功能**：检查数据库中是否已存在特定 ID 的新闻
+   - **调用方**：`NewsUpdateService.processNewsItem()`
+
+6. **准备翻译**：
+
+   - **类**：`NewsUpdateService.java`
+   - **方法**：`processNewsItem(Long id)`
+   - **功能**：创建`NewsItem`对象并准备翻译内容
+   - **代码示例**：
+     ```java
+     NewsItem newsItem = new NewsItem();
+     newsItem.setId(hnItem.getId());
+     newsItem.setTitleEn(hnItem.getTitle());
+     // 设置其他属性
+     ```
+
+7. **检查翻译缓存**：
+
+   - **类**：`CacheService.java`
+   - **方法**：`getCachedTranslation(String key)`
+   - **功能**：检查 Redis 缓存中是否已有对应文本的翻译
+   - **调用方**：`NewsUpdateService.processNewsItem()`
+
+8. **执行翻译**：
+
+   - **类**：`TranslationService.java`
+   - **方法**：`translateEnToZh(String text)`
+   - **功能**：调用百度翻译 API 将英文文本翻译为中文
+   - **调用方**：`NewsUpdateService.processNewsItem()`
+   - **代码示例**：
+     ```java
+     Mono<String> titleTranslation = cachedTitle != null ?
+             Mono.just(cachedTitle) :
+             translationService.translateEnToZh(hnItem.getTitle());
+     ```
+
+9. **缓存翻译结果**：
+
+   - **类**：`CacheService.java`
+   - **方法**：`cacheTranslation(String key, String translation)`
+   - **功能**：将翻译结果存入 Redis 缓存
+   - **调用方**：`NewsUpdateService.processNewsItem()`
+
+10. **存储新闻到数据库**：
+
+    - **类**：`NewsItemRepository.java`（由 Spring Data JPA 实现）
+    - **方法**：`saveAll(Iterable<NewsItem> items)`
+    - **功能**：将处理好的新闻条目保存到 MySQL 数据库
+    - **调用方**：`NewsUpdateService.updateNews()`
+
+11. **缓存完整新闻条目**：
+    - **类**：`CacheService.java`
+    - **方法**：`cacheNewsItem(Long id, Object newsItem)`
+    - **功能**：将完整的新闻条目缓存到 Redis
+    - **调用方**：`NewsUpdateService.processNewsItem()`
+
+#### 2.5.3 用户请求处理流程
+
+1. **前端发起请求**：
+
+   - **文件**：`frontend/js/script.js`
+   - **方法**：`fetch("/api/news")`
+   - **功能**：浏览器加载页面时，JavaScript 发起 AJAX 请求获取新闻
+   - **代码示例**：
+     ```javascript
+     fetch("/api/news")
+       .then((response) => {
+         if (!response.ok) {
+           throw new Error("网络错误");
+         }
+         return response.json();
+       })
+       .then((news) => {
+         // 处理返回的新闻数据
+       });
+     ```
+
+2. **后端控制器接收请求**：
+
+   - **类**：`NewsController.java`
+   - **方法**：`getLatestNews()`（被`@GetMapping`注解标记）
+   - **URL 路径**：`/api/news`
+   - **功能**：处理前端的新闻列表请求
+   - **代码示例**：
+     ```java
+     @GetMapping
+     public List<NewsItem> getLatestNews() {
+         return repository.findTop30ByOrderByTimeDesc();
+     }
+     ```
+
+3. **从数据库获取数据**：
+
+   - **类**：`NewsItemRepository.java`
+   - **方法**：`findTop30ByOrderByTimeDesc()`
+   - **功能**：从数据库查询最新的 30 条新闻，按时间降序排列
+   - **调用方**：`NewsController.getLatestNews()`
+
+4. **返回数据给前端**：
+
+   - **类**：`NewsController.java`
+   - **功能**：Spring 自动将返回的`List<NewsItem>`转换为 JSON 格式
+   - **接收方**：前端 JavaScript
+
+5. **前端渲染页面**：
+   - **文件**：`frontend/js/script.js`
+   - **功能**：处理 JSON 数据并渲染到 HTML 页面
+   - **代码示例**：
+     ```javascript
+     .then((news) => {
+       news.forEach((item) => {
+         const li = document.createElement("li");
+         li.className = "news-item";
+         // 创建并添加新闻条目
+         newsList.appendChild(li);
+       });
+     });
+     ```
+
+#### 2.5.4 查看单个新闻详情流程
+
+1. **前端请求特定新闻**：
+
+   - **触发**：用户点击特定新闻链接
+   - **URL**：`/news/{id}` 或 直接跳转到外部链接
+
+2. **后端控制器接收请求**：
+
+   - **类**：`NewsController.java`
+   - **方法**：`getNewsById(@PathVariable Long id)`
+   - **URL 路径**：`/api/news/{id}`
+   - **功能**：获取特定 ID 的新闻详情
+   - **代码示例**：
+     ```java
+     @GetMapping("/{id}")
+     public Optional<NewsItem> getNewsById(@PathVariable Long id) {
+         return repository.findById(id);
+     }
+     ```
+
+3. **从数据库查询数据**：
+   - **类**：`NewsItemRepository.java`
+   - **方法**：`findById(Long id)`（Spring Data JPA 自动实现）
+   - **功能**：查询特定 ID 的新闻
+   - **调用方**：`NewsController.getNewsById()`
+
+#### 2.5.5 数据流转关系与依赖结构
+
+1. **数据流转路径**：
+
+   - **新闻获取路径**：
+     Hacker News API → `HackerNewsService` → `NewsUpdateService` → `TranslationService` → `NewsItemRepository`/`CacheService` → MySQL 数据库/Redis 缓存
+   - **新闻展示路径**：
+     MySQL 数据库 → `NewsItemRepository` → `NewsController` → 前端 JavaScript → 用户浏览器
+   - **缓存路径**：
+     Redis 缓存 → `CacheService` → `NewsUpdateService` → 减少翻译 API 调用和数据库查询
+
+2. **类之间的依赖关系**：
+   - **`NewsUpdateService`依赖**：
+     - `HackerNewsService`
+     - `TranslationService`
+     - `NewsItemRepository`
+     - `CacheService`
+     - `ObjectMapper`（用于 JSON 处理）
+   - **`HackerNewsService`依赖**：
+     - `WebClient.Builder`（用于 HTTP 请求）
+   - **`TranslationService`依赖**：
+     - `WebClient.Builder`（用于 HTTP 请求）
+     - 配置属性（通过`@Value`注解注入）
+   - **`NewsController`依赖**：
+     - `NewsItemRepository`
+   - **`CacheService`依赖**：
+     - `RedisTemplate`（用于 Redis 操作）
+
+通过构造函数注入，这些组件形成一个松耦合的系统，每个组件专注于自己的职责，同时能够协作完成更复杂的任务。
+
+---
+
 ## 3. 迭代一：用户社群功能
 
 第一阶段迭代将聚焦于为 HackerCNews 平台添加社区功能，允许用户注册、登录、提交与技术和创业相关的内容，并通过评论进行互动。这将需要在技术栈上做出增强，以处理用户管理与交互。
@@ -172,59 +435,65 @@ hacker-cnews-mvp/
 
 ### 3.2 用户社群功能的分步实现指南
 
-1. **实现用户注册**  
-   - 在 MySQL 数据库中设计一个 `users` 表来存储用户相关信息，字段包括：  
+1. **实现用户注册**
+
+   - 在 MySQL 数据库中设计一个 `users` 表来存储用户相关信息，字段包括：
      - `id`（主键，用于唯一标识每个用户）
      - `username`（唯一的用户名，用于登录和展示）
      - `password`（用户密码，需安全存储）
      - `email`（用户的唯一邮箱地址，可用于账号恢复及通知）
-     - `registration_date`（记录用户注册时间的时间戳）  
-   - 在后端创建一个与之对应的 User 实体，并使用 Spring Data JPA 创建一个 UserRepository 来操作该表。  
-   - 在前端（使用 Vue.js）实现用户注册表单，允许用户输入用户名、邮箱和密码。  
-   - 创建一个后端 REST API 端点（例如 `/api/register`）用于处理前端提交的用户注册请求。  
+     - `registration_date`（记录用户注册时间的时间戳）
+   - 在后端创建一个与之对应的 User 实体，并使用 Spring Data JPA 创建一个 UserRepository 来操作该表。
+   - 在前端（使用 Vue.js）实现用户注册表单，允许用户输入用户名、邮箱和密码。
+   - 创建一个后端 REST API 端点（例如 `/api/register`）用于处理前端提交的用户注册请求。
    - 收到注册请求后，利用 Spring Security 中的 PasswordEncoder 对密码进行安全加密后再存入数据库，同时进行服务器端数据验证（包括用户名与邮箱的唯一性检查和密码复杂性要求）。
 
-2. **实现用户登录**  
-   - 在前端（Vue.js）实现用户登录表单，供用户输入用户名和密码。  
-   - 在后端配置 Spring Security，按照存储在 `users` 表中的用户凭据进行认证。  
+2. **实现用户登录**
+
+   - 在前端（Vue.js）实现用户登录表单，供用户输入用户名和密码。
+   - 在后端配置 Spring Security，按照存储在 `users` 表中的用户凭据进行认证。
    - 在认证成功后，建议使用 JWT（JSON Web Tokens）来管理用户会话：生成 JWT 后返回给前端，前端在后续请求中包含该 JWT 来验证用户身份。
 
-3. **添加帖子提交功能**  
-   - 在 MySQL 中设计一个 `posts` 表以存储用户提交的内容，字段包括：  
+3. **添加帖子提交功能**
+
+   - 在 MySQL 中设计一个 `posts` 表以存储用户提交的内容，字段包括：
      - `id`（主键）
      - `user_id`（外键，引用 `users` 表，标识帖子的作者）
      - `title`（帖子标题）
      - `content`（帖子正文）
-     - `creation_date`（记录帖子创建时间的时间戳）  
-   - 在后端创建对应的 Post 实体和 PostRepository。  
-   - 在前端（Vue.js）实现一个供已登录用户提交带有标题和内容的帖子表单。  
+     - `creation_date`（记录帖子创建时间的时间戳）
+   - 在后端创建对应的 Post 实体和 PostRepository。
+   - 在前端（Vue.js）实现一个供已登录用户提交带有标题和内容的帖子表单。
    - 创建后端 REST API 端点（例如 `/api/community/posts`）以处理帖子提交请求，提交时将帖子与当前登录用户相关联。
 
-4. **实现评论功能**  
-   - 在 MySQL 中设计一个 `comments` 表来存储用户对帖子的评论，字段包括：  
+4. **实现评论功能**
+
+   - 在 MySQL 中设计一个 `comments` 表来存储用户对帖子的评论，字段包括：
      - `id`（主键）
      - `post_id`（外键，引用 `posts` 表，用于关联具体帖子）
      - `user_id`（外键，引用 `users` 表，用于标识评论者）
      - `content`（评论正文）
-     - `creation_date`（记录评论时间的时间戳）  
-   - 在后端创建相应的 Comment 实体和 CommentRepository。  
-   - 在前端（Vue.js）在展示社区帖子详情的页面中实现评论提交区，允许已登录用户提交评论。  
+     - `creation_date`（记录评论时间的时间戳）
+   - 在后端创建相应的 Comment 实体和 CommentRepository。
+   - 在前端（Vue.js）在展示社区帖子详情的页面中实现评论提交区，允许已登录用户提交评论。
    - 创建后端 REST API 端点（例如 `/api/community/posts/{postId}/comments`）以处理指定帖子的评论提交请求，提交的评论应将其与当前登录用户及对应的帖子（由 postId 标识）关联。
 
-5. **开发面向前端的后端 API**  
-   - 在后端建立 REST 控制器端点，支持前端社区功能，包括：  
-     - 获取用户提交帖子列表的端点（如 `/api/community/posts`），返回 Post 实体集合。  
-     - 获取指定帖子的详细信息及其所有评论的端点（如 `/api/community/posts/{postId}`），返回对应 Post 实体及相关评论列表。  
-     - 帖子提交端点（如 `/api/community/posts`），接受包含标题和内容的 POST 请求。  
+5. **开发面向前端的后端 API**
+
+   - 在后端建立 REST 控制器端点，支持前端社区功能，包括：
+     - 获取用户提交帖子列表的端点（如 `/api/community/posts`），返回 Post 实体集合。
+     - 获取指定帖子的详细信息及其所有评论的端点（如 `/api/community/posts/{postId}`），返回对应 Post 实体及相关评论列表。
+     - 帖子提交端点（如 `/api/community/posts`），接受包含标题和内容的 POST 请求。
      - 评论提交端点（如 `/api/community/posts/{postId}/comments`），接受针对特定帖子的评论提交 POST 请求。
 
-6. **实现前端页面与交互**  
-   - 利用 Vue.js 创建必要的前端页面，设计用户注册与登录页面，调用对应后端 API。  
-   - 创建一个页面展示用户提交的社区帖子，调用 `/api/community/posts` 获取数据。  
-   - 创建一个页面允许已登录用户提交新帖子，使用上述帖子提交表单，并调用 `/api/community/posts`。  
+6. **实现前端页面与交互**
+
+   - 利用 Vue.js 创建必要的前端页面，设计用户注册与登录页面，调用对应后端 API。
+   - 创建一个页面展示用户提交的社区帖子，调用 `/api/community/posts` 获取数据。
+   - 创建一个页面允许已登录用户提交新帖子，使用上述帖子提交表单，并调用 `/api/community/posts`。
    - 创建一个展示指定帖子详情的页面，调用 `/api/community/posts/{postId}` 获取帖子和关联评论，同时在页面中包含评论提交表单，调用 `/api/community/posts/{postId}/comments`。
 
-7. **区分 Hacker News 内容与社区帖子**  
+7. **区分 Hacker News 内容与社区帖子**
    - 在前端页面上，清晰区分来自 Hacker News 开发并翻译的内容和用户提交的社区帖子。可以通过不同区域展示、不同视觉风格或提供筛选选项，使用户可以分别查看 Hacker News 内容、社区帖子或两者混合的内容。
 
 ---
@@ -297,29 +566,32 @@ frontend/
 
 **表：users**  
 存储平台注册用户信息，字段包含：
-- `id`（BIGINT，主键，auto_increment）：每个用户的唯一标识  
-- `username`（VARCHAR(50)，唯一，不允许为空）：用户用于登录和展示的用户名  
-- `password`（VARCHAR(255)，不允许为空）：用户密码，采用哈希存储  
-- `email`（VARCHAR(100)，唯一，不允许为空）：用户邮箱，可用于找回密码和通知  
-- `registration_date`（TIMESTAMP，默认 current_timestamp）：记录用户注册的日期和时间  
+
+- `id`（BIGINT，主键，auto_increment）：每个用户的唯一标识
+- `username`（VARCHAR(50)，唯一，不允许为空）：用户用于登录和展示的用户名
+- `password`（VARCHAR(255)，不允许为空）：用户密码，采用哈希存储
+- `email`（VARCHAR(100)，唯一，不允许为空）：用户邮箱，可用于找回密码和通知
+- `registration_date`（TIMESTAMP，默认 current_timestamp）：记录用户注册的日期和时间
 - 其他相关信息：可根据需求添加，如显示名称或个人资料信息
 
 **表：posts**  
 存储用户提交的社区内容，字段包含：
-- `id`（BIGINT，主键，auto_increment）：帖子唯一标识  
-- `user_id`（BIGINT，外键，引用 users.id，不允许为空）：发帖用户的 ID，关联到 users 表  
-- `title`（VARCHAR(255)，不允许为空）：帖子标题  
-- `content`（TEXT，不允许为空）：帖子正文  
-- `creation_date`（TIMESTAMP，默认 current_timestamp）：记录帖子创建的日期和时间  
+
+- `id`（BIGINT，主键，auto_increment）：帖子唯一标识
+- `user_id`（BIGINT，外键，引用 users.id，不允许为空）：发帖用户的 ID，关联到 users 表
+- `title`（VARCHAR(255)，不允许为空）：帖子标题
+- `content`（TEXT，不允许为空）：帖子正文
+- `creation_date`（TIMESTAMP，默认 current_timestamp）：记录帖子创建的日期和时间
 - 其他详情：未来可扩展分类或标签信息
 
 **表：comments**  
 存储用户对帖子发表评论的信息，字段包含：
-- `id`（BIGINT，主键，auto_increment）：评论唯一标识  
-- `post_id`（BIGINT，外键，引用 posts.id，不允许为空）：评论所属帖子 ID，关联 posts 表  
-- `user_id`（BIGINT，外键，引用 users.id，不允许为空）：评论者 ID，关联 users 表  
-- `content`（TEXT，不允许为空）：评论正文  
-- `creation_date`（TIMESTAMP，默认 current_timestamp）：记录评论创建的日期和时间  
+
+- `id`（BIGINT，主键，auto_increment）：评论唯一标识
+- `post_id`（BIGINT，外键，引用 posts.id，不允许为空）：评论所属帖子 ID，关联 posts 表
+- `user_id`（BIGINT，外键，引用 users.id，不允许为空）：评论者 ID，关联 users 表
+- `content`（TEXT，不允许为空）：评论正文
+- `creation_date`（TIMESTAMP，默认 current_timestamp）：记录评论创建的日期和时间
 - 其他详情：未来可考虑添加回复功能等
 
 利用外键确保数据引用的完整性，并能高效查询相关数据，如获取特定用户的所有帖子或某个帖子的所有评论。设计时也要预留未来扩展的可能性，如实现点赞、帖子分类或评论回复等功能。
@@ -334,8 +606,8 @@ frontend/
 
 #### 4.1.1 后端：Spring Cloud Alibaba（Nacos、LoadBalancer、Sentinel）
 
-- **Nacos**：作为服务注册与发现组件，允许各后端服务注册自身并发现其它服务的位置，实现分布式系统内各服务之间的无缝通信。  
-- **LoadBalancer**：用于将进来的请求分布到各个服务实例，实现流量负载均衡，确保处理增加的访问量以及平台高可用。  
+- **Nacos**：作为服务注册与发现组件，允许各后端服务注册自身并发现其它服务的位置，实现分布式系统内各服务之间的无缝通信。
+- **LoadBalancer**：用于将进来的请求分布到各个服务实例，实现流量负载均衡，确保处理增加的访问量以及平台高可用。
 - **Sentinel**：提供流控与熔断能力，帮助系统防范因流量激增或单个服务故障导致的系统崩溃，从而提升整体分布式架构的稳定性。
 
 #### 4.1.2 消息队列：RabbitMQ
@@ -354,43 +626,51 @@ frontend/
 
 ### 4.2 AI 代理与分布式系统的分步实现指南
 
-1. **部署 Nacos 以实现服务发现**  
-   - 部署一个 Nacos 服务器实例。  
-   - 配置 news-service 与 community-service，将它们注册到 Nacos 服务器中。  
+1. **部署 Nacos 以实现服务发现**
+
+   - 部署一个 Nacos 服务器实例。
+   - 配置 news-service 与 community-service，将它们注册到 Nacos 服务器中。
    - 在各自的 pom.xml 中添加 Spring Cloud Alibaba Nacos Discovery 依赖，并在 application.properties 或 application.yml 中配置 Nacos 服务器地址。
 
-2. **将后端拆分为微服务**  
-   - 重构当前单体后端应用为两个独立的微服务：  
-     - **news-service**：负责抓取 Hacker News 数据、处理翻译并存储  
-     - **community-service**：负责处理用户社群相关功能（如用户注册、登录、帖子提交及评论）  
+2. **将后端拆分为微服务**
+
+   - 重构当前单体后端应用为两个独立的微服务：
+     - **news-service**：负责抓取 Hacker News 数据、处理翻译并存储
+     - **community-service**：负责处理用户社群相关功能（如用户注册、登录、帖子提交及评论）
    - 如翻译逻辑复杂，可考虑拆分出单独的 **translation-service** 专门处理翻译任务。
 
-3. **搭建 API 网关（Spring Cloud Gateway）**  
-   - 建立一个用于所有客户端请求入口的 Spring Cloud Gateway 实例。  
+3. **搭建 API 网关（Spring Cloud Gateway）**
+
+   - 建立一个用于所有客户端请求入口的 Spring Cloud Gateway 实例。
    - 配置路由规则，使网关根据 URL 路径将请求转发到相应后台服务（例如，`/api/news/**` 转发至 news-service；`/api/community/**` 转发至 community-service），集中管理请求路由和跨域、认证、限流等横切关注点。
 
-4. **整合消息队列**  
-   - 部署 RabbitMQ 服务。  
-   - 在 news-service 中配置消息发送，将翻译任务（包括文本及相关元数据）发送到 RabbitMQ 的某个队列。  
+4. **整合消息队列**
+
+   - 部署 RabbitMQ 服务。
+   - 在 news-service 中配置消息发送，将翻译任务（包括文本及相关元数据）发送到 RabbitMQ 的某个队列。
    - 在 translation-service 中配置消息消费者，采用 `@RabbitListener` 注解监听对应队列，当收到消息时触发翻译处理。这样通过异步处理避免 news-service 因等待翻译结果而阻塞。
 
-5. **探索并整合 AI 代理框架**  
-   - 研究 LangChain4j 框架及其功能。  
-   - 在 translation-service 中整合该框架，实现代理逻辑：接收需翻译文本（通过消息队列），并利用框架提供的工具进行上下文处理、提示构造以及选择合适语言模型。  
+5. **探索并整合 AI 代理框架**
+
+   - 研究 LangChain4j 框架及其功能。
+   - 在 translation-service 中整合该框架，实现代理逻辑：接收需翻译文本（通过消息队列），并利用框架提供的工具进行上下文处理、提示构造以及选择合适语言模型。
    - 探索使用高级翻译 API（例如 Google Cloud Translation API Advanced）与 AI 代理结合，改进技术术语及复杂文本的翻译质量。
 
-6. **增强翻译服务**  
+6. **增强翻译服务**
+
    - 修改 translation-service，采用 AI 代理框架完成翻译任务。在代理内考虑向翻译 API 提供更多上下文信息或利用推理能力明确处理歧义或复杂文本情况，优化翻译质量。
 
-7. **实现服务间通信**  
+7. **实现服务间通信**
+
    - 对于 news-service 与 community-service 之间需互通的数据（例如社区帖子的用户信息），可使用 Spring WebFlux 的 WebClient 或 RestTemplate 发起服务间请求，同时利用 Nacos 进行服务发现定位对端服务。
 
-8. **整合 Sentinel 进行流控与容错**  
-   - 在 news-service 及 community-service 中集成 Sentinel，定义相关规则对各服务的请求进行限流，防止单个服务被过多请求淹没。  
+8. **整合 Sentinel 进行流控与容错**
+
+   - 在 news-service 及 community-service 中集成 Sentinel，定义相关规则对各服务的请求进行限流，防止单个服务被过多请求淹没。
    - 配置熔断规则，以便当某服务异常或错误率高时，自动断路，保障整体系统稳定性。
 
-9. **更新前端以适应 API 网关**  
-   - 修改前端，使所有 API 请求都发送至 Spring Cloud Gateway 的入口 URL，由网关负责将请求路由到对应后端服务。  
+9. **更新前端以适应 API 网关**
+   - 修改前端，使所有 API 请求都发送至 Spring Cloud Gateway 的入口 URL，由网关负责将请求路由到对应后端服务。
    - 这一变更可能需更新前端应用中的 API 基础 URL。
 
 ---
@@ -422,20 +702,24 @@ hacker-cnews-v2/
 
 为在相关服务（news-service 与 translation-service）中整合 RabbitMQ，需执行如下步骤：
 
-1. **添加依赖**  
+1. **添加依赖**
+
    - 在各服务的 pom.xml 文件中添加 Spring AMQP 依赖，提供与 RabbitMQ 交互所需的类与功能。
 
-2. **配置连接**  
+2. **配置连接**
+
    - 在 application.properties 或 application.yml 文件中配置 RabbitMQ 的连接细节，包括主机、端口、用户名和密码。
 
-3. **定义 Exchange 与 Queue**  
-   - 在发送消息的服务（例如 news-service）中，定义消息发布的 Exchange 及接收队列。  
+3. **定义 Exchange 与 Queue**
+
+   - 在发送消息的服务（例如 news-service）中，定义消息发布的 Exchange 及接收队列。
    - 在消费消息的服务（例如 translation-service）中定义监听的队列，并在 Spring 配置类中创建相应的 Bean。
 
-4. **消息发送**  
+4. **消息发送**
+
    - 在 news-service 中，通过 Spring 的 RabbitTemplate 将消息发送到定义好的 Exchange，这些消息包含需翻译文本及相关数据。
 
-5. **消息消费**  
+5. **消息消费**
    - 在 translation-service 中，使用 `@RabbitListener` 注解标记方法作为队列消息的监听者，当队列有新消息时，自动触发翻译处理。
 
 ---
@@ -443,12 +727,14 @@ hacker-cnews-v2/
 ### 4.5 API 网关与服务发现的实现
 
 **API 网关（Spring Cloud Gateway）：**
-- 创建一个专门用于 API 网关（gateway-server）的 Spring Boot 项目。  
-- 在 pom.xml 中添加必要依赖：spring-cloud-starter-gateway（提供网关功能）和 spring-cloud-starter-alibaba-nacos-discovery（实现服务发现）。  
+
+- 创建一个专门用于 API 网关（gateway-server）的 Spring Boot 项目。
+- 在 pom.xml 中添加必要依赖：spring-cloud-starter-gateway（提供网关功能）和 spring-cloud-starter-alibaba-nacos-discovery（实现服务发现）。
 - 在 gateway 项目的 application.yml 文件中配置路由规则，将指定 URL 路径的请求映射到 Nacos 注册的服务 ID，例如，将 `/api/news/**` 请求转发至 news-service，将 `/api/community/**` 请求转发至 community-service。
 
 **服务发现（Nacos）：**
-- 创建一个单独的 Spring Boot 项目来运行 Nacos 服务器（discovery-server），遵循 Nacos 文档提供的部署说明。  
+
+- 创建一个单独的 Spring Boot 项目来运行 Nacos 服务器（discovery-server），遵循 Nacos 文档提供的部署说明。
 - 在 news-service 与 community-service 中添加 spring-cloud-starter-alibaba-nacos-discovery 依赖，并在各自的 application.properties 或 application.yml 中配置 `spring.cloud.nacos.discovery.server-addr` 属性，指向 Nacos 服务器地址。同时为各服务设置独特的 `spring.application.name`（例如 news-service、community-service），供网关在服务发现时使用。
 
 ---
@@ -463,9 +749,10 @@ hacker-cnews-v2/
 
 ### 5.2 实现搜索功能
 
-为了让用户简单检索到相关内容，整合强大的搜索功能至关重要。可考虑引入如 Elasticsearch 的专用搜索引擎，后者在全文搜索上表现优异，能针对翻译后的 Hacker News 内容和用户提交的社区帖子建立高效索引。接下来的步骤包括：  
-- 将帖子标题和内容等相关数据建立索引  
-- 开发后端 API 以接收用户搜索关键词并查询 Elasticsearch  
+为了让用户简单检索到相关内容，整合强大的搜索功能至关重要。可考虑引入如 Elasticsearch 的专用搜索引擎，后者在全文搜索上表现优异，能针对翻译后的 Hacker News 内容和用户提交的社区帖子建立高效索引。接下来的步骤包括：
+
+- 将帖子标题和内容等相关数据建立索引
+- 开发后端 API 以接收用户搜索关键词并查询 Elasticsearch
 - 在前端实现搜索栏，使用户能够提交查询并查看搜索结果
 
 ### 5.3 实时通知系统
@@ -489,6 +776,7 @@ AI 代理不仅可用于基础翻译，还可扩展为自动生成 Hacker News �
 ## 6. 结论：总结与关键建议
 
 本实现指南概述了构建 HackerCNews 平台的全面计划，从围绕抓取 Hacker News 数据并翻译为中文的最小可行产品开始，逐步扩展到第一阶段的用户社群功能，再到第二阶段针对 AI 代理进行翻译优化和构架分布式系统。未来平台的迭代方向包括：
+
 - 高级性能优化
 - 实现搜索功能
 - 建立实时通知系统
@@ -497,6 +785,7 @@ AI 代理不仅可用于基础翻译，还可扩展为自动生成 Hacker News �
 - 考虑国际化扩展
 
 基于本次分析，提供以下关键建议：
+
 - 从一个稳固且经过充分测试的 MVP 开始，确保能够有效交付抓取并翻译 Hacker News 数据的核心功能。
 - 在第一阶段迭代中，优先实现用户社群功能，包括用户注册、登录、帖子提交及评论功能。
 - 在第二阶段迭代中，谨慎规划并实施向分布式架构的过渡，利用 Spring Cloud Alibaba 实现服务发现、负载均衡与流量控制，并采用 RabbitMQ 实现异步通信。

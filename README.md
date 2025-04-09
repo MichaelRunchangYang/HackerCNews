@@ -1,6 +1,6 @@
 # HackerCNews
 
-(刚刚开始开发2025.3.30)
+(刚刚开始开发 2025.3.30)
 HackerCNews 是一个将 Hacker News 内容翻译为中文并提供社区功能的平台。
 
 ## 项目结构
@@ -49,12 +49,35 @@ hacker-cnews-mvp/
 
 ## 配置说明
 
-在开始使用之前，请修改以下配置文件：
+本项目使用环境变量来管理敏感配置信息。在开始使用之前，请按照以下步骤进行配置：
 
-1. `backend/src/main/resources/application.properties`:
-   - 更新 MySQL 连接信息（数据库 URL、用户名和密码）
-   - 更新 Redis 连接信息（如果不是本地默认配置）
-   - 添加您的百度翻译 API 密钥
+1. 复制示例配置文件：
+
+   ```bash
+   cp backend/.env.properties.example backend/src/main/resources/.env.properties
+   ```
+
+2. 在复制的 `.env.properties` 文件中填入实际的配置值：
+
+   ```
+   # 数据库配置
+   MYSQL_USERNAME=your_mysql_username
+   MYSQL_PASSWORD=your_mysql_password
+
+   # Redis配置
+   REDIS_HOST=localhost
+   REDIS_PORT=6379
+   REDIS_PASSWORD=your_redis_password_if_any
+
+   # 百度翻译API配置
+   BAIDU_TRANSLATE_APPID=your_baidu_translate_appid
+   BAIDU_TRANSLATE_KEY=your_baidu_translate_key
+   ```
+
+3. **重要安全提示**:
+   - **永远不要**将含有实际密码、密钥等敏感信息的配置文件提交到版本控制系统
+   - 确保 `.env.properties` 和 `.env` 文件已在 `.gitignore` 中排除
+   - 在生产环境中，考虑使用环境变量或安全的密钥管理服务，而不是配置文件
 
 ## 运行步骤
 
@@ -62,7 +85,8 @@ hacker-cnews-mvp/
 
 1. 进入 backend 目录：`cd backend`
 2. 构建项目：`mvn clean package`
-3. 运行应用：`java -jar target/hacker-cnews-0.0.1-SNAPSHOT.jar`
+3. 设置环境变量（参见上方配置说明）
+4. 运行应用：`java -jar target/hacker-cnews-0.0.1-SNAPSHOT.jar`
 
 ### 前端
 
@@ -79,6 +103,8 @@ hacker-cnews-mvp/
 
 - 百度翻译 API 有调用频率和每日量限制，请合理使用
 - 首次运行时，需要一些时间来获取和翻译 Hacker News 内容
+- 不要将包含敏感信息的 `.env` 文件或 `.env.properties` 文件提交到公共代码库
+- 项目已配置 `.gitignore` 以避免上述文件被意外提交
 
 ## 未来计划
 

@@ -49,7 +49,7 @@ public class IndexController {
                     rankProcessed.put(item.getRank(), true);
                     return true;
                 })
-                .limit(30)
+                .limit(50)
                 .collect(Collectors.toList());
 
             // 计算最近获取的新闻时间

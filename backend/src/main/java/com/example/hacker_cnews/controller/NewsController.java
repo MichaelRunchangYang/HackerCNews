@@ -28,7 +28,7 @@ public class NewsController {
     
     @GetMapping
     public List<NewsItem> getLatestNews() {
-        return repository.findTop30ByOrderByTimeDesc();
+        return repository.findTop50ByOrderByTimeDesc();
     }
     
     @GetMapping("/{id}")

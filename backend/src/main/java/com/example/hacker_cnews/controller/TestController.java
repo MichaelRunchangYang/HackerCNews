@@ -752,6 +752,29 @@ public class TestController {
         html.append("        .highlight td {\n");
         html.append("            border-color: #ffecb3;\n");
         html.append("        }\n");
+        html.append("        .danger {\n");
+        html.append("            background-color: #ffebee;\n");
+        html.append("            font-weight: bold;\n");
+        html.append("        }\n");
+        html.append("        .danger td {\n");
+        html.append("            border-color: #ffcdd2;\n");
+        html.append("        }\n");
+        html.append("        .btn-danger {\n");
+        html.append("            background-color: #f44336;\n");
+        html.append("            color: white;\n");
+        html.append("            padding: 8px 12px;\n");
+        html.append("            text-decoration: none;\n");
+        html.append("            border-radius: 4px;\n");
+        html.append("            display: inline-block;\n");
+        html.append("        }\n");
+        html.append("        .btn-warning {\n");
+        html.append("            background-color: #ff9800;\n");
+        html.append("            color: white;\n");
+        html.append("            padding: 8px 12px;\n");
+        html.append("            text-decoration: none;\n");
+        html.append("            border-radius: 4px;\n");
+        html.append("            display: inline-block;\n");
+        html.append("        }\n");
         html.append("    </style>\n");
         html.append("</head>\n");
         html.append("<body>\n");
@@ -832,6 +855,16 @@ public class TestController {
         html.append("                <form style=\"display:inline;\" action=\"/api/test/test-translation\" method=\"get\" target=\"_blank\">\n");
         html.append("                    <input type=\"text\" name=\"text\" placeholder=\"输入英文\" style=\"width:120px;\">\n");
         html.append("                    <button type=\"submit\">测试</button>\n");
+        html.append("                </form>\n");
+        html.append("            </td>\n");
+        html.append("        </tr>\n");
+        html.append("        <tr class=\"highlight\">\n");
+        html.append("            <td>百度vs DeepL对比</td>\n");
+        html.append("            <td>比较百度翻译和DeepL翻译的结果质量</td>\n");
+        html.append("            <td><a href=\"/api/test/compare-translation\" target=\"_blank\">默认测试</a> | \n");
+        html.append("                <form style=\"display:inline;\" action=\"/api/test/compare-translation\" method=\"get\" target=\"_blank\">\n");
+        html.append("                    <input type=\"text\" name=\"text\" placeholder=\"输入英文\" style=\"width:120px;\">\n");
+        html.append("                    <button type=\"submit\">对比翻译</button>\n");
         html.append("                </form>\n");
         html.append("            </td>\n");
         html.append("        </tr>\n");
@@ -930,7 +963,12 @@ public class TestController {
         html.append("        <tr>\n");
         html.append("            <td>重置并更新</td>\n");
         html.append("            <td>清空数据库，并从API获取新的数据</td>\n");
-        html.append("            <td><a href=\"/api/test/reset-and-update\" target=\"_blank\">重置并更新</a></td>\n");
+        html.append("            <td><a href=\"/api/test/reset-and-update\" target=\"_blank\" class=\"btn-warning\" onclick=\"return confirm('确定要清空数据库并重新获取数据吗？')\">重置并更新</a></td>\n");
+        html.append("        </tr>\n");
+        html.append("        <tr class=\"danger\">\n");
+        html.append("            <td>彻底重置并更新</td>\n");
+        html.append("            <td>清空数据库和Redis缓存，并从API获取新的数据</td>\n");
+        html.append("            <td><a href=\"/api/test/complete-reset\" target=\"_blank\" class=\"btn-danger\" onclick=\"return confirm('警告：此操作将清空数据库和所有缓存！确定要继续吗？')\">彻底重置并更新</a></td>\n");
         html.append("        </tr>\n");
         html.append("        <tr class=\"highlight\">\n");
         html.append("            <td>查看所有新闻</td>\n");
@@ -1643,5 +1681,243 @@ public class TestController {
                 });
             }, concurrency)
             .collectList();
+    }
+
+    /**
+     * 查看所有新闻记录
+     * 显示数据库中所有新闻数据，包括完整和不完整的记录
+     */
+    @GetMapping("/view-all-news")
+    public ResponseEntity<String> viewAllNews() {
+        logger.info("查看所有新闻记录");
+        
+        // 获取所有新闻项
+        List<NewsItem> allItems = repository.findAll(Sort.by(Sort.Direction.DESC, "time"));
+        
+        // 准备HTML结果页
+        StringBuilder html = new StringBuilder();
+        html.append("<!DOCTYPE html>\n");
+        html.append("<html lang=\"zh-CN\">\n");
+        html.append("<head>\n");
+        html.append("    <meta charset=\"UTF-8\">\n");
+        html.append("    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n");
+        html.append("    <title>所有新闻记录</title>\n");
+        html.append("    <style>\n");
+        html.append("        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height: 1.6; max-width: 1200px; margin: 0 auto; padding: 20px; }\n");
+        html.append("        h1 { color: #ff6600; }\n");
+        html.append("        table { width: 100%; border-collapse: collapse; margin: 20px 0; }\n");
+        html.append("        th, td { padding: 8px; border: 1px solid #ddd; text-align: left; font-size: 14px; }\n");
+        html.append("        th { background-color: #f5f5f5; position: sticky; top: 0; }\n");
+        html.append("        tr:nth-child(even) { background-color: #f9f9f9; }\n");
+        html.append("        .incomplete { background-color: #fff3cd; }\n");
+        html.append("        .back-link { margin: 20px 0; }\n");
+        html.append("        .summary { margin: 20px 0; padding: 15px; background-color: #f8f9fa; border-radius: 5px; }\n");
+        html.append("    </style>\n");
+        html.append("</head>\n");
+        html.append("<body>\n");
+        html.append("    <h1>所有新闻记录</h1>\n");
+        
+        html.append("    <div class=\"summary\">\n");
+        html.append("        <p>数据库中共有 ").append(allItems.size()).append(" 条新闻记录。</p>\n");
+        html.append("    </div>\n");
+        
+        html.append("    <div class=\"back-link\">\n");
+        html.append("        <a href=\"/api/test/dashboard\">返回控制面板</a>\n");
+        html.append("    </div>\n");
+        
+        // 创建结果表格
+        html.append("    <table>\n");
+        html.append("        <tr>\n");
+        html.append("            <th>ID</th>\n");
+        html.append("            <th>排名</th>\n");
+        html.append("            <th>分数</th>\n");
+        html.append("            <th>原标题</th>\n");
+        html.append("            <th>翻译标题</th>\n");
+        html.append("            <th>类型</th>\n");
+        html.append("            <th>创建时间</th>\n");
+        html.append("            <th>最后更新</th>\n");
+        html.append("            <th>链接</th>\n");
+        html.append("        </tr>\n");
+        
+        // 添加所有新闻项
+        for (NewsItem item : allItems) {
+            boolean isIncomplete = item.getTitleEn() == null || 
+                                  item.getRank() == null || 
+                                  item.getScore() == null;
+            
+            html.append("        <tr").append(isIncomplete ? " class=\"incomplete\"" : "").append(">\n");
+            html.append("            <td>").append(item.getId()).append("</td>\n");
+            html.append("            <td>").append(item.getRank() != null ? item.getRank() : "缺失").append("</td>\n");
+            html.append("            <td>").append(item.getScore() != null ? item.getScore() : "缺失").append("</td>\n");
+            html.append("            <td>").append(item.getTitleEn() != null ? item.getTitleEn() : "缺失").append("</td>\n");
+            html.append("            <td>").append(item.getTitleZh() != null ? item.getTitleZh() : "缺失").append("</td>\n");
+            html.append("            <td>").append(item.getType() != null ? item.getType() : "未知").append("</td>\n");
+            html.append("            <td>").append(item.getCreatedAt() != null ? item.getCreatedAt() : "未知").append("</td>\n");
+            html.append("            <td>").append(item.getLastUpdated() != null ? item.getLastUpdated() : "未知").append("</td>\n");
+            
+            // 添加链接
+            if (item.getUrl() != null) {
+                html.append("            <td><a href=\"").append(item.getUrl()).append("\" target=\"_blank\">原文</a></td>\n");
+            } else {
+                html.append("            <td>无链接</td>\n");
+            }
+            
+            html.append("        </tr>\n");
+        }
+        
+        html.append("    </table>\n");
+        
+        html.append("    <div class=\"back-link\">\n");
+        html.append("        <a href=\"/api/test/dashboard\">返回控制面板</a>\n");
+        html.append("    </div>\n");
+        
+        html.append("</body>\n");
+        html.append("</html>\n");
+        
+        return ResponseEntity.ok()
+            .contentType(MediaType.TEXT_HTML)
+            .body(html.toString());
+    }
+
+    /**
+     * 比较翻译结果测试端点
+     * 用法示例: /api/test/compare-translation?text=Hello%20World
+     */
+    @GetMapping(value = "/compare-translation", produces = "text/html")
+    public Mono<String> compareTranslation(@RequestParam(defaultValue = "Hello, this is a test for comparing translation quality between Baidu and DeepL.") String text) {
+        logger.info("比较翻译测试: {}", text);
+        
+        // 临时禁用DeepL，使用百度翻译
+        boolean originalUseDeepL = true;
+        try {
+            java.lang.reflect.Field field = translationService.getClass().getDeclaredField("useDeepL");
+            field.setAccessible(true);
+            originalUseDeepL = field.getBoolean(translationService);
+            field.setBoolean(translationService, false);
+        } catch (Exception e) {
+            logger.error("获取或设置useDeepL字段失败", e);
+        }
+        
+        // 使用百度翻译
+        Mono<String> baiduResult = translationService.translateEnToZh(text);
+        
+        // 恢复并启用DeepL翻译
+        try {
+            java.lang.reflect.Field field = translationService.getClass().getDeclaredField("useDeepL");
+            field.setAccessible(true);
+            field.setBoolean(translationService, true);
+        } catch (Exception e) {
+            logger.error("设置useDeepL字段失败", e);
+        }
+        
+        // 使用DeepL翻译
+        Mono<String> deeplResult = translationService.translateEnToZh(text);
+        
+        // 恢复原始设置
+        try {
+            java.lang.reflect.Field field = translationService.getClass().getDeclaredField("useDeepL");
+            field.setAccessible(true);
+            field.setBoolean(translationService, originalUseDeepL);
+        } catch (Exception e) {
+            logger.error("恢复useDeepL字段失败", e);
+        }
+        
+        // 组合结果并生成HTML页面
+        return Mono.zip(baiduResult, deeplResult)
+                .map(tuple -> {
+                    String baiduTranslation = tuple.getT1();
+                    String deeplTranslation = tuple.getT2();
+                    
+                    StringBuilder html = new StringBuilder();
+                    html.append("<!DOCTYPE html><html><head><title>翻译比较测试</title>");
+                    html.append("<meta charset=\"UTF-8\"><style>");
+                    html.append("body{font-family:Arial,sans-serif;max-width:800px;margin:0 auto;padding:20px;}");
+                    html.append(".card{border:1px solid #ddd;border-radius:8px;padding:15px;margin-top:20px;}");
+                    html.append(".original{color:#333;font-weight:bold;}.baidu{color:#c05b4d;}.deepl{color:#0066cc;font-weight:bold;}");
+                    html.append("h2{margin-top:30px;color:#444;border-bottom:1px solid #eee;padding-bottom:10px;}");
+                    html.append(".comparison{display:flex;gap:20px;margin-top:20px;}");
+                    html.append(".comparison > div{flex:1;padding:15px;border-radius:8px;}");
+                    html.append(".baidu-box{background-color:#fff1f0;border:1px solid #ffccc7;}");
+                    html.append(".deepl-box{background-color:#e6f7ff;border:1px solid #91d5ff;}");
+                    html.append("</style></head><body>");
+                    html.append("<h1>翻译服务比较</h1>");
+                    html.append("<div class=\"card\">");
+                    html.append("<p>原文: <span class=\"original\">").append(text).append("</span></p>");
+                    
+                    html.append("<h2>翻译结果比较</h2>");
+                    html.append("<div class=\"comparison\">");
+                    
+                    html.append("<div class=\"baidu-box\">");
+                    html.append("<h3>百度翻译</h3>");
+                    html.append("<p class=\"baidu\">").append(baiduTranslation).append("</p>");
+                    html.append("</div>");
+                    
+                    html.append("<div class=\"deepl-box\">");
+                    html.append("<h3>DeepL翻译</h3>");
+                    html.append("<p class=\"deepl\">").append(deeplTranslation).append("</p>");
+                    html.append("</div>");
+                    
+                    html.append("</div>"); // 结束comparison
+                    
+                    html.append("</div>"); // 结束card
+                    html.append("<p style=\"margin-top:20px;\">提示: 修改URL中的text参数可翻译不同文本</p>");
+                    html.append("<p><a href=\"/api/test/dashboard\">返回测试控制面板</a></p>");
+                    html.append("</body></html>");
+                    return html.toString();
+                });
+    }
+
+    /**
+     * 彻底重置并更新，清空数据库和缓存
+     * 用法示例: /api/test/complete-reset
+     */
+    @GetMapping("/complete-reset")
+    public Mono<ResponseEntity<String>> completeReset() {
+        logger.info("彻底重置系统 - 清空数据库和缓存");
+        
+        try {
+            // 清空数据库
+            repository.deleteAll();
+            logger.info("数据库已清空");
+            
+            // 清空缓存
+            int cacheKeysCleared = cacheService.clearAllCache();
+            logger.info("缓存已清空，共清除{}个缓存项", cacheKeysCleared);
+            
+            // 触发新闻更新
+            newsUpdateService.updateNews();
+            logger.info("已触发新闻更新");
+            
+            return Mono.just(ResponseEntity.ok()
+                    .contentType(MediaType.TEXT_HTML)
+                    .header("Content-Type", "text/html; charset=UTF-8")
+                    .body("<!DOCTYPE html>\n<html>\n<head>\n" +
+                          "<meta charset=\"UTF-8\">\n" +
+                          "<title>彻底重置系统</title>\n" +
+                          "<style>body{font-family:Arial,sans-serif;max-width:800px;margin:0 auto;padding:20px;}</style>\n" +
+                          "</head>\n<body>\n" +
+                          "<h1>系统已彻底重置</h1>" +
+                          "<p>✓ 数据库已清空</p>" +
+                          "<p>✓ 缓存已清空，共清除" + cacheKeysCleared + "个缓存项</p>" +
+                          "<p>✓ 已触发新闻更新</p>" +
+                          "<p>请等待几分钟，然后<a href='/'>刷新首页</a>查看结果</p>" +
+                          "<p><a href='/api/test/dashboard'>返回测试面板</a></p>" +
+                          "</body>\n</html>"));
+        } catch (Exception e) {
+            logger.error("彻底重置和更新过程中出错: {}", e.getMessage(), e);
+            
+            return Mono.just(ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .contentType(MediaType.TEXT_HTML)
+                    .header("Content-Type", "text/html; charset=UTF-8")
+                    .body("<!DOCTYPE html>\n<html>\n<head>\n" +
+                          "<meta charset=\"UTF-8\">\n" +
+                          "<title>操作失败</title>\n" +
+                          "<style>body{font-family:Arial,sans-serif;max-width:800px;margin:0 auto;padding:20px;}</style>\n" +
+                          "</head>\n<body>\n" +
+                          "<h1>操作失败</h1>" +
+                          "<p>彻底重置系统时出错: " + e.getMessage() + "</p>" +
+                          "<p><a href='/api/test/dashboard'>返回测试面板</a></p>" +
+                          "</body>\n</html>"));
+        }
     }
 } 

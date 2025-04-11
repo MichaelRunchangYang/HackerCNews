@@ -1,0 +1,1020 @@
+2025-04-11 17:40:51.257 [main] INFO  m.p.s.DotenvPropertySource - Initializing Dotenv with DotenvConfig{directory=null, filename=null, ignoreIfMalformed=false, ignoreIfMissing=true, systemProperties=false, prefix=null}
+2025-04-11 17:40:51.266 [main] INFO  c.e.h.HackerCNewsApplication - Starting HackerCNewsApplication using Java 21.0.4 with PID 21636 (C:\Users\littletiger\Desktop\HackerCNews\backend\target\classes started by littletiger in C:\Users\littletiger\Desktop\HackerCNews\backend)
+2025-04-11 17:40:51.267 [main] DEBUG c.e.h.HackerCNewsApplication - Running with Spring Boot v3.4.4, Spring v6.2.5
+2025-04-11 17:40:51.268 [main] INFO  c.e.h.HackerCNewsApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-11 17:40:51.717 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-11 17:40:51.719 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-11 17:40:51.843 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 116 ms. Found 1 JPA repository interface.
+2025-04-11 17:40:51.856 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-11 17:40:51.857 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-04-11 17:40:51.869 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.hacker_cnews.repository.NewsItemRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-04-11 17:40:51.869 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2025-04-11 17:40:52.619 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-11 17:40:52.641 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-04-11 17:40:52.778 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@10d98940
+2025-04-11 17:40:52.779 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-04-11 17:40:52.818 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-11 17:40:52.819 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-04-11 17:40:53.478 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-11 17:40:53.485 [main] INFO  c.e.hacker_cnews.config.DotenvConfig - DotenvConfig is deprecated and will be removed in future versions
+2025-04-11 17:40:53.485 [main] INFO  c.e.hacker_cnews.config.DotenvConfig - Please use PropertiesConfig instead
+2025-04-11 17:40:53.494 [main] INFO  c.e.h.config.PropertiesConfig - Successfully loaded 6 properties, non-sensitive keys: [REDIS_HOST, REDIS_PORT, MYSQL_USERNAME]
+2025-04-11 17:40:54.059 [main] INFO  c.e.h.service.HackerNewsService - HackerNewsService 初始化完成，使用基本URL: https://hacker-news.firebaseio.com/v0
+2025-04-11 17:40:54.401 [main] INFO  o.s.b.w.e.netty.NettyWebServer - Netty started on port 8080 (http)
+2025-04-11 17:40:54.413 [scheduling-1] INFO  c.e.h.service.NewsUpdateService - 开始更新新闻数据...
+2025-04-11 17:40:54.413 [scheduling-1] INFO  c.e.h.service.HackerNewsService - 获取热门故事列表，限制: 60
+2025-04-11 17:40:54.416 [main] INFO  c.e.h.HackerCNewsApplication - Started HackerCNewsApplication in 3.618 seconds (process running for 3.916)
+2025-04-11 17:40:54.449 [scheduling-1] DEBUG c.e.h.service.HackerNewsService - 请求: GET https://hacker-news.firebaseio.com/v0/topstories.json
+2025-04-11 17:40:54.457 [scheduling-1] DEBUG o.s.w.r.f.client.ExchangeFunctions - [6b55ee65] HTTP GET https://hacker-news.firebaseio.com/v0/topstories.json
+2025-04-11 17:41:16.121 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientConnect - [d5e0555e-1, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] Handler is being applied: {uri=https://hacker-news.firebaseio.com/v0/topstories.json, method=GET}
+2025-04-11 17:41:16.125 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [d5e0555e-1, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] No sendHeaders() called before complete, sending zero-length header
+2025-04-11 17:41:16.356 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [d5e0555e-1, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Server: <filtered>
+Date: <filtered>
+Content-Type: <filtered>
+Content-Length: <filtered>
+Connection: <filtered>
+Access-Control-Allow-Origin: <filtered>
+Cache-Control: <filtered>
+Strict-Transport-Security: <filtered>
+2025-04-11 17:41:16.359 [reactor-http-nio-4] DEBUG o.s.w.r.f.client.ExchangeFunctions - [6b55ee65] [d5e0555e-1] Response 200 OK
+2025-04-11 17:41:16.361 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 响应状态: 200 OK
+2025-04-11 17:41:16.374 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [d5e0555e-1, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received last HTTP packet
+2025-04-11 17:41:16.396 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 获取到 500 个故事ID
+2025-04-11 17:41:16.398 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 获取到 60 条热门新闻ID，准备分批处理
+2025-04-11 17:41:16.398 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 将 60 个ID分为 6 个批次处理，每批 10 个ID
+2025-04-11 17:41:16.403 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 开始处理第 1 批次，包含 10 个ID
+2025-04-11 17:41:16.406 [parallel-2] INFO  c.e.h.service.HackerNewsService - 获取新闻项详情，ID: 43651390
+2025-04-11 17:41:16.409 [parallel-2] DEBUG c.e.h.service.HackerNewsService - 请求: GET https://hacker-news.firebaseio.com/v0/item/43651390.json
+2025-04-11 17:41:16.409 [parallel-2] DEBUG o.s.w.r.f.client.ExchangeFunctions - [7a7ebb60] HTTP GET https://hacker-news.firebaseio.com/v0/item/43651390.json
+2025-04-11 17:41:16.409 [parallel-2] INFO  c.e.h.service.HackerNewsService - 获取新闻项详情，ID: 43650656
+2025-04-11 17:41:16.410 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientConnect - [d5e0555e-2, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] Handler is being applied: {uri=https://hacker-news.firebaseio.com/v0/item/43651390.json, method=GET}
+2025-04-11 17:41:16.410 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [d5e0555e-2, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] No sendHeaders() called before complete, sending zero-length header
+2025-04-11 17:41:16.410 [parallel-2] DEBUG c.e.h.service.HackerNewsService - 请求: GET https://hacker-news.firebaseio.com/v0/item/43650656.json
+2025-04-11 17:41:16.410 [parallel-2] DEBUG o.s.w.r.f.client.ExchangeFunctions - [26d0b353] HTTP GET https://hacker-news.firebaseio.com/v0/item/43650656.json
+2025-04-11 17:41:16.411 [parallel-2] INFO  c.e.h.service.HackerNewsService - 获取新闻项详情，ID: 43649853
+2025-04-11 17:41:16.412 [parallel-2] DEBUG c.e.h.service.HackerNewsService - 请求: GET https://hacker-news.firebaseio.com/v0/item/43649853.json
+2025-04-11 17:41:16.412 [parallel-2] DEBUG o.s.w.r.f.client.ExchangeFunctions - [5f8a4a3c] HTTP GET https://hacker-news.firebaseio.com/v0/item/43649853.json
+2025-04-11 17:41:16.618 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [d5e0555e-2, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Server: <filtered>
+Date: <filtered>
+Content-Type: <filtered>
+Content-Length: <filtered>
+Connection: <filtered>
+Access-Control-Allow-Origin: <filtered>
+Cache-Control: <filtered>
+Strict-Transport-Security: <filtered>
+2025-04-11 17:41:16.619 [reactor-http-nio-4] DEBUG o.s.w.r.f.client.ExchangeFunctions - [7a7ebb60] [d5e0555e-2] Response 200 OK
+2025-04-11 17:41:16.620 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 响应状态: 200 OK
+2025-04-11 17:41:16.623 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [d5e0555e-2, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received last HTTP packet
+2025-04-11 17:41:16.623 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 获取到原始JSON: {"by":"LourensT","descendants":19,"id":43651390,"kids":[43652096,43652094,43651802,43652065,43651759,43651888,43651620,43651596,43651792,43651562,43651588,43651856,43651873,43651552],"score":107,"time":1744357293,"title":"Live Map of the London Underground","type":"story","url":"https://www.londonunderground.live/"}
+2025-04-11 17:41:16.623 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 准备解析JSON，原始内容: {"by":"LourensT","descendants":19,"id":43651390,"kids":[43652096,43652094,43651802,43652065,43651759,43651888,43651620,43651596,43651792,43651562,43651588,43651856,43651873,43651552],"score":107,"time":1744357293,"title":"Live Map of the London Underground","type":"story","url":"https://www.londonunderground.live/"}
+2025-04-11 17:41:16.656 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 解析后对象: id=43651390, by=LourensT, title=Live Map of the London Underground, url=https://www.londonunderground.live/, type=story, time=1744357293
+2025-04-11 17:41:16.657 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 成功解析新闻项 ID:43651390, 标题: Live Map of the London Underground
+2025-04-11 17:41:16.953 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 新闻已存在于数据库中: 43651390
+2025-04-11 17:41:17.010 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 成功处理ID: 43651390, 排名: 1, 分数: 107
+2025-04-11 17:41:17.010 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 获取新闻项详情，ID: 43646095
+2025-04-11 17:41:17.011 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 请求: GET https://hacker-news.firebaseio.com/v0/item/43646095.json
+2025-04-11 17:41:17.012 [reactor-http-nio-4] DEBUG o.s.w.r.f.client.ExchangeFunctions - [fb267c2] HTTP GET https://hacker-news.firebaseio.com/v0/item/43646095.json
+2025-04-11 17:41:37.875 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientConnect - [bc1f2f11-1, L:/10.64.93.254:58799 - R:hacker-news.firebaseio.com/34.120.160.131:443] Handler is being applied: {uri=https://hacker-news.firebaseio.com/v0/item/43649853.json, method=GET}
+2025-04-11 17:41:37.876 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientOperations - [bc1f2f11-1, L:/10.64.93.254:58799 - R:hacker-news.firebaseio.com/34.120.160.131:443] No sendHeaders() called before complete, sending zero-length header
+2025-04-11 17:41:37.886 [reactor-http-nio-5] DEBUG r.n.http.client.HttpClientConnect - [a22028a3-1, L:/10.64.93.254:58800 - R:hacker-news.firebaseio.com/34.120.160.131:443] Handler is being applied: {uri=https://hacker-news.firebaseio.com/v0/item/43650656.json, method=GET}
+2025-04-11 17:41:37.886 [reactor-http-nio-5] DEBUG r.n.http.client.HttpClientOperations - [a22028a3-1, L:/10.64.93.254:58800 - R:hacker-news.firebaseio.com/34.120.160.131:443] No sendHeaders() called before complete, sending zero-length header
+2025-04-11 17:41:38.106 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientOperations - [bc1f2f11-1, L:/10.64.93.254:58799 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Server: <filtered>
+Date: <filtered>
+Content-Type: <filtered>
+Content-Length: <filtered>
+Connection: <filtered>
+Access-Control-Allow-Origin: <filtered>
+Cache-Control: <filtered>
+Strict-Transport-Security: <filtered>
+2025-04-11 17:41:38.106 [reactor-http-nio-6] DEBUG o.s.w.r.f.client.ExchangeFunctions - [5f8a4a3c] [bc1f2f11-1] Response 200 OK
+2025-04-11 17:41:38.107 [reactor-http-nio-6] DEBUG c.e.h.service.HackerNewsService - 响应状态: 200 OK
+2025-04-11 17:41:38.108 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientOperations - [bc1f2f11-1, L:/10.64.93.254:58799 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received last HTTP packet
+2025-04-11 17:41:38.109 [reactor-http-nio-6] DEBUG c.e.h.service.HackerNewsService - 获取到原始JSON: {"by":"soheilpro","descendants":148,"id":43649853,"kids":[43649984,43651841,43650067,43651331,43651696,43650168,43650935,43651635,43651164,43650882,43651090,43649985,43649992,43651312,43652067,43650393,43650990,43651584,43650065,43650737,43650038,43650624,43651291],"score":222,"time":1744337653,"title":"Default styles for h1 elements are changing","type":"story","url":"https://developer.mozilla.org/en-US/blog/h1-element-styles/"}
+2025-04-11 17:41:38.109 [reactor-http-nio-6] INFO  c.e.h.service.HackerNewsService - 准备解析JSON，原始内容: {"by":"soheilpro","descendants":148,"id":43649853,"kids":[43649984,43651841,43650067,43651331,43651696,43650168,43650935,43651635,43651164,43650882,43651090,43649985,43649992,43651312,43652067,43650393,43650990,43651584,43650065,43650737,43650038,43650624,43651291],"score":222,"time":1744337653,"title":"Default styles for h1 elements are changing","type":"story","url":"https://developer.mozilla.org/en-US/blog/h1-element-styles/"}
+2025-04-11 17:41:38.110 [reactor-http-nio-6] INFO  c.e.h.service.HackerNewsService - 解析后对象: id=43649853, by=soheilpro, title=Default styles for h1 elements are changing, url=https://developer.mozilla.org/en-US/blog/h1-element-styles/, type=story, time=1744337653
+2025-04-11 17:41:38.110 [reactor-http-nio-6] INFO  c.e.h.service.HackerNewsService - 成功解析新闻项 ID:43649853, 标题: Default styles for h1 elements are changing
+2025-04-11 17:41:38.114 [reactor-http-nio-6] INFO  c.e.h.service.NewsUpdateService - 新闻已存在于数据库中: 43649853
+2025-04-11 17:41:38.119 [reactor-http-nio-5] DEBUG r.n.http.client.HttpClientOperations - [a22028a3-1, L:/10.64.93.254:58800 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Server: <filtered>
+Date: <filtered>
+Content-Type: <filtered>
+Content-Length: <filtered>
+Connection: <filtered>
+Access-Control-Allow-Origin: <filtered>
+Cache-Control: <filtered>
+Strict-Transport-Security: <filtered>
+2025-04-11 17:41:38.119 [reactor-http-nio-5] DEBUG o.s.w.r.f.client.ExchangeFunctions - [26d0b353] [a22028a3-1] Response 200 OK
+2025-04-11 17:41:38.119 [reactor-http-nio-5] DEBUG c.e.h.service.HackerNewsService - 响应状态: 200 OK
+2025-04-11 17:41:38.119 [reactor-http-nio-5] DEBUG r.n.http.client.HttpClientOperations - [a22028a3-1, L:/10.64.93.254:58800 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received last HTTP packet
+2025-04-11 17:41:38.120 [reactor-http-nio-5] DEBUG c.e.h.service.HackerNewsService - 获取到原始JSON: {"by":"c1ccccc1","descendants":28,"id":43650656,"kids":[43651075,43651969,43651086,43651005,43651677,43651572,43651212,43651604,43651093],"score":131,"time":1744347933,"title":"Playing in the Creek","type":"story","url":"https://www.lesswrong.com/posts/rLucLvwKoLdHSBTAn/playing-in-the-creek"}
+2025-04-11 17:41:38.120 [reactor-http-nio-5] INFO  c.e.h.service.HackerNewsService - 准备解析JSON，原始内容: {"by":"c1ccccc1","descendants":28,"id":43650656,"kids":[43651075,43651969,43651086,43651005,43651677,43651572,43651212,43651604,43651093],"score":131,"time":1744347933,"title":"Playing in the Creek","type":"story","url":"https://www.lesswrong.com/posts/rLucLvwKoLdHSBTAn/playing-in-the-creek"}
+2025-04-11 17:41:38.120 [reactor-http-nio-5] INFO  c.e.h.service.HackerNewsService - 解析后对象: id=43650656, by=c1ccccc1, title=Playing in the Creek, url=https://www.lesswrong.com/posts/rLucLvwKoLdHSBTAn/playing-in-the-creek, type=story, time=1744347933
+2025-04-11 17:41:38.120 [reactor-http-nio-5] INFO  c.e.h.service.HackerNewsService - 成功解析新闻项 ID:43650656, 标题: Playing in the Creek
+2025-04-11 17:41:38.122 [reactor-http-nio-6] INFO  c.e.h.service.NewsUpdateService - 成功处理ID: 43649853, 排名: 3, 分数: 222
+2025-04-11 17:41:38.122 [reactor-http-nio-6] INFO  c.e.h.service.HackerNewsService - 获取新闻项详情，ID: 43647880
+2025-04-11 17:41:38.122 [reactor-http-nio-5] INFO  c.e.h.service.NewsUpdateService - 新闻已存在于数据库中: 43650656
+2025-04-11 17:41:38.123 [reactor-http-nio-6] DEBUG c.e.h.service.HackerNewsService - 请求: GET https://hacker-news.firebaseio.com/v0/item/43647880.json
+2025-04-11 17:41:38.123 [reactor-http-nio-6] DEBUG o.s.w.r.f.client.ExchangeFunctions - [7f80a543] HTTP GET https://hacker-news.firebaseio.com/v0/item/43647880.json
+2025-04-11 17:41:38.123 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientConnect - [d5e0555e-3, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] Handler is being applied: {uri=https://hacker-news.firebaseio.com/v0/item/43647880.json, method=GET}
+2025-04-11 17:41:38.123 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [d5e0555e-3, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] No sendHeaders() called before complete, sending zero-length header
+2025-04-11 17:41:38.128 [reactor-http-nio-5] INFO  c.e.h.service.NewsUpdateService - 成功处理ID: 43650656, 排名: 2, 分数: 131
+2025-04-11 17:41:38.128 [reactor-http-nio-5] INFO  c.e.h.service.HackerNewsService - 获取新闻项详情，ID: 43608377
+2025-04-11 17:41:38.129 [reactor-http-nio-5] DEBUG c.e.h.service.HackerNewsService - 请求: GET https://hacker-news.firebaseio.com/v0/item/43608377.json
+2025-04-11 17:41:38.129 [reactor-http-nio-5] DEBUG o.s.w.r.f.client.ExchangeFunctions - [72ff83d8] HTTP GET https://hacker-news.firebaseio.com/v0/item/43608377.json
+2025-04-11 17:41:38.129 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientConnect - [bc1f2f11-2, L:/10.64.93.254:58799 - R:hacker-news.firebaseio.com/34.120.160.131:443] Handler is being applied: {uri=https://hacker-news.firebaseio.com/v0/item/43608377.json, method=GET}
+2025-04-11 17:41:38.130 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientOperations - [bc1f2f11-2, L:/10.64.93.254:58799 - R:hacker-news.firebaseio.com/34.120.160.131:443] No sendHeaders() called before complete, sending zero-length header
+2025-04-11 17:41:38.331 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [d5e0555e-3, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Server: <filtered>
+Date: <filtered>
+Content-Type: <filtered>
+Content-Length: <filtered>
+Connection: <filtered>
+Access-Control-Allow-Origin: <filtered>
+Cache-Control: <filtered>
+Strict-Transport-Security: <filtered>
+2025-04-11 17:41:38.331 [reactor-http-nio-4] DEBUG o.s.w.r.f.client.ExchangeFunctions - [7f80a543] [d5e0555e-3] Response 200 OK
+2025-04-11 17:41:38.331 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 响应状态: 200 OK
+2025-04-11 17:41:38.332 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [d5e0555e-3, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received last HTTP packet
+2025-04-11 17:41:38.332 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 获取到原始JSON: {"by":"Kerrick","descendants":74,"id":43647880,"kids":[43648891,43651445,43649910,43652042,43651602,43648998,43648363,43648411,43648483,43648208,43648313,43650275,43649455,43650775,43648406,43649381,43647986,43649850,43650705,43650223,43648601,43648218],"score":260,"time":1744318021,"title":"The Story Behind “100 Go Mistakes and How to Avoid Them”","type":"story","url":"https://www.thecoder.cafe/p/100-go-mistakes"}
+2025-04-11 17:41:38.332 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 准备解析JSON，原始内容: {"by":"Kerrick","descendants":74,"id":43647880,"kids":[43648891,43651445,43649910,43652042,43651602,43648998,43648363,43648411,43648483,43648208,43648313,43650275,43649455,43650775,43648406,43649381,43647986,43649850,43650705,43650223,43648601,43648218],"score":260,"time":1744318021,"title":"The Story Behind “100 Go Mistakes and How to Avoid Them”","type":"story","url":"https://www.thecoder.cafe/p/100-go-mistakes"}
+2025-04-11 17:41:38.332 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 解析后对象: id=43647880, by=Kerrick, title=The Story Behind “100 Go Mistakes and How to Avoid Them”, url=https://www.thecoder.cafe/p/100-go-mistakes, type=story, time=1744318021
+2025-04-11 17:41:38.332 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 成功解析新闻项 ID:43647880, 标题: The Story Behind “100 Go Mistakes and How to Avoid Them”
+2025-04-11 17:41:38.335 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 新闻已存在于数据库中: 43647880
+2025-04-11 17:41:38.343 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 成功处理ID: 43647880, 排名: 5, 分数: 260
+2025-04-11 17:41:38.343 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 获取新闻项详情，ID: 43624799
+2025-04-11 17:41:38.344 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 请求: GET https://hacker-news.firebaseio.com/v0/item/43624799.json
+2025-04-11 17:41:38.344 [reactor-http-nio-4] DEBUG o.s.w.r.f.client.ExchangeFunctions - [71ec15df] HTTP GET https://hacker-news.firebaseio.com/v0/item/43624799.json
+2025-04-11 17:41:38.344 [reactor-http-nio-5] DEBUG r.n.http.client.HttpClientConnect - [a22028a3-2, L:/10.64.93.254:58800 - R:hacker-news.firebaseio.com/34.120.160.131:443] Handler is being applied: {uri=https://hacker-news.firebaseio.com/v0/item/43624799.json, method=GET}
+2025-04-11 17:41:38.345 [reactor-http-nio-5] DEBUG r.n.http.client.HttpClientOperations - [a22028a3-2, L:/10.64.93.254:58800 - R:hacker-news.firebaseio.com/34.120.160.131:443] No sendHeaders() called before complete, sending zero-length header
+2025-04-11 17:41:38.356 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientOperations - [bc1f2f11-2, L:/10.64.93.254:58799 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Server: <filtered>
+Date: <filtered>
+Content-Type: <filtered>
+Content-Length: <filtered>
+Connection: <filtered>
+Access-Control-Allow-Origin: <filtered>
+Cache-Control: <filtered>
+Strict-Transport-Security: <filtered>
+2025-04-11 17:41:38.357 [reactor-http-nio-6] DEBUG o.s.w.r.f.client.ExchangeFunctions - [72ff83d8] [bc1f2f11-2] Response 200 OK
+2025-04-11 17:41:38.357 [reactor-http-nio-6] DEBUG c.e.h.service.HackerNewsService - 响应状态: 200 OK
+2025-04-11 17:41:38.357 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientOperations - [bc1f2f11-2, L:/10.64.93.254:58799 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received last HTTP packet
+2025-04-11 17:41:38.358 [reactor-http-nio-6] DEBUG c.e.h.service.HackerNewsService - 获取到原始JSON: {"by":"vbtechguy","descendants":36,"id":43608377,"kids":[43651557,43651152,43651881,43608378,43651772,43651294,43650848,43650867,43650989,43651187,43651218],"score":59,"time":1744006690,"title":"Atari Missile Command Game Built Using AI Gemini 2.5 Pro","type":"story","url":"https://missile-command-game.centminmod.com/"}
+2025-04-11 17:41:38.358 [reactor-http-nio-6] INFO  c.e.h.service.HackerNewsService - 准备解析JSON，原始内容: {"by":"vbtechguy","descendants":36,"id":43608377,"kids":[43651557,43651152,43651881,43608378,43651772,43651294,43650848,43650867,43650989,43651187,43651218],"score":59,"time":1744006690,"title":"Atari Missile Command Game Built Using AI Gemini 2.5 Pro","type":"story","url":"https://missile-command-game.centminmod.com/"}
+2025-04-11 17:41:38.358 [reactor-http-nio-6] INFO  c.e.h.service.HackerNewsService - 解析后对象: id=43608377, by=vbtechguy, title=Atari Missile Command Game Built Using AI Gemini 2.5 Pro, url=https://missile-command-game.centminmod.com/, type=story, time=1744006690
+2025-04-11 17:41:38.358 [reactor-http-nio-6] INFO  c.e.h.service.HackerNewsService - 成功解析新闻项 ID:43608377, 标题: Atari Missile Command Game Built Using AI Gemini 2.5 Pro
+2025-04-11 17:41:38.362 [reactor-http-nio-6] INFO  c.e.h.service.NewsUpdateService - 新闻已存在于数据库中: 43608377
+2025-04-11 17:41:38.368 [reactor-http-nio-6] INFO  c.e.h.service.NewsUpdateService - 成功处理ID: 43608377, 排名: 6, 分数: 59
+2025-04-11 17:41:38.368 [reactor-http-nio-6] INFO  c.e.h.service.HackerNewsService - 获取新闻项详情，ID: 43649711
+2025-04-11 17:41:38.369 [reactor-http-nio-6] DEBUG c.e.h.service.HackerNewsService - 请求: GET https://hacker-news.firebaseio.com/v0/item/43649711.json
+2025-04-11 17:41:38.369 [reactor-http-nio-6] DEBUG o.s.w.r.f.client.ExchangeFunctions - [5223085f] HTTP GET https://hacker-news.firebaseio.com/v0/item/43649711.json
+2025-04-11 17:41:38.369 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientConnect - [d5e0555e-4, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] Handler is being applied: {uri=https://hacker-news.firebaseio.com/v0/item/43649711.json, method=GET}
+2025-04-11 17:41:38.370 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [d5e0555e-4, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] No sendHeaders() called before complete, sending zero-length header
+2025-04-11 17:41:38.484 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientConnect - [4718aa34-1, L:/10.64.93.254:58801 - R:hacker-news.firebaseio.com/34.120.160.131:443] Handler is being applied: {uri=https://hacker-news.firebaseio.com/v0/item/43646095.json, method=GET}
+2025-04-11 17:41:38.484 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [4718aa34-1, L:/10.64.93.254:58801 - R:hacker-news.firebaseio.com/34.120.160.131:443] No sendHeaders() called before complete, sending zero-length header
+2025-04-11 17:41:38.577 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [d5e0555e-4, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Server: <filtered>
+Date: <filtered>
+Content-Type: <filtered>
+Content-Length: <filtered>
+Connection: <filtered>
+Access-Control-Allow-Origin: <filtered>
+Cache-Control: <filtered>
+Strict-Transport-Security: <filtered>
+2025-04-11 17:41:38.578 [reactor-http-nio-4] DEBUG o.s.w.r.f.client.ExchangeFunctions - [5223085f] [d5e0555e-4] Response 200 OK
+2025-04-11 17:41:38.579 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 响应状态: 200 OK
+2025-04-11 17:41:38.580 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [d5e0555e-4, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received last HTTP packet
+2025-04-11 17:41:38.580 [reactor-http-nio-5] DEBUG r.n.http.client.HttpClientOperations - [a22028a3-2, L:/10.64.93.254:58800 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Server: <filtered>
+Date: <filtered>
+Content-Type: <filtered>
+Content-Length: <filtered>
+Connection: <filtered>
+Access-Control-Allow-Origin: <filtered>
+Cache-Control: <filtered>
+Strict-Transport-Security: <filtered>
+2025-04-11 17:41:38.580 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 获取到原始JSON: {"by":"fangpenlin","descendants":21,"id":43649711,"kids":[43652018,43650673,43650681,43650612,43650426,43650440,43651067,43650428,43649734,43650771,43651283],"score":67,"time":1744336209,"title":"Nvidia on NixOS WSL – Ollama up 24/7 on your gaming PC","type":"story","url":"https://yomaq.github.io/posts/nvidia-on-nixos-wsl-ollama-up-24-7-on-your-gaming-pc/"}
+2025-04-11 17:41:38.581 [reactor-http-nio-5] DEBUG o.s.w.r.f.client.ExchangeFunctions - [71ec15df] [a22028a3-2] Response 200 OK
+2025-04-11 17:41:38.581 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 准备解析JSON，原始内容: {"by":"fangpenlin","descendants":21,"id":43649711,"kids":[43652018,43650673,43650681,43650612,43650426,43650440,43651067,43650428,43649734,43650771,43651283],"score":67,"time":1744336209,"title":"Nvidia on NixOS WSL – Ollama up 24/7 on your gaming PC","type":"story","url":"https://yomaq.github.io/posts/nvidia-on-nixos-wsl-ollama-up-24-7-on-your-gaming-pc/"}
+2025-04-11 17:41:38.581 [reactor-http-nio-5] DEBUG c.e.h.service.HackerNewsService - 响应状态: 200 OK
+2025-04-11 17:41:38.581 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 解析后对象: id=43649711, by=fangpenlin, title=Nvidia on NixOS WSL – Ollama up 24/7 on your gaming PC, url=https://yomaq.github.io/posts/nvidia-on-nixos-wsl-ollama-up-24-7-on-your-gaming-pc/, type=story, time=1744336209
+2025-04-11 17:41:38.582 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 成功解析新闻项 ID:43649711, 标题: Nvidia on NixOS WSL – Ollama up 24/7 on your gaming PC
+2025-04-11 17:41:38.582 [reactor-http-nio-5] DEBUG r.n.http.client.HttpClientOperations - [a22028a3-2, L:/10.64.93.254:58800 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received last HTTP packet
+2025-04-11 17:41:38.582 [reactor-http-nio-5] DEBUG c.e.h.service.HackerNewsService - 获取到原始JSON: {"by":"b_mc2","descendants":8,"id":43624799,"kids":[43652057,43651896,43651926,43651678],"score":30,"time":1744136027,"title":"3D Army Land Navigation Courses","type":"story","url":"https://oe.tradoc.army.mil/oegames/landnav/index.html"}
+2025-04-11 17:41:38.582 [reactor-http-nio-5] INFO  c.e.h.service.HackerNewsService - 准备解析JSON，原始内容: {"by":"b_mc2","descendants":8,"id":43624799,"kids":[43652057,43651896,43651926,43651678],"score":30,"time":1744136027,"title":"3D Army Land Navigation Courses","type":"story","url":"https://oe.tradoc.army.mil/oegames/landnav/index.html"}
+2025-04-11 17:41:38.583 [reactor-http-nio-5] INFO  c.e.h.service.HackerNewsService - 解析后对象: id=43624799, by=b_mc2, title=3D Army Land Navigation Courses, url=https://oe.tradoc.army.mil/oegames/landnav/index.html, type=story, time=1744136027
+2025-04-11 17:41:38.583 [reactor-http-nio-5] INFO  c.e.h.service.HackerNewsService - 成功解析新闻项 ID:43624799, 标题: 3D Army Land Navigation Courses
+2025-04-11 17:41:38.585 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 新闻已存在于数据库中: 43649711
+2025-04-11 17:41:38.586 [reactor-http-nio-5] INFO  c.e.h.service.NewsUpdateService - 新闻已存在于数据库中: 43624799
+2025-04-11 17:41:38.593 [reactor-http-nio-5] INFO  c.e.h.service.NewsUpdateService - 成功处理ID: 43624799, 排名: 7, 分数: 30
+2025-04-11 17:41:38.593 [reactor-http-nio-5] INFO  c.e.h.service.HackerNewsService - 获取新闻项详情，ID: 43650792
+2025-04-11 17:41:38.594 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 成功处理ID: 43649711, 排名: 8, 分数: 67
+2025-04-11 17:41:38.594 [reactor-http-nio-5] DEBUG c.e.h.service.HackerNewsService - 请求: GET https://hacker-news.firebaseio.com/v0/item/43650792.json
+2025-04-11 17:41:38.594 [reactor-http-nio-5] DEBUG o.s.w.r.f.client.ExchangeFunctions - [8a48384] HTTP GET https://hacker-news.firebaseio.com/v0/item/43650792.json
+2025-04-11 17:41:38.594 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientConnect - [bc1f2f11-3, L:/10.64.93.254:58799 - R:hacker-news.firebaseio.com/34.120.160.131:443] Handler is being applied: {uri=https://hacker-news.firebaseio.com/v0/item/43650792.json, method=GET}
+2025-04-11 17:41:38.595 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientOperations - [bc1f2f11-3, L:/10.64.93.254:58799 - R:hacker-news.firebaseio.com/34.120.160.131:443] No sendHeaders() called before complete, sending zero-length header
+2025-04-11 17:41:38.596 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 获取新闻项详情，ID: 43646920
+2025-04-11 17:41:38.596 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 请求: GET https://hacker-news.firebaseio.com/v0/item/43646920.json
+2025-04-11 17:41:38.596 [reactor-http-nio-4] DEBUG o.s.w.r.f.client.ExchangeFunctions - [3cba5378] HTTP GET https://hacker-news.firebaseio.com/v0/item/43646920.json
+2025-04-11 17:41:38.597 [reactor-http-nio-5] DEBUG r.n.http.client.HttpClientConnect - [a22028a3-3, L:/10.64.93.254:58800 - R:hacker-news.firebaseio.com/34.120.160.131:443] Handler is being applied: {uri=https://hacker-news.firebaseio.com/v0/item/43646920.json, method=GET}
+2025-04-11 17:41:38.597 [reactor-http-nio-5] DEBUG r.n.http.client.HttpClientOperations - [a22028a3-3, L:/10.64.93.254:58800 - R:hacker-news.firebaseio.com/34.120.160.131:443] No sendHeaders() called before complete, sending zero-length header
+2025-04-11 17:41:38.720 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [4718aa34-1, L:/10.64.93.254:58801 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Server: <filtered>
+Date: <filtered>
+Content-Type: <filtered>
+Content-Length: <filtered>
+Connection: <filtered>
+Access-Control-Allow-Origin: <filtered>
+Cache-Control: <filtered>
+Strict-Transport-Security: <filtered>
+2025-04-11 17:41:38.721 [reactor-http-nio-4] DEBUG o.s.w.r.f.client.ExchangeFunctions - [fb267c2] [4718aa34-1] Response 200 OK
+2025-04-11 17:41:38.721 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 响应状态: 200 OK
+2025-04-11 17:41:38.722 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [4718aa34-1, L:/10.64.93.254:58801 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received last HTTP packet
+2025-04-11 17:41:38.722 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 获取到原始JSON: {"by":"mike1o1","descendants":218,"id":43646095,"kids":[43646481,43647057,43646237,43646277,43647739,43646354,43646286,43646772,43648822,43647604,43646310,43650153,43648085,43647346,43646433,43646921,43646885,43646998,43646361,43646622,43650974,43646927,43647690,43646467,43646452,43648266,43647580,43646409,43648049,43648450,43649531,43646994,43649699,43647042,43646355,43649005,43646809,43646326,43650200,43646880,43646359,43649262,43647458,43646303,43646366,43646478,43647146,43647392,43646857,43646855,43646279,43648521,43647035,43646780,43646647],"score":616,"time":1744305663,"title":"Garfield Minus Garfield","type":"story","url":"https://garfieldminusgarfield.net"}
+2025-04-11 17:41:38.722 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 准备解析JSON，原始内容: {"by":"mike1o1","descendants":218,"id":43646095,"kids":[43646481,43647057,43646237,43646277,43647739,43646354,43646286,43646772,43648822,43647604,43646310,43650153,43648085,43647346,43646433,43646921,43646885,43646998,43646361,43646622,43650974,43646927,43647690,43646467,43646452,43648266,43647580,43646409,43648049,43648450,43649531,43646994,43649699,43647042,43646355,43649005,43646809,43646326,43650200,43646880,43646359,43649262,43647458,43646303,43646366,43646478,43647146,43647392,43646857,43646855,43646279,43648521,43647035,43646780,43646647],"score":616,"time":1744305663,"title":"Garfield Minus Garfield","type":"story","url":"https://garfieldminusgarfield.net"}
+2025-04-11 17:41:38.722 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 解析后对象: id=43646095, by=mike1o1, title=Garfield Minus Garfield, url=https://garfieldminusgarfield.net, type=story, time=1744305663
+2025-04-11 17:41:38.723 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 成功解析新闻项 ID:43646095, 标题: Garfield Minus Garfield
+2025-04-11 17:41:38.725 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 新闻已存在于数据库中: 43646095
+2025-04-11 17:41:38.732 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 成功处理ID: 43646095, 排名: 4, 分数: 616
+2025-04-11 17:41:38.821 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientOperations - [bc1f2f11-3, L:/10.64.93.254:58799 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Server: <filtered>
+Date: <filtered>
+Content-Type: <filtered>
+Content-Length: <filtered>
+Connection: <filtered>
+Access-Control-Allow-Origin: <filtered>
+Cache-Control: <filtered>
+Strict-Transport-Security: <filtered>
+2025-04-11 17:41:38.822 [reactor-http-nio-6] DEBUG o.s.w.r.f.client.ExchangeFunctions - [8a48384] [bc1f2f11-3] Response 200 OK
+2025-04-11 17:41:38.822 [reactor-http-nio-6] DEBUG c.e.h.service.HackerNewsService - 响应状态: 200 OK
+2025-04-11 17:41:38.822 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientOperations - [bc1f2f11-3, L:/10.64.93.254:58799 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received last HTTP packet
+2025-04-11 17:41:38.822 [reactor-http-nio-6] DEBUG c.e.h.service.HackerNewsService - 获取到原始JSON: {"by":"perbu","descendants":2,"id":43650792,"kids":[43651725,43650793],"score":37,"time":1744349866,"title":"Deno Under TinyKVM in Varnish","type":"story","url":"https://info.varnish-software.com/blog/tinykvm-in-varnish-and-some-deno"}
+2025-04-11 17:41:38.822 [reactor-http-nio-6] INFO  c.e.h.service.HackerNewsService - 准备解析JSON，原始内容: {"by":"perbu","descendants":2,"id":43650792,"kids":[43651725,43650793],"score":37,"time":1744349866,"title":"Deno Under TinyKVM in Varnish","type":"story","url":"https://info.varnish-software.com/blog/tinykvm-in-varnish-and-some-deno"}
+2025-04-11 17:41:38.823 [reactor-http-nio-6] INFO  c.e.h.service.HackerNewsService - 解析后对象: id=43650792, by=perbu, title=Deno Under TinyKVM in Varnish, url=https://info.varnish-software.com/blog/tinykvm-in-varnish-and-some-deno, type=story, time=1744349866
+2025-04-11 17:41:38.823 [reactor-http-nio-6] INFO  c.e.h.service.HackerNewsService - 成功解析新闻项 ID:43650792, 标题: Deno Under TinyKVM in Varnish
+2025-04-11 17:41:38.825 [reactor-http-nio-6] INFO  c.e.h.service.NewsUpdateService - 新闻已存在于数据库中: 43650792
+2025-04-11 17:41:38.829 [reactor-http-nio-5] DEBUG r.n.http.client.HttpClientOperations - [a22028a3-3, L:/10.64.93.254:58800 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Server: <filtered>
+Date: <filtered>
+Content-Type: <filtered>
+Content-Length: <filtered>
+Connection: <filtered>
+Access-Control-Allow-Origin: <filtered>
+Cache-Control: <filtered>
+Strict-Transport-Security: <filtered>
+2025-04-11 17:41:38.829 [reactor-http-nio-5] DEBUG o.s.w.r.f.client.ExchangeFunctions - [3cba5378] [a22028a3-3] Response 200 OK
+2025-04-11 17:41:38.829 [reactor-http-nio-5] DEBUG c.e.h.service.HackerNewsService - 响应状态: 200 OK
+2025-04-11 17:41:38.829 [reactor-http-nio-5] DEBUG r.n.http.client.HttpClientOperations - [a22028a3-3, L:/10.64.93.254:58800 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received last HTTP packet
+2025-04-11 17:41:38.830 [reactor-http-nio-5] DEBUG c.e.h.service.HackerNewsService - 获取到原始JSON: {"by":"jaredwiener","descendants":232,"id":43646920,"kids":[43650113,43647511,43648036,43650116,43647409,43650523,43649885,43650744,43650165,43651166,43650522,43651918,43651045,43650773,43651371,43651296,43650081,43651330,43650336,43650018,43651278,43650202,43647547,43649828,43647556,43650245,43647523,43650633],"score":206,"time":1744310636,"title":"How a $2k 'Made in the USA' Phone Is Manufactured","type":"story","url":"https://www.404media.co/how-a-2-000-made-in-the-usa-liberty-phone-phone-is-manufactured/"}
+2025-04-11 17:41:38.830 [reactor-http-nio-5] INFO  c.e.h.service.HackerNewsService - 准备解析JSON，原始内容: {"by":"jaredwiener","descendants":232,"id":43646920,"kids":[43650113,43647511,43648036,43650116,43647409,43650523,43649885,43650744,43650165,43651166,43650522,43651918,43651045,43650773,43651371,43651296,43650081,43651330,43650336,43650018,43651278,43650202,43647547,43649828,43647556,43650245,43647523,43650633],"score":206,"time":1744310636,"title":"How a $2k 'Made in the USA' Phone Is Manufactured","type":"story","url":"https://www.404media.co/how-a-2-000-made-in-the-usa-liberty-phone-phone-is-manufactured/"}
+2025-04-11 17:41:38.831 [reactor-http-nio-5] INFO  c.e.h.service.HackerNewsService - 解析后对象: id=43646920, by=jaredwiener, title=How a $2k 'Made in the USA' Phone Is Manufactured, url=https://www.404media.co/how-a-2-000-made-in-the-usa-liberty-phone-phone-is-manufactured/, type=story, time=1744310636
+2025-04-11 17:41:38.831 [reactor-http-nio-5] INFO  c.e.h.service.HackerNewsService - 成功解析新闻项 ID:43646920, 标题: How a $2k 'Made in the USA' Phone Is Manufactured
+2025-04-11 17:41:38.832 [reactor-http-nio-6] INFO  c.e.h.service.NewsUpdateService - 成功处理ID: 43650792, 排名: 9, 分数: 37
+2025-04-11 17:41:38.832 [reactor-http-nio-5] INFO  c.e.h.service.NewsUpdateService - 新闻已存在于数据库中: 43646920
+2025-04-11 17:41:38.838 [reactor-http-nio-5] INFO  c.e.h.service.NewsUpdateService - 成功处理ID: 43646920, 排名: 10, 分数: 206
+2025-04-11 17:41:38.839 [reactor-http-nio-5] INFO  c.e.h.service.NewsUpdateService - 批次处理完成: 成功=10, 失败=0
+2025-04-11 17:41:38.839 [reactor-http-nio-5] INFO  c.e.h.service.NewsUpdateService - 开始处理第 2 批次，包含 10 个ID
+2025-04-11 17:41:40.845 [parallel-13] INFO  c.e.h.service.HackerNewsService - 获取新闻项详情，ID: 43651215
+2025-04-11 17:41:40.847 [parallel-13] DEBUG c.e.h.service.HackerNewsService - 请求: GET https://hacker-news.firebaseio.com/v0/item/43651215.json
+2025-04-11 17:41:40.847 [parallel-13] DEBUG o.s.w.r.f.client.ExchangeFunctions - [6ff6960e] HTTP GET https://hacker-news.firebaseio.com/v0/item/43651215.json
+2025-04-11 17:41:40.848 [parallel-13] INFO  c.e.h.service.HackerNewsService - 获取新闻项详情，ID: 43649783
+2025-04-11 17:41:40.849 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientConnect - [d5e0555e-5, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] Handler is being applied: {uri=https://hacker-news.firebaseio.com/v0/item/43651215.json, method=GET}
+2025-04-11 17:41:40.849 [parallel-13] DEBUG c.e.h.service.HackerNewsService - 请求: GET https://hacker-news.firebaseio.com/v0/item/43649783.json
+2025-04-11 17:41:40.849 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [d5e0555e-5, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] No sendHeaders() called before complete, sending zero-length header
+2025-04-11 17:41:40.849 [parallel-13] DEBUG o.s.w.r.f.client.ExchangeFunctions - [650efd7e] HTTP GET https://hacker-news.firebaseio.com/v0/item/43649783.json
+2025-04-11 17:41:40.849 [parallel-13] INFO  c.e.h.service.HackerNewsService - 获取新闻项详情，ID: 43647294
+2025-04-11 17:41:40.850 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientConnect - [4718aa34-2, L:/10.64.93.254:58801 - R:hacker-news.firebaseio.com/34.120.160.131:443] Handler is being applied: {uri=https://hacker-news.firebaseio.com/v0/item/43649783.json, method=GET}
+2025-04-11 17:41:40.850 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [4718aa34-2, L:/10.64.93.254:58801 - R:hacker-news.firebaseio.com/34.120.160.131:443] No sendHeaders() called before complete, sending zero-length header
+2025-04-11 17:41:40.850 [parallel-13] DEBUG c.e.h.service.HackerNewsService - 请求: GET https://hacker-news.firebaseio.com/v0/item/43647294.json
+2025-04-11 17:41:40.851 [parallel-13] DEBUG o.s.w.r.f.client.ExchangeFunctions - [7b11db52] HTTP GET https://hacker-news.firebaseio.com/v0/item/43647294.json
+2025-04-11 17:41:40.852 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientConnect - [bc1f2f11-4, L:/10.64.93.254:58799 - R:hacker-news.firebaseio.com/34.120.160.131:443] Handler is being applied: {uri=https://hacker-news.firebaseio.com/v0/item/43647294.json, method=GET}
+2025-04-11 17:41:40.852 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientOperations - [bc1f2f11-4, L:/10.64.93.254:58799 - R:hacker-news.firebaseio.com/34.120.160.131:443] No sendHeaders() called before complete, sending zero-length header
+2025-04-11 17:41:41.057 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [d5e0555e-5, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Server: <filtered>
+Date: <filtered>
+Content-Type: <filtered>
+Content-Length: <filtered>
+Connection: <filtered>
+Access-Control-Allow-Origin: <filtered>
+Cache-Control: <filtered>
+Strict-Transport-Security: <filtered>
+2025-04-11 17:41:41.058 [reactor-http-nio-4] DEBUG o.s.w.r.f.client.ExchangeFunctions - [6ff6960e] [d5e0555e-5] Response 200 OK
+2025-04-11 17:41:41.059 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 响应状态: 200 OK
+2025-04-11 17:41:41.060 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [d5e0555e-5, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received last HTTP packet
+2025-04-11 17:41:41.060 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 获取到原始JSON: {"by":"eoravkin","id":43651215,"score":1,"time":1744354876,"title":"MediSearch (YC S23) Is Hiring a Founding Engineer in Central Europe","type":"job","url":"https://www.ycombinator.com/companies/medisearch/jobs/DXuptwo-founding-engineer-full-stack"}
+2025-04-11 17:41:41.061 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 准备解析JSON，原始内容: {"by":"eoravkin","id":43651215,"score":1,"time":1744354876,"title":"MediSearch (YC S23) Is Hiring a Founding Engineer in Central Europe","type":"job","url":"https://www.ycombinator.com/companies/medisearch/jobs/DXuptwo-founding-engineer-full-stack"}
+2025-04-11 17:41:41.062 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 解析后对象: id=43651215, by=eoravkin, title=MediSearch (YC S23) Is Hiring a Founding Engineer in Central Europe, url=https://www.ycombinator.com/companies/medisearch/jobs/DXuptwo-founding-engineer-full-stack, type=job, time=1744354876
+2025-04-11 17:41:41.062 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 成功解析新闻项 ID:43651215, 标题: MediSearch (YC S23) Is Hiring a Founding Engineer in Central Europe
+2025-04-11 17:41:41.070 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 新闻已存在于数据库中: 43651215
+2025-04-11 17:41:41.072 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 成功处理ID: 43651215, 排名: 11, 分数: 1
+2025-04-11 17:41:41.072 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 获取新闻项详情，ID: 43625139
+2025-04-11 17:41:41.072 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 请求: GET https://hacker-news.firebaseio.com/v0/item/43625139.json
+2025-04-11 17:41:41.073 [reactor-http-nio-4] DEBUG o.s.w.r.f.client.ExchangeFunctions - [a736d8f] HTTP GET https://hacker-news.firebaseio.com/v0/item/43625139.json
+2025-04-11 17:41:41.073 [reactor-http-nio-5] DEBUG r.n.http.client.HttpClientConnect - [a22028a3-4, L:/10.64.93.254:58800 - R:hacker-news.firebaseio.com/34.120.160.131:443] Handler is being applied: {uri=https://hacker-news.firebaseio.com/v0/item/43625139.json, method=GET}
+2025-04-11 17:41:41.074 [reactor-http-nio-5] DEBUG r.n.http.client.HttpClientOperations - [a22028a3-4, L:/10.64.93.254:58800 - R:hacker-news.firebaseio.com/34.120.160.131:443] No sendHeaders() called before complete, sending zero-length header
+2025-04-11 17:41:41.079 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [4718aa34-2, L:/10.64.93.254:58801 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Server: <filtered>
+Date: <filtered>
+Content-Type: <filtered>
+Content-Length: <filtered>
+Connection: <filtered>
+Access-Control-Allow-Origin: <filtered>
+Cache-Control: <filtered>
+Strict-Transport-Security: <filtered>
+2025-04-11 17:41:41.080 [reactor-http-nio-4] DEBUG o.s.w.r.f.client.ExchangeFunctions - [650efd7e] [4718aa34-2] Response 200 OK
+2025-04-11 17:41:41.080 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 响应状态: 200 OK
+2025-04-11 17:41:41.080 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientOperations - [bc1f2f11-4, L:/10.64.93.254:58799 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Server: <filtered>
+Date: <filtered>
+Content-Type: <filtered>
+Content-Length: <filtered>
+Connection: <filtered>
+Access-Control-Allow-Origin: <filtered>
+Cache-Control: <filtered>
+Strict-Transport-Security: <filtered>
+2025-04-11 17:41:41.080 [reactor-http-nio-6] DEBUG o.s.w.r.f.client.ExchangeFunctions - [7b11db52] [bc1f2f11-4] Response 200 OK
+2025-04-11 17:41:41.080 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [4718aa34-2, L:/10.64.93.254:58801 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received last HTTP packet
+2025-04-11 17:41:41.080 [reactor-http-nio-6] DEBUG c.e.h.service.HackerNewsService - 响应状态: 200 OK
+2025-04-11 17:41:41.081 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 获取到原始JSON: {"by":"DanAtC","descendants":7,"id":43649783,"kids":[43650768,43650716,43650590,43650354],"score":48,"time":1744337119,"title":"A port of Mbed-TLS for the Classic Macintosh OS 7/8/9","type":"story","url":"https://github.com/bbenchoff/MacSSL"}
+2025-04-11 17:41:41.081 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientOperations - [bc1f2f11-4, L:/10.64.93.254:58799 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received last HTTP packet
+2025-04-11 17:41:41.081 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 准备解析JSON，原始内容: {"by":"DanAtC","descendants":7,"id":43649783,"kids":[43650768,43650716,43650590,43650354],"score":48,"time":1744337119,"title":"A port of Mbed-TLS for the Classic Macintosh OS 7/8/9","type":"story","url":"https://github.com/bbenchoff/MacSSL"}
+2025-04-11 17:41:41.081 [reactor-http-nio-6] DEBUG c.e.h.service.HackerNewsService - 获取到原始JSON: {"by":"spudlyo","descendants":17,"id":43647294,"kids":[43647951,43649981,43651956,43648789,43650593,43651443,43649549,43650870,43648412],"score":187,"time":1744313386,"title":"My Own Private Binary: An Idiosyncratic Introduction to Linux Kernel Modules","type":"story","url":"https://www.muppetlabs.com/~breadbox/txt/mopb.html"}
+2025-04-11 17:41:41.081 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 解析后对象: id=43649783, by=DanAtC, title=A port of Mbed-TLS for the Classic Macintosh OS 7/8/9, url=https://github.com/bbenchoff/MacSSL, type=story, time=1744337119
+2025-04-11 17:41:41.081 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 成功解析新闻项 ID:43649783, 标题: A port of Mbed-TLS for the Classic Macintosh OS 7/8/9
+2025-04-11 17:41:41.081 [reactor-http-nio-6] INFO  c.e.h.service.HackerNewsService - 准备解析JSON，原始内容: {"by":"spudlyo","descendants":17,"id":43647294,"kids":[43647951,43649981,43651956,43648789,43650593,43651443,43649549,43650870,43648412],"score":187,"time":1744313386,"title":"My Own Private Binary: An Idiosyncratic Introduction to Linux Kernel Modules","type":"story","url":"https://www.muppetlabs.com/~breadbox/txt/mopb.html"}
+2025-04-11 17:41:41.082 [reactor-http-nio-6] INFO  c.e.h.service.HackerNewsService - 解析后对象: id=43647294, by=spudlyo, title=My Own Private Binary: An Idiosyncratic Introduction to Linux Kernel Modules, url=https://www.muppetlabs.com/~breadbox/txt/mopb.html, type=story, time=1744313386
+2025-04-11 17:41:41.082 [reactor-http-nio-6] INFO  c.e.h.service.HackerNewsService - 成功解析新闻项 ID:43647294, 标题: My Own Private Binary: An Idiosyncratic Introduction to Linux Kernel Modules
+2025-04-11 17:41:41.083 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 新闻已存在于数据库中: 43649783
+2025-04-11 17:41:41.084 [reactor-http-nio-6] INFO  c.e.h.service.NewsUpdateService - 新闻已存在于数据库中: 43647294
+2025-04-11 17:41:41.090 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 成功处理ID: 43649783, 排名: 12, 分数: 48
+2025-04-11 17:41:41.090 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 获取新闻项详情，ID: 43624135
+2025-04-11 17:41:41.091 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 请求: GET https://hacker-news.firebaseio.com/v0/item/43624135.json
+2025-04-11 17:41:41.091 [reactor-http-nio-4] DEBUG o.s.w.r.f.client.ExchangeFunctions - [463eed69] HTTP GET https://hacker-news.firebaseio.com/v0/item/43624135.json
+2025-04-11 17:41:41.091 [reactor-http-nio-6] INFO  c.e.h.service.NewsUpdateService - 成功处理ID: 43647294, 排名: 13, 分数: 187
+2025-04-11 17:41:41.091 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientConnect - [d5e0555e-6, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] Handler is being applied: {uri=https://hacker-news.firebaseio.com/v0/item/43624135.json, method=GET}
+2025-04-11 17:41:41.091 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [d5e0555e-6, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] No sendHeaders() called before complete, sending zero-length header
+2025-04-11 17:41:41.092 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 获取新闻项详情，ID: 43646219
+2025-04-11 17:41:41.093 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 请求: GET https://hacker-news.firebaseio.com/v0/item/43646219.json
+2025-04-11 17:41:41.093 [reactor-http-nio-4] DEBUG o.s.w.r.f.client.ExchangeFunctions - [2a7930a1] HTTP GET https://hacker-news.firebaseio.com/v0/item/43646219.json
+2025-04-11 17:41:41.093 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientConnect - [bc1f2f11-5, L:/10.64.93.254:58799 - R:hacker-news.firebaseio.com/34.120.160.131:443] Handler is being applied: {uri=https://hacker-news.firebaseio.com/v0/item/43646219.json, method=GET}
+2025-04-11 17:41:41.093 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientOperations - [bc1f2f11-5, L:/10.64.93.254:58799 - R:hacker-news.firebaseio.com/34.120.160.131:443] No sendHeaders() called before complete, sending zero-length header
+2025-04-11 17:41:41.298 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [d5e0555e-6, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Server: <filtered>
+Date: <filtered>
+Content-Type: <filtered>
+Content-Length: <filtered>
+Connection: <filtered>
+Access-Control-Allow-Origin: <filtered>
+Cache-Control: <filtered>
+Strict-Transport-Security: <filtered>
+2025-04-11 17:41:41.300 [reactor-http-nio-4] DEBUG o.s.w.r.f.client.ExchangeFunctions - [463eed69] [d5e0555e-6] Response 200 OK
+2025-04-11 17:41:41.300 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 响应状态: 200 OK
+2025-04-11 17:41:41.301 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [d5e0555e-6, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received last HTTP packet
+2025-04-11 17:41:41.301 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 获取到原始JSON: {"by":"docmechanic","descendants":48,"id":43624135,"kids":[43624236,43650779,43651643,43650813],"score":67,"time":1744132574,"title":"Researchers discover why plastic sheds dangerous fragments","type":"story","url":"https://www.sciencedaily.com/releases/2025/04/250407172923.htm"}
+2025-04-11 17:41:41.301 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 准备解析JSON，原始内容: {"by":"docmechanic","descendants":48,"id":43624135,"kids":[43624236,43650779,43651643,43650813],"score":67,"time":1744132574,"title":"Researchers discover why plastic sheds dangerous fragments","type":"story","url":"https://www.sciencedaily.com/releases/2025/04/250407172923.htm"}
+2025-04-11 17:41:41.301 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 解析后对象: id=43624135, by=docmechanic, title=Researchers discover why plastic sheds dangerous fragments, url=https://www.sciencedaily.com/releases/2025/04/250407172923.htm, type=story, time=1744132574
+2025-04-11 17:41:41.302 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 成功解析新闻项 ID:43624135, 标题: Researchers discover why plastic sheds dangerous fragments
+2025-04-11 17:41:41.305 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 新闻已存在于数据库中: 43624135
+2025-04-11 17:41:41.307 [reactor-http-nio-5] DEBUG r.n.http.client.HttpClientOperations - [a22028a3-4, L:/10.64.93.254:58800 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Server: <filtered>
+Date: <filtered>
+Content-Type: <filtered>
+Content-Length: <filtered>
+Connection: <filtered>
+Access-Control-Allow-Origin: <filtered>
+Cache-Control: <filtered>
+Strict-Transport-Security: <filtered>
+2025-04-11 17:41:41.307 [reactor-http-nio-5] DEBUG o.s.w.r.f.client.ExchangeFunctions - [a736d8f] [a22028a3-4] Response 200 OK
+2025-04-11 17:41:41.307 [reactor-http-nio-5] DEBUG c.e.h.service.HackerNewsService - 响应状态: 200 OK
+2025-04-11 17:41:41.308 [reactor-http-nio-5] DEBUG r.n.http.client.HttpClientOperations - [a22028a3-4, L:/10.64.93.254:58800 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received last HTTP packet
+2025-04-11 17:41:41.308 [reactor-http-nio-5] DEBUG c.e.h.service.HackerNewsService - 获取到原始JSON: {"by":"bko","descendants":21,"id":43625139,"kids":[43652046,43651521,43649648,43650921,43650820,43651516,43649845,43650803,43650720,43651266],"score":90,"time":1744137623,"title":"Clojure: Realtime collaborative web apps without ClojureScript","type":"story","url":"https://andersmurphy.com/2025/04/07/clojure-realtime-collaborative-web-apps-without-clojurescript.html"}
+2025-04-11 17:41:41.308 [reactor-http-nio-5] INFO  c.e.h.service.HackerNewsService - 准备解析JSON，原始内容: {"by":"bko","descendants":21,"id":43625139,"kids":[43652046,43651521,43649648,43650921,43650820,43651516,43649845,43650803,43650720,43651266],"score":90,"time":1744137623,"title":"Clojure: Realtime collaborative web apps without ClojureScript","type":"story","url":"https://andersmurphy.com/2025/04/07/clojure-realtime-collaborative-web-apps-without-clojurescript.html"}
+2025-04-11 17:41:41.308 [reactor-http-nio-5] INFO  c.e.h.service.HackerNewsService - 解析后对象: id=43625139, by=bko, title=Clojure: Realtime collaborative web apps without ClojureScript, url=https://andersmurphy.com/2025/04/07/clojure-realtime-collaborative-web-apps-without-clojurescript.html, type=story, time=1744137623
+2025-04-11 17:41:41.308 [reactor-http-nio-5] INFO  c.e.h.service.HackerNewsService - 成功解析新闻项 ID:43625139, 标题: Clojure: Realtime collaborative web apps without ClojureScript
+2025-04-11 17:41:41.310 [reactor-http-nio-5] INFO  c.e.h.service.NewsUpdateService - 新闻已存在于数据库中: 43625139
+2025-04-11 17:41:41.312 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 成功处理ID: 43624135, 排名: 15, 分数: 67
+2025-04-11 17:41:41.312 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 获取新闻项详情，ID: 43648950
+2025-04-11 17:41:41.312 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 请求: GET https://hacker-news.firebaseio.com/v0/item/43648950.json
+2025-04-11 17:41:41.312 [reactor-http-nio-4] DEBUG o.s.w.r.f.client.ExchangeFunctions - [56b2c0f3] HTTP GET https://hacker-news.firebaseio.com/v0/item/43648950.json
+2025-04-11 17:41:41.313 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientConnect - [4718aa34-3, L:/10.64.93.254:58801 - R:hacker-news.firebaseio.com/34.120.160.131:443] Handler is being applied: {uri=https://hacker-news.firebaseio.com/v0/item/43648950.json, method=GET}
+2025-04-11 17:41:41.313 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [4718aa34-3, L:/10.64.93.254:58801 - R:hacker-news.firebaseio.com/34.120.160.131:443] No sendHeaders() called before complete, sending zero-length header
+2025-04-11 17:41:41.317 [reactor-http-nio-5] INFO  c.e.h.service.NewsUpdateService - 成功处理ID: 43625139, 排名: 14, 分数: 90
+2025-04-11 17:41:41.317 [reactor-http-nio-5] INFO  c.e.h.service.HackerNewsService - 获取新闻项详情，ID: 43613463
+2025-04-11 17:41:41.317 [reactor-http-nio-5] DEBUG c.e.h.service.HackerNewsService - 请求: GET https://hacker-news.firebaseio.com/v0/item/43613463.json
+2025-04-11 17:41:41.317 [reactor-http-nio-5] DEBUG o.s.w.r.f.client.ExchangeFunctions - [6243cd73] HTTP GET https://hacker-news.firebaseio.com/v0/item/43613463.json
+2025-04-11 17:41:41.318 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientConnect - [d5e0555e-7, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] Handler is being applied: {uri=https://hacker-news.firebaseio.com/v0/item/43613463.json, method=GET}
+2025-04-11 17:41:41.318 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [d5e0555e-7, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] No sendHeaders() called before complete, sending zero-length header
+2025-04-11 17:41:41.320 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientOperations - [bc1f2f11-5, L:/10.64.93.254:58799 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Server: <filtered>
+Date: <filtered>
+Content-Type: <filtered>
+Content-Length: <filtered>
+Connection: <filtered>
+Access-Control-Allow-Origin: <filtered>
+Cache-Control: <filtered>
+Strict-Transport-Security: <filtered>
+2025-04-11 17:41:41.320 [reactor-http-nio-6] DEBUG o.s.w.r.f.client.ExchangeFunctions - [2a7930a1] [bc1f2f11-5] Response 200 OK
+2025-04-11 17:41:41.320 [reactor-http-nio-6] DEBUG c.e.h.service.HackerNewsService - 响应状态: 200 OK
+2025-04-11 17:41:41.320 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientOperations - [bc1f2f11-5, L:/10.64.93.254:58799 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received last HTTP packet
+2025-04-11 17:41:41.320 [reactor-http-nio-6] DEBUG c.e.h.service.HackerNewsService - 获取到原始JSON: {"by":"sebg","descendants":68,"id":43646219,"kids":[43649039,43646979,43648229,43649466,43647796,43651407,43646498,43646419,43647159,43647244,43646746,43651135,43647393],"score":229,"time":1744306459,"title":"Big Book of R","type":"story","url":"https://www.bigbookofr.com/"}
+2025-04-11 17:41:41.320 [reactor-http-nio-6] INFO  c.e.h.service.HackerNewsService - 准备解析JSON，原始内容: {"by":"sebg","descendants":68,"id":43646219,"kids":[43649039,43646979,43648229,43649466,43647796,43651407,43646498,43646419,43647159,43647244,43646746,43651135,43647393],"score":229,"time":1744306459,"title":"Big Book of R","type":"story","url":"https://www.bigbookofr.com/"}
+2025-04-11 17:41:41.320 [reactor-http-nio-6] INFO  c.e.h.service.HackerNewsService - 解析后对象: id=43646219, by=sebg, title=Big Book of R, url=https://www.bigbookofr.com/, type=story, time=1744306459
+2025-04-11 17:41:41.321 [reactor-http-nio-6] INFO  c.e.h.service.HackerNewsService - 成功解析新闻项 ID:43646219, 标题: Big Book of R
+2025-04-11 17:41:41.322 [reactor-http-nio-6] INFO  c.e.h.service.NewsUpdateService - 新闻已存在于数据库中: 43646219
+2025-04-11 17:41:41.327 [reactor-http-nio-6] INFO  c.e.h.service.NewsUpdateService - 成功处理ID: 43646219, 排名: 16, 分数: 229
+2025-04-11 17:41:41.328 [reactor-http-nio-6] INFO  c.e.h.service.HackerNewsService - 获取新闻项详情，ID: 43646698
+2025-04-11 17:41:41.328 [reactor-http-nio-6] DEBUG c.e.h.service.HackerNewsService - 请求: GET https://hacker-news.firebaseio.com/v0/item/43646698.json
+2025-04-11 17:41:41.328 [reactor-http-nio-6] DEBUG o.s.w.r.f.client.ExchangeFunctions - [7daa023e] HTTP GET https://hacker-news.firebaseio.com/v0/item/43646698.json
+2025-04-11 17:41:41.329 [reactor-http-nio-5] DEBUG r.n.http.client.HttpClientConnect - [a22028a3-5, L:/10.64.93.254:58800 - R:hacker-news.firebaseio.com/34.120.160.131:443] Handler is being applied: {uri=https://hacker-news.firebaseio.com/v0/item/43646698.json, method=GET}
+2025-04-11 17:41:41.329 [reactor-http-nio-5] DEBUG r.n.http.client.HttpClientOperations - [a22028a3-5, L:/10.64.93.254:58800 - R:hacker-news.firebaseio.com/34.120.160.131:443] No sendHeaders() called before complete, sending zero-length header
+2025-04-11 17:41:41.523 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [d5e0555e-7, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Server: <filtered>
+Date: <filtered>
+Content-Type: <filtered>
+Content-Length: <filtered>
+Connection: <filtered>
+Access-Control-Allow-Origin: <filtered>
+Cache-Control: <filtered>
+Strict-Transport-Security: <filtered>
+2025-04-11 17:41:41.523 [reactor-http-nio-4] DEBUG o.s.w.r.f.client.ExchangeFunctions - [6243cd73] [d5e0555e-7] Response 200 OK
+2025-04-11 17:41:41.524 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 响应状态: 200 OK
+2025-04-11 17:41:41.524 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [d5e0555e-7, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received last HTTP packet
+2025-04-11 17:41:41.524 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 获取到原始JSON: {"by":"agnosticmantis","descendants":66,"id":43613463,"kids":[43651064,43650504,43649139,43648733,43651495,43648985,43649829,43648438,43651800,43648909,43649038,43649260,43648987,43648962,43649688,43648833,43648886],"score":121,"time":1744044788,"title":"Gemini Live with camera and screen sharing capabilities","type":"story","url":"https://blog.google/products/gemini/gemini-live-android-tips/"}
+2025-04-11 17:41:41.524 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 准备解析JSON，原始内容: {"by":"agnosticmantis","descendants":66,"id":43613463,"kids":[43651064,43650504,43649139,43648733,43651495,43648985,43649829,43648438,43651800,43648909,43649038,43649260,43648987,43648962,43649688,43648833,43648886],"score":121,"time":1744044788,"title":"Gemini Live with camera and screen sharing capabilities","type":"story","url":"https://blog.google/products/gemini/gemini-live-android-tips/"}
+2025-04-11 17:41:41.525 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 解析后对象: id=43613463, by=agnosticmantis, title=Gemini Live with camera and screen sharing capabilities, url=https://blog.google/products/gemini/gemini-live-android-tips/, type=story, time=1744044788
+2025-04-11 17:41:41.525 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 成功解析新闻项 ID:43613463, 标题: Gemini Live with camera and screen sharing capabilities
+2025-04-11 17:41:41.530 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 新闻已存在于数据库中: 43613463
+2025-04-11 17:41:41.539 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 成功处理ID: 43613463, 排名: 18, 分数: 121
+2025-04-11 17:41:41.539 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 获取新闻项详情，ID: 43651458
+2025-04-11 17:41:41.540 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 请求: GET https://hacker-news.firebaseio.com/v0/item/43651458.json
+2025-04-11 17:41:41.540 [reactor-http-nio-4] DEBUG o.s.w.r.f.client.ExchangeFunctions - [6ba1db84] HTTP GET https://hacker-news.firebaseio.com/v0/item/43651458.json
+2025-04-11 17:41:41.541 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientConnect - [bc1f2f11-6, L:/10.64.93.254:58799 - R:hacker-news.firebaseio.com/34.120.160.131:443] Handler is being applied: {uri=https://hacker-news.firebaseio.com/v0/item/43651458.json, method=GET}
+2025-04-11 17:41:41.541 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientOperations - [bc1f2f11-6, L:/10.64.93.254:58799 - R:hacker-news.firebaseio.com/34.120.160.131:443] No sendHeaders() called before complete, sending zero-length header
+2025-04-11 17:41:41.543 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [4718aa34-3, L:/10.64.93.254:58801 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Server: <filtered>
+Date: <filtered>
+Content-Type: <filtered>
+Content-Length: <filtered>
+Connection: <filtered>
+Access-Control-Allow-Origin: <filtered>
+Cache-Control: <filtered>
+Strict-Transport-Security: <filtered>
+2025-04-11 17:41:41.543 [reactor-http-nio-4] DEBUG o.s.w.r.f.client.ExchangeFunctions - [56b2c0f3] [4718aa34-3] Response 200 OK
+2025-04-11 17:41:41.543 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 响应状态: 200 OK
+2025-04-11 17:41:41.544 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [4718aa34-3, L:/10.64.93.254:58801 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received last HTTP packet
+2025-04-11 17:41:41.544 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 获取到原始JSON: {"by":"noleary","descendants":150,"id":43648950,"kids":[43649551,43649383,43649295,43649188,43649185,43652068,43649031,43649252,43651786,43651519,43649458,43649229,43651388,43651537,43650184,43650208,43650722,43651431,43649724,43650306,43651079,43650679,43650114,43649507,43651083,43650355,43649442,43651162,43649452,43650863,43650488,43649564,43649872,43651004,43649063,43649945,43649603,43649534,43649490,43649499,43649800,43649625,43649554],"score":318,"time":1744328214,"title":"Fintech founder charged with fraud; AI app found to be humans in the Philippines","type":"story","url":"https://techcrunch.com/2025/04/10/fintech-founder-charged-with-fraud-after-ai-shopping-app-found-to-be-powered-by-humans-in-the-philippines/"}
+2025-04-11 17:41:41.544 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 准备解析JSON，原始内容: {"by":"noleary","descendants":150,"id":43648950,"kids":[43649551,43649383,43649295,43649188,43649185,43652068,43649031,43649252,43651786,43651519,43649458,43649229,43651388,43651537,43650184,43650208,43650722,43651431,43649724,43650306,43651079,43650679,43650114,43649507,43651083,43650355,43649442,43651162,43649452,43650863,43650488,43649564,43649872,43651004,43649063,43649945,43649603,43649534,43649490,43649499,43649800,43649625,43649554],"score":318,"time":1744328214,"title":"Fintech founder charged with fraud; AI app found to be humans in the Philippines","type":"story","url":"https://techcrunch.com/2025/04/10/fintech-founder-charged-with-fraud-after-ai-shopping-app-found-to-be-powered-by-humans-in-the-philippines/"}
+2025-04-11 17:41:41.544 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 解析后对象: id=43648950, by=noleary, title=Fintech founder charged with fraud; AI app found to be humans in the Philippines, url=https://techcrunch.com/2025/04/10/fintech-founder-charged-with-fraud-after-ai-shopping-app-found-to-be-powered-by-humans-in-the-philippines/, type=story, time=1744328214
+2025-04-11 17:41:41.544 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 成功解析新闻项 ID:43648950, 标题: Fintech founder charged with fraud; AI app found to be humans in the Philippines
+2025-04-11 17:41:41.546 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 新闻已存在于数据库中: 43648950
+2025-04-11 17:41:41.553 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 成功处理ID: 43648950, 排名: 17, 分数: 318
+2025-04-11 17:41:41.563 [reactor-http-nio-5] DEBUG r.n.http.client.HttpClientOperations - [a22028a3-5, L:/10.64.93.254:58800 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Server: <filtered>
+Date: <filtered>
+Content-Type: <filtered>
+Content-Length: <filtered>
+Connection: <filtered>
+Access-Control-Allow-Origin: <filtered>
+Cache-Control: <filtered>
+Strict-Transport-Security: <filtered>
+2025-04-11 17:41:41.564 [reactor-http-nio-5] DEBUG o.s.w.r.f.client.ExchangeFunctions - [7daa023e] [a22028a3-5] Response 200 OK
+2025-04-11 17:41:41.564 [reactor-http-nio-5] DEBUG c.e.h.service.HackerNewsService - 响应状态: 200 OK
+2025-04-11 17:41:41.564 [reactor-http-nio-5] DEBUG r.n.http.client.HttpClientOperations - [a22028a3-5, L:/10.64.93.254:58800 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received last HTTP packet
+2025-04-11 17:41:41.564 [reactor-http-nio-5] DEBUG c.e.h.service.HackerNewsService - 获取到原始JSON: {"by":"thunderbong","descendants":32,"id":43646698,"kids":[43647015,43647310,43647155,43647389,43649199,43647121,43649037,43647628,43648189],"score":142,"time":1744309305,"title":"Demystifying the (Shebang): Kernel Adventures","type":"story","url":"https://crocidb.com/post/kernel-adventures/demystifying-the-shebang/"}
+2025-04-11 17:41:41.564 [reactor-http-nio-5] INFO  c.e.h.service.HackerNewsService - 准备解析JSON，原始内容: {"by":"thunderbong","descendants":32,"id":43646698,"kids":[43647015,43647310,43647155,43647389,43649199,43647121,43649037,43647628,43648189],"score":142,"time":1744309305,"title":"Demystifying the (Shebang): Kernel Adventures","type":"story","url":"https://crocidb.com/post/kernel-adventures/demystifying-the-shebang/"}
+2025-04-11 17:41:41.564 [reactor-http-nio-5] INFO  c.e.h.service.HackerNewsService - 解析后对象: id=43646698, by=thunderbong, title=Demystifying the (Shebang): Kernel Adventures, url=https://crocidb.com/post/kernel-adventures/demystifying-the-shebang/, type=story, time=1744309305
+2025-04-11 17:41:41.564 [reactor-http-nio-5] INFO  c.e.h.service.HackerNewsService - 成功解析新闻项 ID:43646698, 标题: Demystifying the (Shebang): Kernel Adventures
+2025-04-11 17:41:41.567 [reactor-http-nio-5] INFO  c.e.h.service.NewsUpdateService - 新闻已存在于数据库中: 43646698
+2025-04-11 17:41:41.572 [reactor-http-nio-5] INFO  c.e.h.service.NewsUpdateService - 成功处理ID: 43646698, 排名: 19, 分数: 142
+2025-04-11 17:41:41.783 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientOperations - [bc1f2f11-6, L:/10.64.93.254:58799 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Server: <filtered>
+Date: <filtered>
+Content-Type: <filtered>
+Content-Length: <filtered>
+Connection: <filtered>
+Access-Control-Allow-Origin: <filtered>
+Cache-Control: <filtered>
+Strict-Transport-Security: <filtered>
+2025-04-11 17:41:41.784 [reactor-http-nio-6] DEBUG o.s.w.r.f.client.ExchangeFunctions - [6ba1db84] [bc1f2f11-6] Response 200 OK
+2025-04-11 17:41:41.784 [reactor-http-nio-6] DEBUG c.e.h.service.HackerNewsService - 响应状态: 200 OK
+2025-04-11 17:41:41.784 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientOperations - [bc1f2f11-6, L:/10.64.93.254:58799 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received last HTTP packet
+2025-04-11 17:41:41.785 [reactor-http-nio-6] DEBUG c.e.h.service.HackerNewsService - 获取到原始JSON: {"by":"icy","descendants":25,"id":43651458,"kids":[43651961,43651946,43651827,43652016,43652022,43652037,43651909,43651997,43652071,43651991,43651762],"score":31,"time":1744358363,"title":"Mastodon Exit Interview","type":"story","url":"https://v.cx/2025/04/mastodon-exit-interview"}
+2025-04-11 17:41:41.785 [reactor-http-nio-6] INFO  c.e.h.service.HackerNewsService - 准备解析JSON，原始内容: {"by":"icy","descendants":25,"id":43651458,"kids":[43651961,43651946,43651827,43652016,43652022,43652037,43651909,43651997,43652071,43651991,43651762],"score":31,"time":1744358363,"title":"Mastodon Exit Interview","type":"story","url":"https://v.cx/2025/04/mastodon-exit-interview"}
+2025-04-11 17:41:41.785 [reactor-http-nio-6] INFO  c.e.h.service.HackerNewsService - 解析后对象: id=43651458, by=icy, title=Mastodon Exit Interview, url=https://v.cx/2025/04/mastodon-exit-interview, type=story, time=1744358363
+2025-04-11 17:41:41.785 [reactor-http-nio-6] INFO  c.e.h.service.HackerNewsService - 成功解析新闻项 ID:43651458, 标题: Mastodon Exit Interview
+2025-04-11 17:41:41.790 [reactor-http-nio-6] INFO  c.e.h.service.NewsUpdateService - 新闻已存在于数据库中: 43651458
+2025-04-11 17:41:41.796 [reactor-http-nio-6] INFO  c.e.h.service.NewsUpdateService - 成功处理ID: 43651458, 排名: 20, 分数: 31
+2025-04-11 17:41:41.796 [reactor-http-nio-6] INFO  c.e.h.service.NewsUpdateService - 批次处理完成: 成功=10, 失败=0
+2025-04-11 17:41:41.797 [reactor-http-nio-6] INFO  c.e.h.service.NewsUpdateService - 开始处理第 3 批次，包含 10 个ID
+2025-04-11 17:41:45.809 [parallel-8] INFO  c.e.h.service.HackerNewsService - 获取新闻项详情，ID: 43649088
+2025-04-11 17:41:45.811 [parallel-8] DEBUG c.e.h.service.HackerNewsService - 请求: GET https://hacker-news.firebaseio.com/v0/item/43649088.json
+2025-04-11 17:41:45.812 [parallel-8] DEBUG o.s.w.r.f.client.ExchangeFunctions - [44d35934] HTTP GET https://hacker-news.firebaseio.com/v0/item/43649088.json
+2025-04-11 17:41:45.813 [parallel-8] INFO  c.e.h.service.HackerNewsService - 获取新闻项详情，ID: 43644970
+2025-04-11 17:41:45.813 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientConnect - [d5e0555e-8, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] Handler is being applied: {uri=https://hacker-news.firebaseio.com/v0/item/43649088.json, method=GET}
+2025-04-11 17:41:45.814 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [d5e0555e-8, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] No sendHeaders() called before complete, sending zero-length header
+2025-04-11 17:41:45.814 [parallel-8] DEBUG c.e.h.service.HackerNewsService - 请求: GET https://hacker-news.firebaseio.com/v0/item/43644970.json
+2025-04-11 17:41:45.815 [parallel-8] DEBUG o.s.w.r.f.client.ExchangeFunctions - [4a14bfde] HTTP GET https://hacker-news.firebaseio.com/v0/item/43644970.json
+2025-04-11 17:41:45.816 [parallel-8] INFO  c.e.h.service.HackerNewsService - 获取新闻项详情，ID: 43621021
+2025-04-11 17:41:45.816 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientConnect - [4718aa34-4, L:/10.64.93.254:58801 - R:hacker-news.firebaseio.com/34.120.160.131:443] Handler is being applied: {uri=https://hacker-news.firebaseio.com/v0/item/43644970.json, method=GET}
+2025-04-11 17:41:45.817 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [4718aa34-4, L:/10.64.93.254:58801 - R:hacker-news.firebaseio.com/34.120.160.131:443] No sendHeaders() called before complete, sending zero-length header
+2025-04-11 17:41:45.817 [parallel-8] DEBUG c.e.h.service.HackerNewsService - 请求: GET https://hacker-news.firebaseio.com/v0/item/43621021.json
+2025-04-11 17:41:45.818 [parallel-8] DEBUG o.s.w.r.f.client.ExchangeFunctions - [4e2b3244] HTTP GET https://hacker-news.firebaseio.com/v0/item/43621021.json
+2025-04-11 17:41:45.819 [reactor-http-nio-5] DEBUG r.n.http.client.HttpClientConnect - [a22028a3-6, L:/10.64.93.254:58800 - R:hacker-news.firebaseio.com/34.120.160.131:443] Handler is being applied: {uri=https://hacker-news.firebaseio.com/v0/item/43621021.json, method=GET}
+2025-04-11 17:41:45.819 [reactor-http-nio-5] DEBUG r.n.http.client.HttpClientOperations - [a22028a3-6, L:/10.64.93.254:58800 - R:hacker-news.firebaseio.com/34.120.160.131:443] No sendHeaders() called before complete, sending zero-length header
+2025-04-11 17:41:46.020 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [d5e0555e-8, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Server: <filtered>
+Date: <filtered>
+Content-Type: <filtered>
+Content-Length: <filtered>
+Connection: <filtered>
+Access-Control-Allow-Origin: <filtered>
+Cache-Control: <filtered>
+Strict-Transport-Security: <filtered>
+2025-04-11 17:41:46.021 [reactor-http-nio-4] DEBUG o.s.w.r.f.client.ExchangeFunctions - [44d35934] [d5e0555e-8] Response 200 OK
+2025-04-11 17:41:46.021 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 响应状态: 200 OK
+2025-04-11 17:41:46.021 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [d5e0555e-8, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received last HTTP packet
+2025-04-11 17:41:46.022 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 获取到原始JSON: {"by":"kblissett","descendants":25,"id":43649088,"kids":[43651740,43651327,43651289],"score":46,"time":1744329521,"title":"systemd ParticleOS","type":"story","url":"https://github.com/systemd/particleos"}
+2025-04-11 17:41:46.022 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 准备解析JSON，原始内容: {"by":"kblissett","descendants":25,"id":43649088,"kids":[43651740,43651327,43651289],"score":46,"time":1744329521,"title":"systemd ParticleOS","type":"story","url":"https://github.com/systemd/particleos"}
+2025-04-11 17:41:46.022 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 解析后对象: id=43649088, by=kblissett, title=systemd ParticleOS, url=https://github.com/systemd/particleos, type=story, time=1744329521
+2025-04-11 17:41:46.022 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 成功解析新闻项 ID:43649088, 标题: systemd ParticleOS
+2025-04-11 17:41:46.026 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 新闻已存在于数据库中: 43649088
+2025-04-11 17:41:46.036 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 成功处理ID: 43649088, 排名: 21, 分数: 46
+2025-04-11 17:41:46.036 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 获取新闻项详情，ID: 43644662
+2025-04-11 17:41:46.036 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 请求: GET https://hacker-news.firebaseio.com/v0/item/43644662.json
+2025-04-11 17:41:46.037 [reactor-http-nio-4] DEBUG o.s.w.r.f.client.ExchangeFunctions - [24f86a9c] HTTP GET https://hacker-news.firebaseio.com/v0/item/43644662.json
+2025-04-11 17:41:46.037 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientConnect - [bc1f2f11-7, L:/10.64.93.254:58799 - R:hacker-news.firebaseio.com/34.120.160.131:443] Handler is being applied: {uri=https://hacker-news.firebaseio.com/v0/item/43644662.json, method=GET}
+2025-04-11 17:41:46.038 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientOperations - [bc1f2f11-7, L:/10.64.93.254:58799 - R:hacker-news.firebaseio.com/34.120.160.131:443] No sendHeaders() called before complete, sending zero-length header
+2025-04-11 17:41:46.046 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [4718aa34-4, L:/10.64.93.254:58801 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Server: <filtered>
+Date: <filtered>
+Content-Type: <filtered>
+Content-Length: <filtered>
+Connection: <filtered>
+Access-Control-Allow-Origin: <filtered>
+Cache-Control: <filtered>
+Strict-Transport-Security: <filtered>
+2025-04-11 17:41:46.046 [reactor-http-nio-4] DEBUG o.s.w.r.f.client.ExchangeFunctions - [4a14bfde] [4718aa34-4] Response 200 OK
+2025-04-11 17:41:46.046 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 响应状态: 200 OK
+2025-04-11 17:41:46.046 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [4718aa34-4, L:/10.64.93.254:58801 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received last HTTP packet
+2025-04-11 17:41:46.047 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 获取到原始JSON: {"by":"speckx","descendants":141,"id":43644970,"kids":[43649989,43645189,43645916,43645521,43645242,43645159,43651041,43647474,43647353,43646098,43646200,43649147,43647499,43645335,43648692,43646285,43650581,43645644,43645422,43648571,43645321,43648671,43645226,43645236,43646257,43645149],"score":187,"time":1744299304,"title":"Why Tap a Wheel of Cheese?","type":"story","url":"https://www.cheeseprofessor.com/blog/cheese-wheel-tapping"}
+2025-04-11 17:41:46.047 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 准备解析JSON，原始内容: {"by":"speckx","descendants":141,"id":43644970,"kids":[43649989,43645189,43645916,43645521,43645242,43645159,43651041,43647474,43647353,43646098,43646200,43649147,43647499,43645335,43648692,43646285,43650581,43645644,43645422,43648571,43645321,43648671,43645226,43645236,43646257,43645149],"score":187,"time":1744299304,"title":"Why Tap a Wheel of Cheese?","type":"story","url":"https://www.cheeseprofessor.com/blog/cheese-wheel-tapping"}
+2025-04-11 17:41:46.047 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 解析后对象: id=43644970, by=speckx, title=Why Tap a Wheel of Cheese?, url=https://www.cheeseprofessor.com/blog/cheese-wheel-tapping, type=story, time=1744299304
+2025-04-11 17:41:46.047 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 成功解析新闻项 ID:43644970, 标题: Why Tap a Wheel of Cheese?
+2025-04-11 17:41:46.050 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 新闻已存在于数据库中: 43644970
+2025-04-11 17:41:46.053 [reactor-http-nio-5] DEBUG r.n.http.client.HttpClientOperations - [a22028a3-6, L:/10.64.93.254:58800 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Server: <filtered>
+Date: <filtered>
+Content-Type: <filtered>
+Content-Length: <filtered>
+Connection: <filtered>
+Access-Control-Allow-Origin: <filtered>
+Cache-Control: <filtered>
+Strict-Transport-Security: <filtered>
+2025-04-11 17:41:46.053 [reactor-http-nio-5] DEBUG o.s.w.r.f.client.ExchangeFunctions - [4e2b3244] [a22028a3-6] Response 200 OK
+2025-04-11 17:41:46.053 [reactor-http-nio-5] DEBUG c.e.h.service.HackerNewsService - 响应状态: 200 OK
+2025-04-11 17:41:46.054 [reactor-http-nio-5] DEBUG r.n.http.client.HttpClientOperations - [a22028a3-6, L:/10.64.93.254:58800 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received last HTTP packet
+2025-04-11 17:41:46.054 [reactor-http-nio-5] DEBUG c.e.h.service.HackerNewsService - 获取到原始JSON: {"by":"PaulHoule","descendants":4,"id":43621021,"kids":[43650837,43651454,43639752,43650366],"score":40,"time":1744115914,"title":"Levitating Bugs with Sound Could Transform Scientific Photography","type":"story","url":"https://petapixel.com/2025/03/25/levitating-bugs-with-sound-could-transform-scientific-photography/"}
+2025-04-11 17:41:46.054 [reactor-http-nio-5] INFO  c.e.h.service.HackerNewsService - 准备解析JSON，原始内容: {"by":"PaulHoule","descendants":4,"id":43621021,"kids":[43650837,43651454,43639752,43650366],"score":40,"time":1744115914,"title":"Levitating Bugs with Sound Could Transform Scientific Photography","type":"story","url":"https://petapixel.com/2025/03/25/levitating-bugs-with-sound-could-transform-scientific-photography/"}
+2025-04-11 17:41:46.055 [reactor-http-nio-5] INFO  c.e.h.service.HackerNewsService - 解析后对象: id=43621021, by=PaulHoule, title=Levitating Bugs with Sound Could Transform Scientific Photography, url=https://petapixel.com/2025/03/25/levitating-bugs-with-sound-could-transform-scientific-photography/, type=story, time=1744115914
+2025-04-11 17:41:46.055 [reactor-http-nio-5] INFO  c.e.h.service.HackerNewsService - 成功解析新闻项 ID:43621021, 标题: Levitating Bugs with Sound Could Transform Scientific Photography
+2025-04-11 17:41:46.056 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 成功处理ID: 43644970, 排名: 22, 分数: 187
+2025-04-11 17:41:46.056 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 获取新闻项详情，ID: 43644351
+2025-04-11 17:41:46.057 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 请求: GET https://hacker-news.firebaseio.com/v0/item/43644351.json
+2025-04-11 17:41:46.057 [reactor-http-nio-5] INFO  c.e.h.service.NewsUpdateService - 新闻已存在于数据库中: 43621021
+2025-04-11 17:41:46.057 [reactor-http-nio-4] DEBUG o.s.w.r.f.client.ExchangeFunctions - [48d3e64b] HTTP GET https://hacker-news.firebaseio.com/v0/item/43644351.json
+2025-04-11 17:41:46.057 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientConnect - [d5e0555e-9, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] Handler is being applied: {uri=https://hacker-news.firebaseio.com/v0/item/43644351.json, method=GET}
+2025-04-11 17:41:46.057 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [d5e0555e-9, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] No sendHeaders() called before complete, sending zero-length header
+2025-04-11 17:41:46.062 [reactor-http-nio-5] INFO  c.e.h.service.NewsUpdateService - 成功处理ID: 43621021, 排名: 23, 分数: 40
+2025-04-11 17:41:46.062 [reactor-http-nio-5] INFO  c.e.h.service.HackerNewsService - 获取新闻项详情，ID: 43620676
+2025-04-11 17:41:46.062 [reactor-http-nio-5] DEBUG c.e.h.service.HackerNewsService - 请求: GET https://hacker-news.firebaseio.com/v0/item/43620676.json
+2025-04-11 17:41:46.062 [reactor-http-nio-5] DEBUG o.s.w.r.f.client.ExchangeFunctions - [171bc893] HTTP GET https://hacker-news.firebaseio.com/v0/item/43620676.json
+2025-04-11 17:41:46.063 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientConnect - [4718aa34-5, L:/10.64.93.254:58801 - R:hacker-news.firebaseio.com/34.120.160.131:443] Handler is being applied: {uri=https://hacker-news.firebaseio.com/v0/item/43620676.json, method=GET}
+2025-04-11 17:41:46.063 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [4718aa34-5, L:/10.64.93.254:58801 - R:hacker-news.firebaseio.com/34.120.160.131:443] No sendHeaders() called before complete, sending zero-length header
+2025-04-11 17:41:46.265 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientOperations - [bc1f2f11-7, L:/10.64.93.254:58799 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Server: <filtered>
+Date: <filtered>
+Content-Type: <filtered>
+Content-Length: <filtered>
+Connection: <filtered>
+Access-Control-Allow-Origin: <filtered>
+Cache-Control: <filtered>
+Strict-Transport-Security: <filtered>
+2025-04-11 17:41:46.266 [reactor-http-nio-6] DEBUG o.s.w.r.f.client.ExchangeFunctions - [24f86a9c] [bc1f2f11-7] Response 200 OK
+2025-04-11 17:41:46.266 [reactor-http-nio-6] DEBUG c.e.h.service.HackerNewsService - 响应状态: 200 OK
+2025-04-11 17:41:46.267 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientOperations - [bc1f2f11-7, L:/10.64.93.254:58799 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received last HTTP packet
+2025-04-11 17:41:46.267 [reactor-http-nio-6] DEBUG c.e.h.service.HackerNewsService - 获取到原始JSON: {"by":"INGELRII","descendants":82,"id":43644662,"kids":[43646075,43645990,43646514,43646170,43645619,43651427,43646292,43646752,43646087],"score":92,"time":1744297992,"title":"2025 AI Index Report","type":"story","url":"https://hai.stanford.edu/ai-index/2025-ai-index-report"}
+2025-04-11 17:41:46.267 [reactor-http-nio-6] INFO  c.e.h.service.HackerNewsService - 准备解析JSON，原始内容: {"by":"INGELRII","descendants":82,"id":43644662,"kids":[43646075,43645990,43646514,43646170,43645619,43651427,43646292,43646752,43646087],"score":92,"time":1744297992,"title":"2025 AI Index Report","type":"story","url":"https://hai.stanford.edu/ai-index/2025-ai-index-report"}
+2025-04-11 17:41:46.267 [reactor-http-nio-6] INFO  c.e.h.service.HackerNewsService - 解析后对象: id=43644662, by=INGELRII, title=2025 AI Index Report, url=https://hai.stanford.edu/ai-index/2025-ai-index-report, type=story, time=1744297992
+2025-04-11 17:41:46.267 [reactor-http-nio-6] INFO  c.e.h.service.HackerNewsService - 成功解析新闻项 ID:43644662, 标题: 2025 AI Index Report
+2025-04-11 17:41:46.270 [reactor-http-nio-6] INFO  c.e.h.service.NewsUpdateService - 新闻已存在于数据库中: 43644662
+2025-04-11 17:41:46.270 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [d5e0555e-9, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Server: <filtered>
+Date: <filtered>
+Content-Type: <filtered>
+Content-Length: <filtered>
+Connection: <filtered>
+Access-Control-Allow-Origin: <filtered>
+Cache-Control: <filtered>
+Strict-Transport-Security: <filtered>
+2025-04-11 17:41:46.271 [reactor-http-nio-4] DEBUG o.s.w.r.f.client.ExchangeFunctions - [48d3e64b] [d5e0555e-9] Response 200 OK
+2025-04-11 17:41:46.271 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 响应状态: 200 OK
+2025-04-11 17:41:46.271 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [d5e0555e-9, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received last HTTP packet
+2025-04-11 17:41:46.272 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 获取到原始JSON: {"by":"tylertreat","descendants":30,"id":43644351,"kids":[43646711,43651300,43646930,43647315,43646957,43647021,43647375,43647222,43644446,43647899,43647207],"score":100,"text":"A large part of our (Real Kinetic&#x27;s) business is helping organizations implement platform engineering, but we&#x27;ve found the existing tooling to be lacking. For IaC, Terraform state becomes a pain because TF treats infrastructure as &quot;one-shot&quot; commands. The Kubernetes controller model provides a nicer approach to managing infrastructure, but the tooling here is also lacking. For configuration management, Helm just doesn&#x27;t really scale with complexity, nor does Kustomize. For resource orchestration, Crossplane is a step in the right direction but still has challenges and limitations.<p>As a result, we ended up building something that&#x27;s sort of a &quot;meta-controller programming language&quot; on top of Kubernetes called Koreo. It provides a solution for configuration management and resource orchestration in Kubernetes by basically letting you program controllers. We&#x27;ve been using Koreo for a while now to build internal developer platform capabilities for our commercial product and our clients, and we recently open sourced it to share it with the community.<p>Koreo has some similarities to configuration languages like KCL, Jsonnet, etc. since it is a means of configuration management (e.g. you can define base configurations, apply overlays, point patches, and so forth). Where it really diverges though is Koreo provides a unified approach to config management <i>and</i> resource orchestration. This means you can start to treat Kubernetes resources as &quot;legos&quot; to build pretty sophisticated workflows. For instance, the output of a resource can be used as the input to another resource. This isn&#x27;t really possible with Helm, even with `lookup` because `lookup` requires the resource to already be in-cluster in order to reference it.<p>This is why we refer to Koreo as a meta-controller programming language because it effectively lets you program and compose Kubernetes controllers into cohesive platforms—either built-in controllers (think Deployment or StatefulSet), off-the-shelf ones such as AWS ACK or GCP&#x27;s Config Connector, or custom operators. It lets you build or combine controllers without actually needing to implement an operator. Through this lens, Koreo is really more akin to Crossplane but without some of the limitations such as Providers and cluster-scoped managed resources.<p>It seems crazy and maybe it is, but I&#x27;ve found working in Koreo to actually be surprisingly fun since it kind of turns Kubernetes primitives into legos you can easily piece together, reuse, and build some pretty cool automated workflows. You can learn more about the motivation and thinking behind it here: <a href=\"https:&#x2F;&#x2F;theyamlengineer.com\" rel=\"nofollow\">https:&#x2F;&#x2F;theyamlengineer.com</a>","time":1744296500,"title":"Show HN: Koreo – A platform engineering toolkit for Kubernetes","type":"story","url":"https://koreo.dev/"}
+2025-04-11 17:41:46.272 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 准备解析JSON，原始内容: {"by":"tylertreat","descendants":30,"id":43644351,"kids":[43646711,43651300,43646930,43647315,43646957,43647021,43647375,43647222,43644446,43647899,43647207],"score":100,"text":"A large part of our (Real Kinetic&#x27;s) business is helping organizations implement platform engineering, but we&#x27;ve found the existing tooling to be lacking. For IaC, Terraform state becomes a pain because TF treats infrastructure as &quot;one-shot&quot; commands. The Kubernetes controller model provides a nicer approach to managing infrastructure, but the tooling here is also lacking. For configuration management, Helm just doesn&#x27;t really scale with complexity, nor does Kustomize. For resource orchestration, Crossplane is a step in the right direction but still has challenges and limitations.<p>As a result, we ended up building something that&#x27;s sort of a &quot;meta-controller programming language&quot; on top of Kubernetes called Koreo. It provides a solution for configuration management and resource orchestration in Kubernetes by basically letting you program controllers. We&#x27;ve been using Koreo for a while now to build internal developer platform capabilities for our commercial product and our clients, and we recently open sourced it to share it with the community.<p>Koreo has some similarities to configuration languages like KCL, Jsonnet, etc. since it is a means of configuration management (e.g. you can define base configurations, apply overlays, point patches, and so forth). Where it really diverges though is Koreo provides a unified approach to config management <i>and</i> resource orchestration. This means you can start to treat Kubernetes resources as &quot;legos&quot; to build pretty sophisticated workflows. For instance, the output of a resource can be used as the input to another resource. This isn&#x27;t really possible with Helm, even with `lookup` because `lookup` requires the resource to already be in-cluster in order to reference it.<p>This is why we refer to Koreo as a meta-controller programming language because it effectively lets you program and compose Kubernetes controllers into cohesive platforms—either built-in controllers (think Deployment or StatefulSet), off-the-shelf ones such as AWS ACK or GCP&#x27;s Config Connector, or custom operators. It lets you build or combine controllers without actually needing to implement an operator. Through this lens, Koreo is really more akin to Crossplane but without some of the limitations such as Providers and cluster-scoped managed resources.<p>It seems crazy and maybe it is, but I&#x27;ve found working in Koreo to actually be surprisingly fun since it kind of turns Kubernetes primitives into legos you can easily piece together, reuse, and build some pretty cool automated workflows. You can learn more about the motivation and thinking behind it here: <a href=\"https:&#x2F;&#x2F;theyamlengineer.com\" rel=\"nofollow\">https:&#x2F;&#x2F;theyamlengineer.com</a>","time":1744296500,"title":"Show HN: Koreo – A platform engineering toolkit for Kubernetes","type":"story","url":"https://koreo.dev/"}
+2025-04-11 17:41:46.272 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 解析后对象: id=43644351, by=tylertreat, title=Show HN: Koreo – A platform engineering toolkit for Kubernetes, url=https://koreo.dev/, type=story, time=1744296500
+2025-04-11 17:41:46.272 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 成功解析新闻项 ID:43644351, 标题: Show HN: Koreo – A platform engineering toolkit for Kubernetes
+2025-04-11 17:41:46.275 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 新闻已存在于数据库中: 43644351
+2025-04-11 17:41:46.278 [reactor-http-nio-6] INFO  c.e.h.service.NewsUpdateService - 成功处理ID: 43644662, 排名: 24, 分数: 92
+2025-04-11 17:41:46.278 [reactor-http-nio-6] INFO  c.e.h.service.HackerNewsService - 获取新闻项详情，ID: 43615844
+2025-04-11 17:41:46.278 [reactor-http-nio-6] DEBUG c.e.h.service.HackerNewsService - 请求: GET https://hacker-news.firebaseio.com/v0/item/43615844.json
+2025-04-11 17:41:46.278 [reactor-http-nio-6] DEBUG o.s.w.r.f.client.ExchangeFunctions - [38c2ead] HTTP GET https://hacker-news.firebaseio.com/v0/item/43615844.json
+2025-04-11 17:41:46.279 [reactor-http-nio-5] DEBUG r.n.http.client.HttpClientConnect - [a22028a3-7, L:/10.64.93.254:58800 - R:hacker-news.firebaseio.com/34.120.160.131:443] Handler is being applied: {uri=https://hacker-news.firebaseio.com/v0/item/43615844.json, method=GET}
+2025-04-11 17:41:46.279 [reactor-http-nio-5] DEBUG r.n.http.client.HttpClientOperations - [a22028a3-7, L:/10.64.93.254:58800 - R:hacker-news.firebaseio.com/34.120.160.131:443] No sendHeaders() called before complete, sending zero-length header
+2025-04-11 17:41:46.280 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 成功处理ID: 43644351, 排名: 25, 分数: 100
+2025-04-11 17:41:46.280 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 获取新闻项详情，ID: 43648145
+2025-04-11 17:41:46.281 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 请求: GET https://hacker-news.firebaseio.com/v0/item/43648145.json
+2025-04-11 17:41:46.281 [reactor-http-nio-4] DEBUG o.s.w.r.f.client.ExchangeFunctions - [38d366bf] HTTP GET https://hacker-news.firebaseio.com/v0/item/43648145.json
+2025-04-11 17:41:46.281 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientConnect - [bc1f2f11-8, L:/10.64.93.254:58799 - R:hacker-news.firebaseio.com/34.120.160.131:443] Handler is being applied: {uri=https://hacker-news.firebaseio.com/v0/item/43648145.json, method=GET}
+2025-04-11 17:41:46.282 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientOperations - [bc1f2f11-8, L:/10.64.93.254:58799 - R:hacker-news.firebaseio.com/34.120.160.131:443] No sendHeaders() called before complete, sending zero-length header
+2025-04-11 17:41:46.291 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [4718aa34-5, L:/10.64.93.254:58801 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Server: <filtered>
+Date: <filtered>
+Content-Type: <filtered>
+Content-Length: <filtered>
+Connection: <filtered>
+Access-Control-Allow-Origin: <filtered>
+Cache-Control: <filtered>
+Strict-Transport-Security: <filtered>
+2025-04-11 17:41:46.291 [reactor-http-nio-4] DEBUG o.s.w.r.f.client.ExchangeFunctions - [171bc893] [4718aa34-5] Response 200 OK
+2025-04-11 17:41:46.291 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 响应状态: 200 OK
+2025-04-11 17:41:46.291 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [4718aa34-5, L:/10.64.93.254:58801 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received last HTTP packet
+2025-04-11 17:41:46.292 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 获取到原始JSON: {"by":"heavensteeth","descendants":2,"id":43620676,"kids":[43652062,43651854],"score":6,"time":1744113651,"title":"Remember FastCGI? (2021)","type":"story","url":"https://brokenco.de/2021/06/27/remember-fastcgi.html"}
+2025-04-11 17:41:46.292 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 准备解析JSON，原始内容: {"by":"heavensteeth","descendants":2,"id":43620676,"kids":[43652062,43651854],"score":6,"time":1744113651,"title":"Remember FastCGI? (2021)","type":"story","url":"https://brokenco.de/2021/06/27/remember-fastcgi.html"}
+2025-04-11 17:41:46.292 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 解析后对象: id=43620676, by=heavensteeth, title=Remember FastCGI? (2021), url=https://brokenco.de/2021/06/27/remember-fastcgi.html, type=story, time=1744113651
+2025-04-11 17:41:46.292 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 成功解析新闻项 ID:43620676, 标题: Remember FastCGI? (2021)
+2025-04-11 17:41:46.294 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 新闻已存在于数据库中: 43620676
+2025-04-11 17:41:46.299 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 成功处理ID: 43620676, 排名: 26, 分数: 6
+2025-04-11 17:41:46.299 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 获取新闻项详情，ID: 43622010
+2025-04-11 17:41:46.300 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 请求: GET https://hacker-news.firebaseio.com/v0/item/43622010.json
+2025-04-11 17:41:46.300 [reactor-http-nio-4] DEBUG o.s.w.r.f.client.ExchangeFunctions - [1978e85] HTTP GET https://hacker-news.firebaseio.com/v0/item/43622010.json
+2025-04-11 17:41:46.300 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientConnect - [d5e0555e-10, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] Handler is being applied: {uri=https://hacker-news.firebaseio.com/v0/item/43622010.json, method=GET}
+2025-04-11 17:41:46.300 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [d5e0555e-10, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] No sendHeaders() called before complete, sending zero-length header
+2025-04-11 17:41:46.507 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [d5e0555e-10, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Server: <filtered>
+Date: <filtered>
+Content-Type: <filtered>
+Content-Length: <filtered>
+Connection: <filtered>
+Access-Control-Allow-Origin: <filtered>
+Cache-Control: <filtered>
+Strict-Transport-Security: <filtered>
+2025-04-11 17:41:46.508 [reactor-http-nio-4] DEBUG o.s.w.r.f.client.ExchangeFunctions - [1978e85] [d5e0555e-10] Response 200 OK
+2025-04-11 17:41:46.508 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 响应状态: 200 OK
+2025-04-11 17:41:46.508 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [d5e0555e-10, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received last HTTP packet
+2025-04-11 17:41:46.509 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 获取到原始JSON: {"by":"NaOH","descendants":1,"id":43622010,"kids":[43650602],"score":25,"time":1744121500,"title":"The Austrian Cigarette Collection","type":"story","url":"http://www.zigsam.at"}
+2025-04-11 17:41:46.509 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 准备解析JSON，原始内容: {"by":"NaOH","descendants":1,"id":43622010,"kids":[43650602],"score":25,"time":1744121500,"title":"The Austrian Cigarette Collection","type":"story","url":"http://www.zigsam.at"}
+2025-04-11 17:41:46.509 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 解析后对象: id=43622010, by=NaOH, title=The Austrian Cigarette Collection, url=http://www.zigsam.at, type=story, time=1744121500
+2025-04-11 17:41:46.509 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 成功解析新闻项 ID:43622010, 标题: The Austrian Cigarette Collection
+2025-04-11 17:41:46.510 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientOperations - [bc1f2f11-8, L:/10.64.93.254:58799 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Server: <filtered>
+Date: <filtered>
+Content-Type: <filtered>
+Content-Length: <filtered>
+Connection: <filtered>
+Access-Control-Allow-Origin: <filtered>
+Cache-Control: <filtered>
+Strict-Transport-Security: <filtered>
+2025-04-11 17:41:46.510 [reactor-http-nio-6] DEBUG o.s.w.r.f.client.ExchangeFunctions - [38d366bf] [bc1f2f11-8] Response 200 OK
+2025-04-11 17:41:46.510 [reactor-http-nio-6] DEBUG c.e.h.service.HackerNewsService - 响应状态: 200 OK
+2025-04-11 17:41:46.510 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientOperations - [bc1f2f11-8, L:/10.64.93.254:58799 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received last HTTP packet
+2025-04-11 17:41:46.511 [reactor-http-nio-6] DEBUG c.e.h.service.HackerNewsService - 获取到原始JSON: {"by":"jsh1","descendants":52,"id":43648145,"kids":[43650050,43649090,43649322,43648832,43648754,43651636,43649385,43649223,43649219,43650971,43648719,43649186,43651298,43650033,43649657,43648946,43648984,43649196,43649193,43648936,43650079,43648918,43649376,43649259],"score":77,"text":"This is a free tool that helps you manage and visualize your credit card rewards across different categories.<p>You can input the cards in your wallet and see how they complement each other, spot gaps in your setup, and also see the best card to use for a given merchant.<p>I’m also a founder at OneCard, where we’re building a smart card that’ll eventually handle all of this automatically, routing each purchase to the best card in real-time.<p>Would love feedback from the HN community!","time":1744320268,"title":"Show HN: I built a tool to manage and compare credit card rewards","type":"story","url":"https://rewards.getonecard.io"}
+2025-04-11 17:41:46.511 [reactor-http-nio-6] INFO  c.e.h.service.HackerNewsService - 准备解析JSON，原始内容: {"by":"jsh1","descendants":52,"id":43648145,"kids":[43650050,43649090,43649322,43648832,43648754,43651636,43649385,43649223,43649219,43650971,43648719,43649186,43651298,43650033,43649657,43648946,43648984,43649196,43649193,43648936,43650079,43648918,43649376,43649259],"score":77,"text":"This is a free tool that helps you manage and visualize your credit card rewards across different categories.<p>You can input the cards in your wallet and see how they complement each other, spot gaps in your setup, and also see the best card to use for a given merchant.<p>I’m also a founder at OneCard, where we’re building a smart card that’ll eventually handle all of this automatically, routing each purchase to the best card in real-time.<p>Would love feedback from the HN community!","time":1744320268,"title":"Show HN: I built a tool to manage and compare credit card rewards","type":"story","url":"https://rewards.getonecard.io"}
+2025-04-11 17:41:46.511 [reactor-http-nio-5] DEBUG r.n.http.client.HttpClientOperations - [a22028a3-7, L:/10.64.93.254:58800 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Server: <filtered>
+Date: <filtered>
+Content-Type: <filtered>
+Content-Length: <filtered>
+Connection: <filtered>
+Access-Control-Allow-Origin: <filtered>
+Cache-Control: <filtered>
+Strict-Transport-Security: <filtered>
+2025-04-11 17:41:46.511 [reactor-http-nio-6] INFO  c.e.h.service.HackerNewsService - 解析后对象: id=43648145, by=jsh1, title=Show HN: I built a tool to manage and compare credit card rewards, url=https://rewards.getonecard.io, type=story, time=1744320268
+2025-04-11 17:41:46.511 [reactor-http-nio-6] INFO  c.e.h.service.HackerNewsService - 成功解析新闻项 ID:43648145, 标题: Show HN: I built a tool to manage and compare credit card rewards
+2025-04-11 17:41:46.512 [reactor-http-nio-5] DEBUG o.s.w.r.f.client.ExchangeFunctions - [38c2ead] [a22028a3-7] Response 200 OK
+2025-04-11 17:41:46.512 [reactor-http-nio-5] DEBUG c.e.h.service.HackerNewsService - 响应状态: 200 OK
+2025-04-11 17:41:46.513 [reactor-http-nio-5] DEBUG r.n.http.client.HttpClientOperations - [a22028a3-7, L:/10.64.93.254:58800 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received last HTTP packet
+2025-04-11 17:41:46.513 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 新闻已存在于数据库中: 43622010
+2025-04-11 17:41:46.513 [reactor-http-nio-5] DEBUG c.e.h.service.HackerNewsService - 获取到原始JSON: {"by":"mmoustafa","descendants":18,"id":43615844,"kids":[43652077,43650333,43616056,43651134,43650967,43615981,43650727,43651386,43650662,43651617,43650395,43650310,43650055],"score":35,"time":1744059327,"title":"The movie that's different every time you watch it","type":"story","url":"https://movieweb.com/eno-documentary-movie-different-every-time/"}
+2025-04-11 17:41:46.513 [reactor-http-nio-5] INFO  c.e.h.service.HackerNewsService - 准备解析JSON，原始内容: {"by":"mmoustafa","descendants":18,"id":43615844,"kids":[43652077,43650333,43616056,43651134,43650967,43615981,43650727,43651386,43650662,43651617,43650395,43650310,43650055],"score":35,"time":1744059327,"title":"The movie that's different every time you watch it","type":"story","url":"https://movieweb.com/eno-documentary-movie-different-every-time/"}
+2025-04-11 17:41:46.514 [reactor-http-nio-6] INFO  c.e.h.service.NewsUpdateService - 新闻已存在于数据库中: 43648145
+2025-04-11 17:41:46.514 [reactor-http-nio-5] INFO  c.e.h.service.HackerNewsService - 解析后对象: id=43615844, by=mmoustafa, title=The movie that's different every time you watch it, url=https://movieweb.com/eno-documentary-movie-different-every-time/, type=story, time=1744059327
+2025-04-11 17:41:46.514 [reactor-http-nio-5] INFO  c.e.h.service.HackerNewsService - 成功解析新闻项 ID:43615844, 标题: The movie that's different every time you watch it
+2025-04-11 17:41:46.515 [reactor-http-nio-6] INFO  c.e.h.service.NewsUpdateService - 成功处理ID: 43648145, 排名: 28, 分数: 77
+2025-04-11 17:41:46.515 [reactor-http-nio-6] INFO  c.e.h.service.HackerNewsService - 获取新闻项详情，ID: 43644043
+2025-04-11 17:41:46.516 [reactor-http-nio-5] INFO  c.e.h.service.NewsUpdateService - 新闻已存在于数据库中: 43615844
+2025-04-11 17:41:46.516 [reactor-http-nio-6] DEBUG c.e.h.service.HackerNewsService - 请求: GET https://hacker-news.firebaseio.com/v0/item/43644043.json
+2025-04-11 17:41:46.516 [reactor-http-nio-6] DEBUG o.s.w.r.f.client.ExchangeFunctions - [67fdd9d5] HTTP GET https://hacker-news.firebaseio.com/v0/item/43644043.json
+2025-04-11 17:41:46.519 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 成功处理ID: 43622010, 排名: 29, 分数: 25
+2025-04-11 17:41:46.520 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientConnect - [4718aa34-6, L:/10.64.93.254:58801 - R:hacker-news.firebaseio.com/34.120.160.131:443] Handler is being applied: {uri=https://hacker-news.firebaseio.com/v0/item/43644043.json, method=GET}
+2025-04-11 17:41:46.520 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [4718aa34-6, L:/10.64.93.254:58801 - R:hacker-news.firebaseio.com/34.120.160.131:443] No sendHeaders() called before complete, sending zero-length header
+2025-04-11 17:41:46.521 [reactor-http-nio-5] INFO  c.e.h.service.NewsUpdateService - 成功处理ID: 43615844, 排名: 27, 分数: 35
+2025-04-11 17:41:46.749 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [4718aa34-6, L:/10.64.93.254:58801 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Server: <filtered>
+Date: <filtered>
+Content-Type: <filtered>
+Content-Length: <filtered>
+Connection: <filtered>
+Access-Control-Allow-Origin: <filtered>
+Cache-Control: <filtered>
+Strict-Transport-Security: <filtered>
+2025-04-11 17:41:46.750 [reactor-http-nio-4] DEBUG o.s.w.r.f.client.ExchangeFunctions - [67fdd9d5] [4718aa34-6] Response 200 OK
+2025-04-11 17:41:46.750 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 响应状态: 200 OK
+2025-04-11 17:41:46.751 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [4718aa34-6, L:/10.64.93.254:58801 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received last HTTP packet
+2025-04-11 17:41:46.751 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 获取到原始JSON: {"by":"todsacerdoti","descendants":158,"id":43644043,"kids":[43651022,43651947,43644486,43645675,43644501,43651645,43645135,43644682,43645788,43645228,43651533,43651034,43645851,43644434,43644350,43650723,43645512,43644500,43645153,43644362,43651099,43645736,43647140,43647241,43646860,43644417,43651208,43644394,43644464,43644487,43644435,43645105,43645847,43651500,43645343,43644566,43644531,43645064,43644537,43651193,43645235,43644579,43645857,43644493,43644791,43646529,43644526,43644409,43650146,43644924,43644802,43644547,43644756,43644380,43644337,43644325],"score":229,"time":1744294746,"title":".localhost Domains","type":"story","url":"https://inclouds.space/localhost-domains"}
+2025-04-11 17:41:46.751 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 准备解析JSON，原始内容: {"by":"todsacerdoti","descendants":158,"id":43644043,"kids":[43651022,43651947,43644486,43645675,43644501,43651645,43645135,43644682,43645788,43645228,43651533,43651034,43645851,43644434,43644350,43650723,43645512,43644500,43645153,43644362,43651099,43645736,43647140,43647241,43646860,43644417,43651208,43644394,43644464,43644487,43644435,43645105,43645847,43651500,43645343,43644566,43644531,43645064,43644537,43651193,43645235,43644579,43645857,43644493,43644791,43646529,43644526,43644409,43650146,43644924,43644802,43644547,43644756,43644380,43644337,43644325],"score":229,"time":1744294746,"title":".localhost Domains","type":"story","url":"https://inclouds.space/localhost-domains"}
+2025-04-11 17:41:46.752 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 解析后对象: id=43644043, by=todsacerdoti, title=.localhost Domains, url=https://inclouds.space/localhost-domains, type=story, time=1744294746
+2025-04-11 17:41:46.752 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 成功解析新闻项 ID:43644043, 标题: .localhost Domains
+2025-04-11 17:41:46.756 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 新闻已存在于数据库中: 43644043
+2025-04-11 17:41:46.763 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 成功处理ID: 43644043, 排名: 30, 分数: 229
+2025-04-11 17:41:46.763 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 批次处理完成: 成功=10, 失败=0
+2025-04-11 17:41:46.763 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 开始处理第 4 批次，包含 10 个ID
+2025-04-11 17:41:52.772 [parallel-3] INFO  c.e.h.service.HackerNewsService - 获取新闻项详情，ID: 43649618
+2025-04-11 17:41:52.773 [parallel-3] DEBUG c.e.h.service.HackerNewsService - 请求: GET https://hacker-news.firebaseio.com/v0/item/43649618.json
+2025-04-11 17:41:52.773 [parallel-3] DEBUG o.s.w.r.f.client.ExchangeFunctions - [165b5be3] HTTP GET https://hacker-news.firebaseio.com/v0/item/43649618.json
+2025-04-11 17:41:52.774 [parallel-3] INFO  c.e.h.service.HackerNewsService - 获取新闻项详情，ID: 43645183
+2025-04-11 17:41:52.775 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientConnect - [bc1f2f11-9, L:/10.64.93.254:58799 - R:hacker-news.firebaseio.com/34.120.160.131:443] Handler is being applied: {uri=https://hacker-news.firebaseio.com/v0/item/43649618.json, method=GET}
+2025-04-11 17:41:52.775 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientOperations - [bc1f2f11-9, L:/10.64.93.254:58799 - R:hacker-news.firebaseio.com/34.120.160.131:443] No sendHeaders() called before complete, sending zero-length header
+2025-04-11 17:41:52.775 [parallel-3] DEBUG c.e.h.service.HackerNewsService - 请求: GET https://hacker-news.firebaseio.com/v0/item/43645183.json
+2025-04-11 17:41:52.776 [parallel-3] DEBUG o.s.w.r.f.client.ExchangeFunctions - [189ca758] HTTP GET https://hacker-news.firebaseio.com/v0/item/43645183.json
+2025-04-11 17:41:52.776 [parallel-3] INFO  c.e.h.service.HackerNewsService - 获取新闻项详情，ID: 43650717
+2025-04-11 17:41:52.777 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientConnect - [d5e0555e-11, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] Handler is being applied: {uri=https://hacker-news.firebaseio.com/v0/item/43645183.json, method=GET}
+2025-04-11 17:41:52.777 [parallel-3] DEBUG c.e.h.service.HackerNewsService - 请求: GET https://hacker-news.firebaseio.com/v0/item/43650717.json
+2025-04-11 17:41:52.777 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [d5e0555e-11, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] No sendHeaders() called before complete, sending zero-length header
+2025-04-11 17:41:52.777 [parallel-3] DEBUG o.s.w.r.f.client.ExchangeFunctions - [1ca33093] HTTP GET https://hacker-news.firebaseio.com/v0/item/43650717.json
+2025-04-11 17:41:52.777 [reactor-http-nio-5] DEBUG r.n.http.client.HttpClientConnect - [a22028a3-8, L:/10.64.93.254:58800 - R:hacker-news.firebaseio.com/34.120.160.131:443] Handler is being applied: {uri=https://hacker-news.firebaseio.com/v0/item/43650717.json, method=GET}
+2025-04-11 17:41:52.778 [reactor-http-nio-5] DEBUG r.n.http.client.HttpClientOperations - [a22028a3-8, L:/10.64.93.254:58800 - R:hacker-news.firebaseio.com/34.120.160.131:443] No sendHeaders() called before complete, sending zero-length header
+2025-04-11 17:41:52.982 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [d5e0555e-11, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Server: <filtered>
+Date: <filtered>
+Content-Type: <filtered>
+Content-Length: <filtered>
+Connection: <filtered>
+Access-Control-Allow-Origin: <filtered>
+Cache-Control: <filtered>
+Strict-Transport-Security: <filtered>
+2025-04-11 17:41:52.983 [reactor-http-nio-4] DEBUG o.s.w.r.f.client.ExchangeFunctions - [189ca758] [d5e0555e-11] Response 200 OK
+2025-04-11 17:41:52.983 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 响应状态: 200 OK
+2025-04-11 17:41:52.984 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [d5e0555e-11, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received last HTTP packet
+2025-04-11 17:41:52.984 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 获取到原始JSON: {"by":"helfire","descendants":56,"id":43645183,"kids":[43646906,43651634,43648097,43647178,43649052,43647465,43650575,43648703,43650777,43648846,43646947,43647339,43646824,43647360,43647110,43646862,43647745,43647196],"score":121,"time":1744300490,"title":"SDL2 for macOS 9 “rough draft”","type":"story","url":"https://macintoshgarden.org/apps/sdl2-macos-9-rough-draft"}
+2025-04-11 17:41:52.984 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 准备解析JSON，原始内容: {"by":"helfire","descendants":56,"id":43645183,"kids":[43646906,43651634,43648097,43647178,43649052,43647465,43650575,43648703,43650777,43648846,43646947,43647339,43646824,43647360,43647110,43646862,43647745,43647196],"score":121,"time":1744300490,"title":"SDL2 for macOS 9 “rough draft”","type":"story","url":"https://macintoshgarden.org/apps/sdl2-macos-9-rough-draft"}
+2025-04-11 17:41:52.985 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 解析后对象: id=43645183, by=helfire, title=SDL2 for macOS 9 “rough draft”, url=https://macintoshgarden.org/apps/sdl2-macos-9-rough-draft, type=story, time=1744300490
+2025-04-11 17:41:52.985 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 成功解析新闻项 ID:43645183, 标题: SDL2 for macOS 9 “rough draft”
+2025-04-11 17:41:52.988 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 新闻已存在于数据库中: 43645183
+2025-04-11 17:41:52.990 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 成功处理ID: 43645183, 排名: 32, 分数: 121
+2025-04-11 17:41:52.990 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 获取新闻项详情，ID: 43616649
+2025-04-11 17:41:52.991 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 请求: GET https://hacker-news.firebaseio.com/v0/item/43616649.json
+2025-04-11 17:41:52.991 [reactor-http-nio-4] DEBUG o.s.w.r.f.client.ExchangeFunctions - [2af87ce1] HTTP GET https://hacker-news.firebaseio.com/v0/item/43616649.json
+2025-04-11 17:41:52.993 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientConnect - [4718aa34-7, L:/10.64.93.254:58801 - R:hacker-news.firebaseio.com/34.120.160.131:443] Handler is being applied: {uri=https://hacker-news.firebaseio.com/v0/item/43616649.json, method=GET}
+2025-04-11 17:41:52.993 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [4718aa34-7, L:/10.64.93.254:58801 - R:hacker-news.firebaseio.com/34.120.160.131:443] No sendHeaders() called before complete, sending zero-length header
+2025-04-11 17:41:53.002 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientOperations - [bc1f2f11-9, L:/10.64.93.254:58799 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Server: <filtered>
+Date: <filtered>
+Content-Type: <filtered>
+Content-Length: <filtered>
+Connection: <filtered>
+Access-Control-Allow-Origin: <filtered>
+Cache-Control: <filtered>
+Strict-Transport-Security: <filtered>
+2025-04-11 17:41:53.002 [reactor-http-nio-6] DEBUG o.s.w.r.f.client.ExchangeFunctions - [165b5be3] [bc1f2f11-9] Response 200 OK
+2025-04-11 17:41:53.002 [reactor-http-nio-6] DEBUG c.e.h.service.HackerNewsService - 响应状态: 200 OK
+2025-04-11 17:41:53.003 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientOperations - [bc1f2f11-9, L:/10.64.93.254:58799 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received last HTTP packet
+2025-04-11 17:41:53.003 [reactor-http-nio-6] DEBUG c.e.h.service.HackerNewsService - 获取到原始JSON: {"by":"ksec","descendants":29,"id":43649618,"kids":[43651781,43650892,43650598,43649962,43651482,43651118,43650003,43650438,43650099],"score":102,"time":1744335405,"title":"Crystal 1.16.0","type":"story","url":"https://crystal-lang.org/2025/04/09/1.16.0-released/"}
+2025-04-11 17:41:53.003 [reactor-http-nio-6] INFO  c.e.h.service.HackerNewsService - 准备解析JSON，原始内容: {"by":"ksec","descendants":29,"id":43649618,"kids":[43651781,43650892,43650598,43649962,43651482,43651118,43650003,43650438,43650099],"score":102,"time":1744335405,"title":"Crystal 1.16.0","type":"story","url":"https://crystal-lang.org/2025/04/09/1.16.0-released/"}
+2025-04-11 17:41:53.003 [reactor-http-nio-6] INFO  c.e.h.service.HackerNewsService - 解析后对象: id=43649618, by=ksec, title=Crystal 1.16.0, url=https://crystal-lang.org/2025/04/09/1.16.0-released/, type=story, time=1744335405
+2025-04-11 17:41:53.003 [reactor-http-nio-6] INFO  c.e.h.service.HackerNewsService - 成功解析新闻项 ID:43649618, 标题: Crystal 1.16.0
+2025-04-11 17:41:53.006 [reactor-http-nio-6] INFO  c.e.h.service.NewsUpdateService - 新闻已存在于数据库中: 43649618
+2025-04-11 17:41:53.011 [reactor-http-nio-5] DEBUG r.n.http.client.HttpClientOperations - [a22028a3-8, L:/10.64.93.254:58800 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Server: <filtered>
+Date: <filtered>
+Content-Type: <filtered>
+Content-Length: <filtered>
+Connection: <filtered>
+Access-Control-Allow-Origin: <filtered>
+Cache-Control: <filtered>
+Strict-Transport-Security: <filtered>
+2025-04-11 17:41:53.012 [reactor-http-nio-5] DEBUG o.s.w.r.f.client.ExchangeFunctions - [1ca33093] [a22028a3-8] Response 200 OK
+2025-04-11 17:41:53.012 [reactor-http-nio-5] DEBUG c.e.h.service.HackerNewsService - 响应状态: 200 OK
+2025-04-11 17:41:53.012 [reactor-http-nio-5] DEBUG r.n.http.client.HttpClientOperations - [a22028a3-8, L:/10.64.93.254:58800 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received last HTTP packet
+2025-04-11 17:41:53.012 [reactor-http-nio-5] DEBUG c.e.h.service.HackerNewsService - 获取到原始JSON: {"by":"todsacerdoti","descendants":0,"id":43650717,"score":7,"time":1744348653,"title":"Low cost, high speed data acquisition over HDMI [video]","type":"story","url":"https://media.ccc.de/v/osmodevcon2024-200-low-cost-high-speed-data-acquisition-over-hdmi"}
+2025-04-11 17:41:53.012 [reactor-http-nio-5] INFO  c.e.h.service.HackerNewsService - 准备解析JSON，原始内容: {"by":"todsacerdoti","descendants":0,"id":43650717,"score":7,"time":1744348653,"title":"Low cost, high speed data acquisition over HDMI [video]","type":"story","url":"https://media.ccc.de/v/osmodevcon2024-200-low-cost-high-speed-data-acquisition-over-hdmi"}
+2025-04-11 17:41:53.012 [reactor-http-nio-5] INFO  c.e.h.service.HackerNewsService - 解析后对象: id=43650717, by=todsacerdoti, title=Low cost, high speed data acquisition over HDMI [video], url=https://media.ccc.de/v/osmodevcon2024-200-low-cost-high-speed-data-acquisition-over-hdmi, type=story, time=1744348653
+2025-04-11 17:41:53.012 [reactor-http-nio-5] INFO  c.e.h.service.HackerNewsService - 成功解析新闻项 ID:43650717, 标题: Low cost, high speed data acquisition over HDMI [video]
+2025-04-11 17:41:53.014 [reactor-http-nio-5] INFO  c.e.h.service.NewsUpdateService - 新闻已存在于数据库中: 43650717
+2025-04-11 17:41:53.014 [reactor-http-nio-6] INFO  c.e.h.service.NewsUpdateService - 成功处理ID: 43649618, 排名: 31, 分数: 102
+2025-04-11 17:41:53.014 [reactor-http-nio-6] INFO  c.e.h.service.HackerNewsService - 获取新闻项详情，ID: 43646466
+2025-04-11 17:41:53.014 [reactor-http-nio-6] DEBUG c.e.h.service.HackerNewsService - 请求: GET https://hacker-news.firebaseio.com/v0/item/43646466.json
+2025-04-11 17:41:53.014 [reactor-http-nio-6] DEBUG o.s.w.r.f.client.ExchangeFunctions - [6868ca15] HTTP GET https://hacker-news.firebaseio.com/v0/item/43646466.json
+2025-04-11 17:41:53.016 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientConnect - [d5e0555e-12, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] Handler is being applied: {uri=https://hacker-news.firebaseio.com/v0/item/43646466.json, method=GET}
+2025-04-11 17:41:53.016 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [d5e0555e-12, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] No sendHeaders() called before complete, sending zero-length header
+2025-04-11 17:41:53.021 [reactor-http-nio-5] INFO  c.e.h.service.NewsUpdateService - 成功处理ID: 43650717, 排名: 33, 分数: 7
+2025-04-11 17:41:53.021 [reactor-http-nio-5] INFO  c.e.h.service.HackerNewsService - 获取新闻项详情，ID: 43647598
+2025-04-11 17:41:53.021 [reactor-http-nio-5] DEBUG c.e.h.service.HackerNewsService - 请求: GET https://hacker-news.firebaseio.com/v0/item/43647598.json
+2025-04-11 17:41:53.021 [reactor-http-nio-5] DEBUG o.s.w.r.f.client.ExchangeFunctions - [6e9b9438] HTTP GET https://hacker-news.firebaseio.com/v0/item/43647598.json
+2025-04-11 17:41:53.021 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientConnect - [bc1f2f11-10, L:/10.64.93.254:58799 - R:hacker-news.firebaseio.com/34.120.160.131:443] Handler is being applied: {uri=https://hacker-news.firebaseio.com/v0/item/43647598.json, method=GET}
+2025-04-11 17:41:53.021 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientOperations - [bc1f2f11-10, L:/10.64.93.254:58799 - R:hacker-news.firebaseio.com/34.120.160.131:443] No sendHeaders() called before complete, sending zero-length header
+2025-04-11 17:41:53.221 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [d5e0555e-12, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Server: <filtered>
+Date: <filtered>
+Content-Type: <filtered>
+Content-Length: <filtered>
+Connection: <filtered>
+Access-Control-Allow-Origin: <filtered>
+Cache-Control: <filtered>
+Strict-Transport-Security: <filtered>
+2025-04-11 17:41:53.222 [reactor-http-nio-4] DEBUG o.s.w.r.f.client.ExchangeFunctions - [6868ca15] [d5e0555e-12] Response 200 OK
+2025-04-11 17:41:53.222 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 响应状态: 200 OK
+2025-04-11 17:41:53.223 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [d5e0555e-12, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received last HTTP packet
+2025-04-11 17:41:53.225 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 获取到原始JSON: {"by":"2bit","descendants":13,"id":43646466,"kids":[43646928,43646986,43647361,43648592,43649076,43647725,43648970,43646694,43648092],"score":80,"time":1744307882,"title":"Controlling Language and Diffusion Models by Transporting Activations","type":"story","url":"https://machinelearning.apple.com/research/transporting-activations"}
+2025-04-11 17:41:53.225 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 准备解析JSON，原始内容: {"by":"2bit","descendants":13,"id":43646466,"kids":[43646928,43646986,43647361,43648592,43649076,43647725,43648970,43646694,43648092],"score":80,"time":1744307882,"title":"Controlling Language and Diffusion Models by Transporting Activations","type":"story","url":"https://machinelearning.apple.com/research/transporting-activations"}
+2025-04-11 17:41:53.225 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 解析后对象: id=43646466, by=2bit, title=Controlling Language and Diffusion Models by Transporting Activations, url=https://machinelearning.apple.com/research/transporting-activations, type=story, time=1744307882
+2025-04-11 17:41:53.226 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 成功解析新闻项 ID:43646466, 标题: Controlling Language and Diffusion Models by Transporting Activations
+2025-04-11 17:41:53.229 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 新闻已存在于数据库中: 43646466
+2025-04-11 17:41:53.239 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 成功处理ID: 43646466, 排名: 35, 分数: 80
+2025-04-11 17:41:53.239 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 获取新闻项详情，ID: 43643968
+2025-04-11 17:41:53.239 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 请求: GET https://hacker-news.firebaseio.com/v0/item/43643968.json
+2025-04-11 17:41:53.239 [reactor-http-nio-4] DEBUG o.s.w.r.f.client.ExchangeFunctions - [433ae5de] HTTP GET https://hacker-news.firebaseio.com/v0/item/43643968.json
+2025-04-11 17:41:53.240 [reactor-http-nio-5] DEBUG r.n.http.client.HttpClientConnect - [a22028a3-9, L:/10.64.93.254:58800 - R:hacker-news.firebaseio.com/34.120.160.131:443] Handler is being applied: {uri=https://hacker-news.firebaseio.com/v0/item/43643968.json, method=GET}
+2025-04-11 17:41:53.240 [reactor-http-nio-5] DEBUG r.n.http.client.HttpClientOperations - [a22028a3-9, L:/10.64.93.254:58800 - R:hacker-news.firebaseio.com/34.120.160.131:443] No sendHeaders() called before complete, sending zero-length header
+2025-04-11 17:41:53.240 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [4718aa34-7, L:/10.64.93.254:58801 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Server: <filtered>
+Date: <filtered>
+Content-Type: <filtered>
+Content-Length: <filtered>
+Connection: <filtered>
+Access-Control-Allow-Origin: <filtered>
+Cache-Control: <filtered>
+Strict-Transport-Security: <filtered>
+2025-04-11 17:41:53.240 [reactor-http-nio-4] DEBUG o.s.w.r.f.client.ExchangeFunctions - [2af87ce1] [4718aa34-7] Response 200 OK
+2025-04-11 17:41:53.240 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 响应状态: 200 OK
+2025-04-11 17:41:53.241 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [4718aa34-7, L:/10.64.93.254:58801 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received last HTTP packet
+2025-04-11 17:41:53.241 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 获取到原始JSON: {"by":"returningfory2","descendants":60,"id":43616649,"kids":[43645485,43645579,43645287,43650446,43646741,43647843,43646490,43645689],"score":131,"time":1744065045,"title":"A surprising enum size optimization in the Rust compiler","type":"story","url":"https://jpfennell.com/posts/enum-type-size/"}
+2025-04-11 17:41:53.241 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 准备解析JSON，原始内容: {"by":"returningfory2","descendants":60,"id":43616649,"kids":[43645485,43645579,43645287,43650446,43646741,43647843,43646490,43645689],"score":131,"time":1744065045,"title":"A surprising enum size optimization in the Rust compiler","type":"story","url":"https://jpfennell.com/posts/enum-type-size/"}
+2025-04-11 17:41:53.241 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 解析后对象: id=43616649, by=returningfory2, title=A surprising enum size optimization in the Rust compiler, url=https://jpfennell.com/posts/enum-type-size/, type=story, time=1744065045
+2025-04-11 17:41:53.242 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 成功解析新闻项 ID:43616649, 标题: A surprising enum size optimization in the Rust compiler
+2025-04-11 17:41:53.249 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientOperations - [bc1f2f11-10, L:/10.64.93.254:58799 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Server: <filtered>
+Date: <filtered>
+Content-Type: <filtered>
+Content-Length: <filtered>
+Connection: <filtered>
+Access-Control-Allow-Origin: <filtered>
+Cache-Control: <filtered>
+Strict-Transport-Security: <filtered>
+2025-04-11 17:41:53.250 [reactor-http-nio-6] DEBUG o.s.w.r.f.client.ExchangeFunctions - [6e9b9438] [bc1f2f11-10] Response 200 OK
+2025-04-11 17:41:53.250 [reactor-http-nio-6] DEBUG c.e.h.service.HackerNewsService - 响应状态: 200 OK
+2025-04-11 17:41:53.250 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientOperations - [bc1f2f11-10, L:/10.64.93.254:58799 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received last HTTP packet
+2025-04-11 17:41:53.250 [reactor-http-nio-6] DEBUG c.e.h.service.HackerNewsService - 获取到原始JSON: {"by":"bobbiechen","descendants":85,"id":43647598,"kids":[43648574,43652041,43648319,43648469,43650167,43647896,43651245,43650100,43647898,43650844,43650020,43648520,43648061,43651015,43648337,43648011,43650219,43648314,43647914,43651260,43648636,43648409,43649859,43648449,43647897,43647871,43647878,43650724,43650697,43648124,43648503,43648402,43648685,43648195,43648096,43647868],"score":66,"time":1744315763,"title":"What if your website had business hours? (2022)","type":"story","url":"https://bobbiechen.com/blog/2022/7/21/what-if-your-website-had-business-hours"}
+2025-04-11 17:41:53.251 [reactor-http-nio-6] INFO  c.e.h.service.HackerNewsService - 准备解析JSON，原始内容: {"by":"bobbiechen","descendants":85,"id":43647598,"kids":[43648574,43652041,43648319,43648469,43650167,43647896,43651245,43650100,43647898,43650844,43650020,43648520,43648061,43651015,43648337,43648011,43650219,43648314,43647914,43651260,43648636,43648409,43649859,43648449,43647897,43647871,43647878,43650724,43650697,43648124,43648503,43648402,43648685,43648195,43648096,43647868],"score":66,"time":1744315763,"title":"What if your website had business hours? (2022)","type":"story","url":"https://bobbiechen.com/blog/2022/7/21/what-if-your-website-had-business-hours"}
+2025-04-11 17:41:53.251 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 新闻已存在于数据库中: 43616649
+2025-04-11 17:41:53.251 [reactor-http-nio-6] INFO  c.e.h.service.HackerNewsService - 解析后对象: id=43647598, by=bobbiechen, title=What if your website had business hours? (2022), url=https://bobbiechen.com/blog/2022/7/21/what-if-your-website-had-business-hours, type=story, time=1744315763
+2025-04-11 17:41:53.251 [reactor-http-nio-6] INFO  c.e.h.service.HackerNewsService - 成功解析新闻项 ID:43647598, 标题: What if your website had business hours? (2022)
+2025-04-11 17:41:53.252 [reactor-http-nio-6] INFO  c.e.h.service.NewsUpdateService - 新闻已存在于数据库中: 43647598
+2025-04-11 17:41:53.257 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 成功处理ID: 43616649, 排名: 34, 分数: 131
+2025-04-11 17:41:53.257 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 获取新闻项详情，ID: 43608422
+2025-04-11 17:41:53.258 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 请求: GET https://hacker-news.firebaseio.com/v0/item/43608422.json
+2025-04-11 17:41:53.258 [reactor-http-nio-4] DEBUG o.s.w.r.f.client.ExchangeFunctions - [6fc93a53] HTTP GET https://hacker-news.firebaseio.com/v0/item/43608422.json
+2025-04-11 17:41:53.258 [reactor-http-nio-6] INFO  c.e.h.service.NewsUpdateService - 成功处理ID: 43647598, 排名: 36, 分数: 66
+2025-04-11 17:41:53.258 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientConnect - [d5e0555e-13, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] Handler is being applied: {uri=https://hacker-news.firebaseio.com/v0/item/43608422.json, method=GET}
+2025-04-11 17:41:53.258 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [d5e0555e-13, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] No sendHeaders() called before complete, sending zero-length header
+2025-04-11 17:41:53.259 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 获取新闻项详情，ID: 43643886
+2025-04-11 17:41:53.259 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 请求: GET https://hacker-news.firebaseio.com/v0/item/43643886.json
+2025-04-11 17:41:53.260 [reactor-http-nio-4] DEBUG o.s.w.r.f.client.ExchangeFunctions - [23f82b6d] HTTP GET https://hacker-news.firebaseio.com/v0/item/43643886.json
+2025-04-11 17:41:53.260 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientConnect - [bc1f2f11-11, L:/10.64.93.254:58799 - R:hacker-news.firebaseio.com/34.120.160.131:443] Handler is being applied: {uri=https://hacker-news.firebaseio.com/v0/item/43643886.json, method=GET}
+2025-04-11 17:41:53.260 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientOperations - [bc1f2f11-11, L:/10.64.93.254:58799 - R:hacker-news.firebaseio.com/34.120.160.131:443] No sendHeaders() called before complete, sending zero-length header
+2025-04-11 17:41:53.467 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [d5e0555e-13, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Server: <filtered>
+Date: <filtered>
+Content-Type: <filtered>
+Content-Length: <filtered>
+Connection: <filtered>
+Access-Control-Allow-Origin: <filtered>
+Cache-Control: <filtered>
+Strict-Transport-Security: <filtered>
+2025-04-11 17:41:53.468 [reactor-http-nio-4] DEBUG o.s.w.r.f.client.ExchangeFunctions - [6fc93a53] [d5e0555e-13] Response 200 OK
+2025-04-11 17:41:53.468 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 响应状态: 200 OK
+2025-04-11 17:41:53.469 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [d5e0555e-13, L:/10.64.93.254:58788 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received last HTTP packet
+2025-04-11 17:41:53.470 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 获取到原始JSON: {"by":"taubek","descendants":71,"id":43608422,"kids":[43646865,43646360,43647329,43634866,43646596,43647748,43646802,43647019,43646380,43647484,43648576,43646351],"score":84,"time":1744007223,"title":"The Difference Between Municipal Fire Trucks and Airport Fire Trucks","type":"story","url":"https://www.piercemfg.com/pierce/blog/difference-between-municipal-and-airport-fire-trucks"}
+2025-04-11 17:41:53.470 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 准备解析JSON，原始内容: {"by":"taubek","descendants":71,"id":43608422,"kids":[43646865,43646360,43647329,43634866,43646596,43647748,43646802,43647019,43646380,43647484,43648576,43646351],"score":84,"time":1744007223,"title":"The Difference Between Municipal Fire Trucks and Airport Fire Trucks","type":"story","url":"https://www.piercemfg.com/pierce/blog/difference-between-municipal-and-airport-fire-trucks"}
+2025-04-11 17:41:53.471 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 解析后对象: id=43608422, by=taubek, title=The Difference Between Municipal Fire Trucks and Airport Fire Trucks, url=https://www.piercemfg.com/pierce/blog/difference-between-municipal-and-airport-fire-trucks, type=story, time=1744007223
+2025-04-11 17:41:53.471 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 成功解析新闻项 ID:43608422, 标题: The Difference Between Municipal Fire Trucks and Airport Fire Trucks
+2025-04-11 17:41:53.474 [reactor-http-nio-5] DEBUG r.n.http.client.HttpClientOperations - [a22028a3-9, L:/10.64.93.254:58800 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Server: <filtered>
+Date: <filtered>
+Content-Type: <filtered>
+Content-Length: <filtered>
+Connection: <filtered>
+Access-Control-Allow-Origin: <filtered>
+Cache-Control: <filtered>
+Strict-Transport-Security: <filtered>
+2025-04-11 17:41:53.474 [reactor-http-nio-5] DEBUG o.s.w.r.f.client.ExchangeFunctions - [433ae5de] [a22028a3-9] Response 200 OK
+2025-04-11 17:41:53.475 [reactor-http-nio-5] DEBUG c.e.h.service.HackerNewsService - 响应状态: 200 OK
+2025-04-11 17:41:53.476 [reactor-http-nio-5] DEBUG r.n.http.client.HttpClientOperations - [a22028a3-9, L:/10.64.93.254:58800 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received last HTTP packet
+2025-04-11 17:41:53.476 [reactor-http-nio-5] DEBUG c.e.h.service.HackerNewsService - 获取到原始JSON: {"by":"necubi","descendants":33,"id":43643968,"kids":[43648529,43646105,43648640,43645244,43645416,43645091,43647087,43645979,43646183,43645737,43645520,43645290],"score":103,"time":1744294364,"title":"Arroyo (YC W23) has been acquired by Cloudflare","type":"story","url":"https://www.arroyo.dev/blog/arroyo-is-joining-cloudflare"}
+2025-04-11 17:41:53.477 [reactor-http-nio-5] INFO  c.e.h.service.HackerNewsService - 准备解析JSON，原始内容: {"by":"necubi","descendants":33,"id":43643968,"kids":[43648529,43646105,43648640,43645244,43645416,43645091,43647087,43645979,43646183,43645737,43645520,43645290],"score":103,"time":1744294364,"title":"Arroyo (YC W23) has been acquired by Cloudflare","type":"story","url":"https://www.arroyo.dev/blog/arroyo-is-joining-cloudflare"}
+2025-04-11 17:41:53.477 [reactor-http-nio-5] INFO  c.e.h.service.HackerNewsService - 解析后对象: id=43643968, by=necubi, title=Arroyo (YC W23) has been acquired by Cloudflare, url=https://www.arroyo.dev/blog/arroyo-is-joining-cloudflare, type=story, time=1744294364
+2025-04-11 17:41:53.477 [reactor-http-nio-5] INFO  c.e.h.service.HackerNewsService - 成功解析新闻项 ID:43643968, 标题: Arroyo (YC W23) has been acquired by Cloudflare
+2025-04-11 17:41:53.478 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 新闻已存在于数据库中: 43608422
+2025-04-11 17:41:53.480 [reactor-http-nio-5] INFO  c.e.h.service.NewsUpdateService - 新闻已存在于数据库中: 43643968
+2025-04-11 17:41:53.481 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 成功处理ID: 43608422, 排名: 38, 分数: 84
+2025-04-11 17:41:53.481 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 获取新闻项详情，ID: 43648263
+2025-04-11 17:41:53.481 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 请求: GET https://hacker-news.firebaseio.com/v0/item/43648263.json
+2025-04-11 17:41:53.482 [reactor-http-nio-4] DEBUG o.s.w.r.f.client.ExchangeFunctions - [34478405] HTTP GET https://hacker-news.firebaseio.com/v0/item/43648263.json
+2025-04-11 17:41:53.482 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientConnect - [4718aa34-8, L:/10.64.93.254:58801 - R:hacker-news.firebaseio.com/34.120.160.131:443] Handler is being applied: {uri=https://hacker-news.firebaseio.com/v0/item/43648263.json, method=GET}
+2025-04-11 17:41:53.482 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [4718aa34-8, L:/10.64.93.254:58801 - R:hacker-news.firebaseio.com/34.120.160.131:443] No sendHeaders() called before complete, sending zero-length header
+2025-04-11 17:41:53.485 [reactor-http-nio-5] INFO  c.e.h.service.NewsUpdateService - 成功处理ID: 43643968, 排名: 37, 分数: 103
+2025-04-11 17:41:53.488 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientOperations - [bc1f2f11-11, L:/10.64.93.254:58799 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Server: <filtered>
+Date: <filtered>
+Content-Type: <filtered>
+Content-Length: <filtered>
+Connection: <filtered>
+Access-Control-Allow-Origin: <filtered>
+Cache-Control: <filtered>
+Strict-Transport-Security: <filtered>
+2025-04-11 17:41:53.488 [reactor-http-nio-6] DEBUG o.s.w.r.f.client.ExchangeFunctions - [23f82b6d] [bc1f2f11-11] Response 200 OK
+2025-04-11 17:41:53.488 [reactor-http-nio-6] DEBUG c.e.h.service.HackerNewsService - 响应状态: 200 OK
+2025-04-11 17:41:53.488 [reactor-http-nio-6] DEBUG r.n.http.client.HttpClientOperations - [bc1f2f11-11, L:/10.64.93.254:58799 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received last HTTP packet
+2025-04-11 17:41:53.489 [reactor-http-nio-6] DEBUG c.e.h.service.HackerNewsService - 获取到原始JSON: {"by":"dmalcolm","descendants":190,"id":43643886,"kids":[43645227,43645844,43646335,43645133,43645292,43647927,43645074,43645009,43647969,43649167,43647424,43645364,43646196,43646097],"score":226,"time":1744293834,"title":"Usability Improvements in GCC 15","type":"story","url":"https://developers.redhat.com/articles/2025/04/10/6-usability-improvements-gcc-15"}
+2025-04-11 17:41:53.489 [reactor-http-nio-6] INFO  c.e.h.service.HackerNewsService - 准备解析JSON，原始内容: {"by":"dmalcolm","descendants":190,"id":43643886,"kids":[43645227,43645844,43646335,43645133,43645292,43647927,43645074,43645009,43647969,43649167,43647424,43645364,43646196,43646097],"score":226,"time":1744293834,"title":"Usability Improvements in GCC 15","type":"story","url":"https://developers.redhat.com/articles/2025/04/10/6-usability-improvements-gcc-15"}
+2025-04-11 17:41:53.489 [reactor-http-nio-6] INFO  c.e.h.service.HackerNewsService - 解析后对象: id=43643886, by=dmalcolm, title=Usability Improvements in GCC 15, url=https://developers.redhat.com/articles/2025/04/10/6-usability-improvements-gcc-15, type=story, time=1744293834
+2025-04-11 17:41:53.489 [reactor-http-nio-6] INFO  c.e.h.service.HackerNewsService - 成功解析新闻项 ID:43643886, 标题: Usability Improvements in GCC 15
+2025-04-11 17:41:53.490 [reactor-http-nio-6] INFO  c.e.h.service.NewsUpdateService - 新闻已存在于数据库中: 43643886
+2025-04-11 17:41:53.492 [reactor-http-nio-6] INFO  c.e.h.service.NewsUpdateService - 成功处理ID: 43643886, 排名: 39, 分数: 226
+2025-04-11 17:41:53.712 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [4718aa34-8, L:/10.64.93.254:58801 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Server: <filtered>
+Date: <filtered>
+Content-Type: <filtered>
+Content-Length: <filtered>
+Connection: <filtered>
+Access-Control-Allow-Origin: <filtered>
+Cache-Control: <filtered>
+Strict-Transport-Security: <filtered>
+2025-04-11 17:41:53.713 [reactor-http-nio-4] DEBUG o.s.w.r.f.client.ExchangeFunctions - [34478405] [4718aa34-8] Response 200 OK
+2025-04-11 17:41:53.713 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 响应状态: 200 OK
+2025-04-11 17:41:53.714 [reactor-http-nio-4] DEBUG r.n.http.client.HttpClientOperations - [4718aa34-8, L:/10.64.93.254:58801 - R:hacker-news.firebaseio.com/34.120.160.131:443] Received last HTTP packet
+2025-04-11 17:41:53.715 [reactor-http-nio-4] DEBUG c.e.h.service.HackerNewsService - 获取到原始JSON: {"by":"l0b0","descendants":5,"id":43648263,"kids":[43650256,43650883,43650472],"score":37,"time":1744321095,"title":"That's a Lot of YAML","type":"story","url":"https://noyaml.com/"}
+2025-04-11 17:41:53.715 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 准备解析JSON，原始内容: {"by":"l0b0","descendants":5,"id":43648263,"kids":[43650256,43650883,43650472],"score":37,"time":1744321095,"title":"That's a Lot of YAML","type":"story","url":"https://noyaml.com/"}
+2025-04-11 17:41:53.715 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 解析后对象: id=43648263, by=l0b0, title=That's a Lot of YAML, url=https://noyaml.com/, type=story, time=1744321095
+2025-04-11 17:41:53.716 [reactor-http-nio-4] INFO  c.e.h.service.HackerNewsService - 成功解析新闻项 ID:43648263, 标题: That's a Lot of YAML
+2025-04-11 17:41:53.720 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 新闻已存在于数据库中: 43648263
+2025-04-11 17:41:53.727 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 成功处理ID: 43648263, 排名: 40, 分数: 37
+2025-04-11 17:41:53.727 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 批次处理完成: 成功=10, 失败=0
+2025-04-11 17:41:53.727 [reactor-http-nio-4] INFO  c.e.h.service.NewsUpdateService - 开始处理第 5 批次，包含 10 个ID
+2025-04-11 17:41:57.103 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.netty.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-11 17:41:57.105 [netty-shutdown] INFO  o.s.b.w.e.netty.GracefulShutdown - Graceful shutdown complete
+2025-04-11 17:41:59.183 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-11 17:41:59.184 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-04-11 17:41:59.190 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

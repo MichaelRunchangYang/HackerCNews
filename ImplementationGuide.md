@@ -50,9 +50,9 @@ Redis 是一个内存数据结构存储，将用于缓存以提升应用性能�
 
 Jackson 是 Spring Boot 生态系统中默认的 JSON 处理库，提供了高效且灵活的序列化和反序列化机制，将 Java 对象转为 JSON 格式并解析 JSON 数据。对于从 Hacker News API 获取的 JSON 格式数据，以及后端与前端间的 JSON 通信，Jackson 都将发挥重要作用，即使在初始 MVP 中前端仅采用简单 HTML 和 JavaScript。
 
-#### 2.1.6 翻译 API：百度翻译开放平台基础版
+#### 2.1.6 翻译 API：DeepL API
 
-在 MVP 阶段，需要一个免费版的翻译 API 来提供将 Hacker News 内容翻译为中文的核心功能。百度翻译开放平台基础版是一个合适的选择，其提供针对中文用户的翻译服务。虽然其他提供商（如 Google Cloud Translation 和 DeepL）也提供免费额度，但考虑到百度翻译对中文的针对性，其尤为合适。但需要注意的是，免费版 API 对字符数或请求次数可能会有限制，在开发过程中必须注意并遵守这些限制。
+在 MVP 阶段，需要一个翻译 API 来提供将 Hacker News 内容翻译为中文的核心功能。DeepL API 是一个高质量的机器翻译服务，提供了免费和付费版本。虽然其免费版本可能有字符数或请求次数限制，但其翻译质量通常较高，尤其在处理自然语言方面表现出色。选择 DeepL API 作为初始翻译服务，旨在提供较好的翻译体验。需要注意的是，在开发过程中必须注意并遵守其 API 使用限制。
 
 #### 2.1.7 前端：纯 HTML/CSS/JavaScript（快速实现）
 
@@ -77,7 +77,7 @@ Jackson 是 Spring Boot 生态系统中默认的 JSON 处理库，提供了高�
    实现适当的错误处理和异常管理，以便在 API 通信过程中优雅地处理潜在问题。
 
 4. **实现翻译 API 服务**  
-   创建另一个服务类（例如 TranslationService）来管理与所选翻译 API（如百度翻译开放平台）的通信。从百度翻译开放平台获取所需的 API Key，并在 application.properties 中配置。为该服务实现方法，将 Hacker News 项目的标题、正文以及评论等文本从英文翻译为中文。注意实现相应的逻辑以处理 API 请求限制以及翻译服务返回的错误。
+   创建另一个服务类（例如 TranslationService）来管理与所选翻译 API（即 DeepL API）的通信。从 DeepL 获取所需的 API Key，并在 application.properties 中配置。为该服务实现方法，将 Hacker News 项目的标题、正文等文本从英文翻译为中文。注意实现相应的逻辑以处理 API 请求限制以及翻译服务返回的错误。
 
 5. **设计 MySQL 数据表**  
    在 MySQL 中设计一个表（例如命名为 `translated_news`）用于存储从 Hacker News 获取并翻译后的数据。该表应包含如下字段：
@@ -266,7 +266,7 @@ hacker-cnews-mvp/
 
    - **类**：`TranslationService.java`
    - **方法**：`translateEnToZh(String text)`
-   - **功能**：调用百度翻译 API 将英文文本翻译为中文
+   - **功能**：调用 DeepL API 将英文文本翻译为中文
    - **调用方**：`NewsUpdateService.processNewsItem()`
    - **代码示例**：
      ```java

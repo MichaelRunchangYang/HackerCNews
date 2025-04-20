@@ -271,6 +271,14 @@ public class NewsUpdateService {
                                 existingItem.setLastUpdated(Instant.now());
                                 // 修复：将同步save操作转换为Mono
                                 NewsItem savedItem = repository.save(existingItem);
+                                // 添加：在数据库更新后立即更新缓存
+                                try {
+                                    cacheService.cacheNewsItem(savedItem.getId(), savedItem);
+                                    logger.info("更新数据库后，缓存也已更新: {}", savedItem.getId());
+                                } catch (Exception e) {
+                                     // 捕获可能的Redis序列化/连接错误
+                                    logger.error("更新缓存时出错 ID: {}, 错误: {}", savedItem.getId(), e.getMessage());
+                                }
                                 return Mono.just(savedItem);
                             }
                             

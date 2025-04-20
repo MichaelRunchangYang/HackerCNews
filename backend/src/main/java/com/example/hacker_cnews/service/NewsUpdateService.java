@@ -1,24 +1,25 @@
 package com.example.hacker_cnews.service;
 
-import com.example.hacker_cnews.config.HackerNewsConfig;
-import com.example.hacker_cnews.entity.NewsItem;
-import com.example.hacker_cnews.repository.NewsItemRepository;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import java.time.Instant;
 import java.time.Duration;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicInteger;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Sort;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+
+import com.example.hacker_cnews.config.HackerNewsConfig;
+import com.example.hacker_cnews.entity.NewsItem;
+import com.example.hacker_cnews.repository.NewsItemRepository;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -177,7 +178,7 @@ public class NewsUpdateService {
     }
     
     /**
-     * 清理过期新闻，保留最新的N条（按rank排序）
+     * 清理过期新闻，保留最新的N条（按更新时间和排名排序）
      */
     private void cleanupOldNews() {
         long count = repository.count();
@@ -186,10 +187,10 @@ public class NewsUpdateService {
         if (count > maxItems) {
             logger.info("新闻数量超过最大限制，开始清理...");
             
-            // 获取所有新闻，按排名和最后更新时间排序
+            // 修改排序逻辑：优先按最后更新时间降序排序，其次按排名升序排序
             List<NewsItem> allNews = repository.findAll(
-                Sort.by(Sort.Direction.ASC, "rank")
-                    .and(Sort.by(Sort.Direction.DESC, "lastUpdated"))
+                Sort.by(Sort.Direction.DESC, "lastUpdated")
+                    .and(Sort.by(Sort.Direction.ASC, "rank"))
             );
             
             // 保留前maxItems条，删除其余
